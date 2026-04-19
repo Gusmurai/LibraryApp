@@ -1,14 +1,15 @@
 package ru.library.libraryapp.domains;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Author {
-    private Integer authorId;
+public class Librarian {
+    private Integer tabelNumber;
+    private String dbLogin;
     private String lastName;
     private String firstName;
     private String patronymic;
-    private LocalDate birthDate;
+    private String phone;
+    private Boolean isActive;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

@@ -8,6 +8,5 @@ public class FineArticle {
     private String name;
     private String description;
     private BigDecimal baseAmount;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
 }

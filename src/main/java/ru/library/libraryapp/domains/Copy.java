@@ -7,6 +7,4 @@ public class Copy {
     private Integer inventoryNumber;
     private String isbn;
     private BigDecimal cost;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }

@@ -10,6 +10,5 @@ public class Librarian {
     private String patronymic;
     private String phone;
     private Boolean isActive;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
 }

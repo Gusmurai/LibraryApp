@@ -9,6 +9,4 @@ public class Author {
     private String firstName;
     private String patronymic;
     private LocalDate birthDate;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }

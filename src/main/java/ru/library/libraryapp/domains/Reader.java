@@ -16,6 +16,5 @@ public class Reader {
     private LocalDate registrationDate;
     private byte[] photo;
     private Boolean isActive;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
 }

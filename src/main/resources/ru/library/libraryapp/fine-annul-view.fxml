@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefWidth="450.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
+    </padding>
+    <children>
+        <Label text="Выбор действия">
+            <font><Font name="System Bold" size="14.0" /></font>
+        </Label>
+        <Label text="Выберите причину аннулирования:" />
+        <VBox spacing="15.0">
+            <children>
+                <RadioButton fx:id="rbFoundBook" selected="true" text="Читатель нашел книгу (Восстановить экземпляр)">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="annulGroup" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="rbBroughtReplacement" text="Читатель принес замену (Экземпляр остается списанным)" toggleGroup="$annulGroup" wrapText="true" />
+            </children>
+        </VBox>
+        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+            <children>
+                <Button text="Отмена" minWidth="80.0" />
+                <Button fx:id="btnExecuteAnnul" text="Выполнить" minWidth="100.0" />
+            </children>
+        </HBox>
+    </children>
+</VBox>

@@ -25,7 +25,7 @@ public interface FineDao {
      * @param currentList текущий отображаемый список штрафов
      * @return итоговая сумма в рублях
      */
-    double getTotalSum(List<Fine> currentList);
+    double calculateTotalSum(List<Fine> currentList);
     void payFine(Integer fineId);
     void updateNote(Integer fineId, String note);
     /**

@@ -23,26 +23,28 @@
 
 <VBox prefHeight="800.0" prefWidth="1400.0" spacing="0.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.library.libraryapp.controllers.LibraryController">
     <children>
+        <!-- HEADER -->
         <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #cccccc; -fx-border-width: 0 0 1 0;">
             <padding>
                 <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
             </padding>
             <children>
-                <Label text="АИС БИБЛИОТЕКА" textFill="#2c3e50">
+                <Label text="%app.title" textFill="#2c3e50">
                     <font><Font name="System Bold" size="18.0" /></font>
                 </Label>
+                <Label fx:id="lblMainStatus" text="" textFill="#27ae60" style="-fx-font-weight: bold;">
+                    <HBox.margin><Insets left="30.0" /></HBox.margin>
+                </Label>
                 <Region HBox.hgrow="ALWAYS" />
-                <Label fx:id="lblCurrentUser" text="Сотрудник: -" textFill="#7f8c8d" />
-                <Button fx:id="btnChangePassword" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Сменить пароль" />
-                <Button fx:id="btnLogout" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Выйти" />
+                <Label fx:id="lblCurrentUser" text="%header.employee" textFill="#7f8c8d" />
+                <Button fx:id="btnLogout" style="-fx-background-color: transparent; -fx-cursor: hand;" text="%button.exit" />
             </children>
         </HBox>
 
         <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
             <tabs>
-
                 <!-- 1. ВЫДАЧА / ВОЗВРАТ -->
-                <Tab text="Выдача/Возврат">
+                <Tab text="%tab.lendings">
                     <content>
                         <SplitPane dividerPositions="0.4">
                             <items>
@@ -51,28 +53,28 @@
                                     <children>
                                         <HBox alignment="CENTER_LEFT" spacing="10.0">
                                             <children>
-                                                <Label minWidth="-Infinity" text="Поиск читателя:">
+                                                <Label minWidth="-Infinity" text="%label.search">
                                                     <font><Font name="System Bold" size="13.0" /></font>
                                                 </Label>
-                                                <TextField fx:id="searchReaderInLending" promptText="№ Билета, ФИО..." HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="searchReaderInLending" promptText="%prompt.searchReader" HBox.hgrow="ALWAYS" />
                                             </children>
                                         </HBox>
                                         <TableView fx:id="searchReaderResultsTable" VBox.vgrow="ALWAYS">
                                             <columns>
-                                                <TableColumn fx:id="colSearchTicket" prefWidth="60.0" text="№" />
-                                                <TableColumn fx:id="colSearchFullName" prefWidth="200.0" text="ФИО Читателя" />
-                                                <TableColumn fx:id="colSearchDob" prefWidth="120.0" text="Дата рождения" />
+                                                <TableColumn fx:id="colSearchTicket" prefWidth="60.0" text="%column.id" />
+                                                <TableColumn fx:id="colSearchFullName" prefWidth="200.0" text="%column.fullName" />
+                                                <TableColumn fx:id="colSearchDob" prefWidth="120.0" text="%column.dob" />
                                             </columns>
                                             <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
                                         </TableView>
-                                        <Label text="Информация о выбранном читателе:">
+                                        <Label text="%label.info">
                                             <font><Font name="System Bold" size="13.0" /></font>
                                         </Label>
                                         <HBox spacing="15.0" style="-fx-border-color: #ddd; -fx-padding: 15; -fx-background-color: #fafafa; -fx-background-radius: 5; -fx-border-radius: 5;" VBox.vgrow="NEVER">
                                             <children>
                                                 <VBox alignment="TOP_CENTER" minWidth="110.0">
                                                     <children>
-                                                        <ImageView fx:id="readerLendingPhoto" fitHeight="140.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: #ccc;" />
+                                                        <ImageView fx:id="readerLendingPhoto" fitHeight="140.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
                                                     </children>
                                                 </VBox>
                                                 <GridPane hgap="8.0" vgap="4.0" HBox.hgrow="ALWAYS">
@@ -81,17 +83,17 @@
                                                         <ColumnConstraints hgrow="ALWAYS" />
                                                     </columnConstraints>
                                                     <children>
-                                                        <Label text="ФИО:" textFill="#7f8c8d" />
+                                                        <Label text="%label.fullName" textFill="#7f8c8d" />
                                                         <Label fx:id="lblLendingReaderName" text="-" wrapText="true" GridPane.columnIndex="1"><font><Font name="System Bold" size="13.0" /></font></Label>
-                                                        <Label text="Билет №:" textFill="#7f8c8d" GridPane.rowIndex="1" />
+                                                        <Label text="%column.ticket" textFill="#7f8c8d" GridPane.rowIndex="1" />
                                                         <Label fx:id="lblLendingReaderTicket" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                        <Label text="Дата рождения:" textFill="#7f8c8d" GridPane.rowIndex="2" />
+                                                        <Label text="%column.dob" textFill="#7f8c8d" GridPane.rowIndex="2" />
                                                         <Label fx:id="lblLendingReaderDob" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                        <Label text="Паспорт:" textFill="#7f8c8d" GridPane.rowIndex="3" />
+                                                        <Label text="%label.passport" textFill="#7f8c8d" GridPane.rowIndex="3" />
                                                         <Label fx:id="lblLendingReaderPassport" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                        <Label text="Телефон:" textFill="#7f8c8d" GridPane.rowIndex="4" />
+                                                        <Label text="%label.phones" textFill="#7f8c8d" GridPane.rowIndex="4" />
                                                         <Label fx:id="lblLendingReaderPhone" text="-" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                        <Label text="Адрес:" textFill="#7f8c8d" GridPane.rowIndex="5" />
+                                                        <Label text="%label.addresses" textFill="#7f8c8d" GridPane.rowIndex="5" />
                                                         <Label fx:id="lblLendingReaderAddress" text="-" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                                     </children>
                                                 </GridPane>
@@ -102,41 +104,41 @@
                                 <VBox spacing="10.0">
                                     <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
                                     <children>
-                                        <Label text="Неоплаченные штрафы:"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                        <Label text="%label.fines"><font><Font name="System Bold" size="13.0" /></font></Label>
                                         <TableView fx:id="readerFinesTable" prefHeight="200.0" VBox.vgrow="SOMETIMES">
                                             <columns>
-                                                <TableColumn fx:id="colFineDate" prefWidth="90.0" text="Дата" />
-                                                <TableColumn fx:id="colFineType" prefWidth="120.0" text="Нарушение" />
-                                                <TableColumn fx:id="colFineSum" prefWidth="80.0" text="Сумма" />
-                                                <TableColumn fx:id="colFineNote" prefWidth="150.0" text="Заметки" />
+                                                <TableColumn fx:id="colFineDate" prefWidth="90.0" text="%column.date" />
+                                                <TableColumn fx:id="colFineType" prefWidth="120.0" text="%column.type" />
+                                                <TableColumn fx:id="colFineSum" prefWidth="80.0" text="%column.sum" />
+                                                <TableColumn fx:id="colFineNote" prefWidth="150.0" text="%column.note" />
                                             </columns>
                                             <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
                                         </TableView>
                                         <HBox alignment="CENTER_RIGHT" spacing="10.0">
-                                            <Button fx:id="btnEditFineNote" text="Заметка" />
-                                            <Button fx:id="btnPayFine" text="Оплата" />
+                                            <Button fx:id="btnEditFineNote" text="%button.note" />
+                                            <Button fx:id="btnPayFine" text="%button.pay" />
                                         </HBox>
                                         <Separator />
-                                        <Label text="Книги на руках:"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                        <Label text="%label.onHand"><font><Font name="System Bold" size="13.0" /></font></Label>
                                         <TableView fx:id="onHandTable" VBox.vgrow="ALWAYS">
                                             <columns>
-                                                <TableColumn fx:id="colHandTitle" prefWidth="250.0" text="Книга" />
-                                                <TableColumn fx:id="colHandInv" prefWidth="90.0" text="Инв. №" />
-                                                <TableColumn fx:id="colHandLendDate" prefWidth="100.0" text="Выдана" />
-                                                <TableColumn fx:id="colHandDueDate" prefWidth="100.0" text="Вернуть до" />
+                                                <TableColumn fx:id="colHandTitle" prefWidth="250.0" text="%column.title" />
+                                                <TableColumn fx:id="colHandInv" prefWidth="90.0" text="%column.inv" />
+                                                <TableColumn fx:id="colHandLendDate" prefWidth="100.0" text="%column.issued" />
+                                                <TableColumn fx:id="colHandDueDate" prefWidth="100.0" text="%column.due" />
                                             </columns>
                                             <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
                                         </TableView>
                                         <HBox alignment="CENTER_LEFT" spacing="10.0">
                                             <children>
-                                                <Label minWidth="-Infinity" text="ИНВ №:"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                                <Label text="%label.inv"><font><Font name="System Bold" size="13.0" /></font></Label>
                                                 <TextField fx:id="inputInvNumber" prefWidth="100.0" />
-                                                <Button fx:id="btnFindBook" text="Найти" />
-                                                <Button fx:id="btnIssueBook" minWidth="80.0" text="Выдать" />
+                                                <Button fx:id="btnFindBook" text="%button.find" />
+                                                <Button fx:id="btnIssueBook" minWidth="80.0" text="%button.issue" />
                                                 <Region HBox.hgrow="ALWAYS" />
-                                                <Button fx:id="btnReturnBook" minWidth="80.0" text="Возврат" />
-                                                <Button fx:id="btnLostBook" minWidth="100.0" text="Утеря книги" />
-                                                <Button fx:id="btnRenewBook" minWidth="80.0" text="Продлить" />
+                                                <Button fx:id="btnReturnBook" minWidth="80.0" text="%button.return" />
+                                                <Button fx:id="btnLostBook" minWidth="100.0" text="%button.lost" />
+                                                <Button fx:id="btnRenewBook" minWidth="80.0" text="%button.renew" />
                                             </children>
                                         </HBox>
                                     </children>
@@ -147,7 +149,7 @@
                 </Tab>
 
                 <!-- 2. ЧИТАТЕЛИ -->
-                <Tab text="Читатели">
+                <Tab text="%tab.readers">
                     <content>
                         <SplitPane dividerPositions="0.18">
                             <items>
@@ -155,26 +157,26 @@
                                     <padding><Insets bottom="15.0" left="10.0" right="10.0" top="15.0" /></padding>
                                     <children>
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                            <Label minWidth="-Infinity" text="Поиск:" />
-                                            <TextField fx:id="searchField" promptText="№ Билета, ФИО, Телефон..." HBox.hgrow="ALWAYS" />
+                                            <Label minWidth="-Infinity" text="%label.search" />
+                                            <TextField fx:id="searchField" promptText="%prompt.searchReader" HBox.hgrow="ALWAYS" />
                                         </HBox>
                                         <Separator />
-                                        <Button fx:id="btnDetails" maxWidth="Infinity" text="Подробнее" />
-                                        <Button fx:id="btnFormular" maxWidth="Infinity" text="Формуляр" />
-                                        <Button fx:id="btnAddReader" maxWidth="Infinity" text="Регистрация" />
-                                        <Button fx:id="btnEditReader" maxWidth="Infinity" text="Редактировать" />
-                                        <Button fx:id="btnArchive" maxWidth="Infinity" text="В архив" />
-                                        <Button fx:id="btnRestore" maxWidth="Infinity" text="Восстановить" />
+                                        <Button fx:id="btnDetails" maxWidth="Infinity" text="%button.details" />
+                                        <Button fx:id="btnFormular" maxWidth="Infinity" text="%button.formular" />
+                                        <Button fx:id="btnAddReader" maxWidth="Infinity" text="%button.add" />
+                                        <Button fx:id="btnEditReader" maxWidth="Infinity" text="%button.edit" />
+                                        <Button fx:id="btnArchive" maxWidth="Infinity" text="%button.archive" />
+                                        <Button fx:id="btnRestore" maxWidth="Infinity" text="%button.restore" />
                                     </children>
                                 </VBox>
                                 <TableView fx:id="readersTable" VBox.vgrow="ALWAYS">
                                     <columns>
-                                        <TableColumn fx:id="colTicket" text="№ Билета" />
-                                        <TableColumn fx:id="colLastName" text="Фамилия" />
-                                        <TableColumn fx:id="colFirstName" text="Имя" />
-                                        <TableColumn fx:id="colPatronymic" text="Отчество" />
-                                        <TableColumn fx:id="colPhone" text="Телефон" />
-                                        <TableColumn fx:id="colStatus" text="Статус" />
+                                        <TableColumn fx:id="colTicket" text="%column.ticket" />
+                                        <TableColumn fx:id="colLastName" text="%column.lastName" />
+                                        <TableColumn fx:id="colFirstName" text="%column.firstName" />
+                                        <TableColumn fx:id="colPatronymic" text="%column.patronymic" />
+                                        <TableColumn fx:id="colPhone" text="%column.phone" />
+                                        <TableColumn fx:id="colStatus" text="%column.status" />
                                     </columns>
                                     <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
                                 </TableView>
@@ -184,7 +186,7 @@
                 </Tab>
 
                 <!-- 3. КАТАЛОГ КНИГ -->
-                <Tab text="Каталог книг">
+                <Tab text="%tab.catalog">
                     <content>
                         <SplitPane dividerPositions="0.18">
                             <items>
@@ -192,29 +194,27 @@
                                     <padding><Insets bottom="15.0" left="10.0" right="10.0" top="15.0" /></padding>
                                     <children>
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                            <Label minWidth="-Infinity" text="Поиск:" />
-                                            <TextField fx:id="searchBookField" promptText="ISBN, Название, Автор..." HBox.hgrow="ALWAYS" />
+                                            <Label minWidth="-Infinity" text="%label.search" />
+                                            <TextField fx:id="searchBookField" promptText="%prompt.searchBook" HBox.hgrow="ALWAYS" />
                                         </HBox>
                                         <Separator />
-                                        <Button fx:id="btnBookDetails" maxWidth="Infinity" text="Подробнее" />
-                                        <Button fx:id="btnShowCopies" maxWidth="Infinity" text="Экземпляры" />
-                                        <Button fx:id="btnAddBook" maxWidth="Infinity" text="Новая книга" />
-                                        <Button fx:id="btnEditBook" maxWidth="Infinity" text="Редактировать" />
-                                        <Button fx:id="btnArchiveBook" maxWidth="Infinity" text="В архив" />
-                                        <Button fx:id="btnRestoreBook" maxWidth="Infinity" text="Восстановить" />
+                                        <Button fx:id="btnBookDetails" maxWidth="Infinity" text="%button.details" />
+                                        <Button fx:id="btnShowCopies" maxWidth="Infinity" text="%button.showCopies" />
+                                        <Button fx:id="btnAddBook" maxWidth="Infinity" text="%button.addBook" />
+                                        <Button fx:id="btnEditBook" maxWidth="Infinity" text="%button.edit" />
+                                        <Button fx:id="btnArchiveBook" maxWidth="Infinity" text="%button.archive" />
+                                        <Button fx:id="btnRestoreBook" maxWidth="Infinity" text="%button.restore" />
                                     </children>
                                 </VBox>
                                 <TableView fx:id="booksTable" VBox.vgrow="ALWAYS">
                                     <columns>
                                         <TableColumn fx:id="colIsbn" text="ISBN" />
-                                        <TableColumn fx:id="colTitle" text="Название" />
-                                        <TableColumn fx:id="colYear" text="Год" />
-                                        <TableColumn fx:id="colPublisher" text="Издательство" />
-                                        <TableColumn fx:id="colAuthors" text="Авторы" />
-                                        <TableColumn fx:id="colGenres" text="Жанры" />
-                                        <TableColumn fx:id="colTotal" text="Всего" />
-                                        <TableColumn fx:id="colAvailable" text="В наличии" />
-                                        <TableColumn fx:id="colBookStatus" text="Статус" />
+                                        <TableColumn fx:id="colTitle" text="%column.title" />
+                                        <TableColumn fx:id="colAuthors" text="%column.authors" />
+                                        <TableColumn fx:id="colGenres" text="%column.genres" />
+                                        <TableColumn fx:id="colTotal" text="%column.total" />
+                                        <TableColumn fx:id="colAvailable" text="%column.available" />
+                                        <TableColumn fx:id="colBookStatus" text="%column.status" />
                                     </columns>
                                     <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
                                 </TableView>
@@ -224,7 +224,7 @@
                 </Tab>
 
                 <!-- 4. ШТРАФЫ -->
-                <Tab text="Штрафы">
+                <Tab text="%tab.fines">
                     <content>
                         <SplitPane dividerPositions="0.22">
                             <items>
@@ -232,52 +232,52 @@
                                     <padding><Insets bottom="15.0" left="10.0" right="10.0" top="15.0" /></padding>
                                     <children>
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                            <Label minWidth="-Infinity" text="Поиск:" />
-                                            <TextField fx:id="searchFineField" promptText="№ Билета, ФИО..." HBox.hgrow="ALWAYS" />
+                                            <Label minWidth="-Infinity" text="%label.search" />
+                                            <TextField fx:id="searchFineField" promptText="%prompt.searchFine" HBox.hgrow="ALWAYS" />
                                         </HBox>
-                                        <Label minWidth="-Infinity" text="Период:" />
+                                        <Label minWidth="-Infinity" text="%label.period" />
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
                                             <children>
-                                                <Label minWidth="-Infinity" text="с" />
+                                                <Label minWidth="-Infinity" text="%label.from" />
                                                 <DatePicker fx:id="fineStartDate" minWidth="50.0" prefWidth="105.0" HBox.hgrow="ALWAYS" />
-                                                <Label minWidth="-Infinity" text="по" />
+                                                <Label minWidth="-Infinity" text="%label.to" />
                                                 <DatePicker fx:id="fineEndDate" minWidth="50.0" prefWidth="105.0" HBox.hgrow="ALWAYS" />
                                             </children>
                                         </HBox>
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                            <Label minWidth="-Infinity" text="Статус:" />
-                                            <ComboBox fx:id="fineStatusFilter" maxWidth="Infinity" promptText="Все" HBox.hgrow="ALWAYS" />
+                                            <Label minWidth="-Infinity" text="%label.status" />
+                                            <ComboBox fx:id="fineStatusFilter" maxWidth="Infinity" promptText="%prompt.all" HBox.hgrow="ALWAYS" />
                                         </HBox>
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                            <Label minWidth="-Infinity" text="Статья:" />
-                                            <ComboBox fx:id="fineArticleFilter" maxWidth="Infinity" promptText="Все" HBox.hgrow="ALWAYS" />
+                                            <Label minWidth="-Infinity" text="%label.article" />
+                                            <ComboBox fx:id="fineArticleFilter" maxWidth="Infinity" promptText="%prompt.all" HBox.hgrow="ALWAYS" />
                                         </HBox>
-                                        <Button fx:id="btnApplyFineFilters" maxWidth="Infinity" text="Применить" />
+                                        <Button fx:id="btnApplyFineFilters" maxWidth="Infinity" text="%button.apply" />
                                         <Separator />
-                                        <Button fx:id="btnChangeFineAmount" maxWidth="Infinity" text="Изменить сумму" />
-                                        <Button fx:id="btnAnnulFine" maxWidth="Infinity" text="Аннулировать" />
-                                        <Button fx:id="btnAcceptPayment" maxWidth="Infinity" text="Принять оплату" />
-                                        <Button fx:id="btnEditFineNoteGlobal" maxWidth="Infinity" text="Заметка" />
+                                        <Button fx:id="btnChangeFineAmount" maxWidth="Infinity" text="%button.changeAmount" />
+                                        <Button fx:id="btnAnnulFine" maxWidth="Infinity" text="%button.annul" />
+                                        <Button fx:id="btnAcceptPayment" maxWidth="Infinity" text="%button.acceptPayment" />
+                                        <Button fx:id="btnEditFineNoteGlobal" maxWidth="Infinity" text="%button.note" />
                                     </children>
                                 </VBox>
                                 <VBox spacing="10.0">
                                     <children>
                                         <TableView fx:id="finesTable" VBox.vgrow="ALWAYS">
                                             <columns>
-                                                <TableColumn fx:id="colGlobalFineIssued" text="Выписан" />
-                                                <TableColumn fx:id="colGlobalFinePaidDate" text="Дата оплаты" />
-                                                <TableColumn fx:id="colGlobalFineTicket" text="№ Билета" />
-                                                <TableColumn fx:id="colGlobalFineReader" text="Читатель" />
-                                                <TableColumn fx:id="colGlobalFineBook" text="Книга" />
-                                                <TableColumn fx:id="colGlobalFineType" text="Нарушение" />
-                                                <TableColumn fx:id="colGlobalFineAmount" text="Сумма" />
-                                                <TableColumn fx:id="colGlobalFineStatus" text="Статус" />
-                                                <TableColumn fx:id="colGlobalFineNote" text="Заметка" />
+                                                <TableColumn fx:id="colGlobalFineIssued" text="%column.issuedDate" />
+                                                <TableColumn fx:id="colGlobalFinePaidDate" text="%column.paidDate" />
+                                                <TableColumn fx:id="colGlobalFineTicket" text="%column.ticket" />
+                                                <TableColumn fx:id="colGlobalFineReader" text="%column.reader" />
+                                                <TableColumn fx:id="colGlobalFineBook" text="%column.book" />
+                                                <TableColumn fx:id="colGlobalFineType" text="%column.violation" />
+                                                <TableColumn fx:id="colGlobalFineAmount" text="%column.amount" />
+                                                <TableColumn fx:id="colGlobalFineStatus" text="%column.status" />
+                                                <TableColumn fx:id="colGlobalFineNote" text="%column.note" />
                                             </columns>
                                             <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
                                         </TableView>
                                         <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f4f4f4; -fx-padding: 10;">
-                                            <Label text="Итого по списку: "><font><Font name="System Bold" size="13.0" /></font></Label>
+                                            <Label text="%label.totalSumList"><font><Font name="System Bold" size="13.0" /></font></Label>
                                             <Label fx:id="lblTotalFinesSum" text="0,00 ₽"><font><Font name="System Bold" size="13.0" /></font></Label>
                                         </HBox>
                                     </children>
@@ -288,7 +288,7 @@
                 </Tab>
 
                 <!-- 5. АКТЫ СПИСАНИЯ -->
-                <Tab text="Акты списания">
+                <Tab text="%tab.writeoffs">
                     <content>
                         <SplitPane dividerPositions="0.22">
                             <items>
@@ -296,43 +296,43 @@
                                     <padding><Insets bottom="15.0" left="10.0" right="10.0" top="15.0" /></padding>
                                     <children>
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                            <Label minWidth="-Infinity" text="Поиск:" />
-                                            <TextField fx:id="searchWriteOffField" promptText="Инв. №, Книга..." HBox.hgrow="ALWAYS" />
+                                            <Label minWidth="-Infinity" text="%label.search" />
+                                            <TextField fx:id="searchWriteOffField" promptText="%prompt.searchWriteOff" HBox.hgrow="ALWAYS" />
                                         </HBox>
-                                        <Label minWidth="-Infinity" text="Период:" />
+                                        <Label minWidth="-Infinity" text="%label.period" />
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
                                             <children>
-                                                <Label minWidth="-Infinity" text="с" />
+                                                <Label minWidth="-Infinity" text="%label.from" />
                                                 <DatePicker fx:id="writeOffStartDate" minWidth="50.0" prefWidth="105.0" HBox.hgrow="ALWAYS" />
-                                                <Label minWidth="-Infinity" text="по" />
+                                                <Label minWidth="-Infinity" text="%label.to" />
                                                 <DatePicker fx:id="writeOffEndDate" minWidth="50.0" prefWidth="105.0" HBox.hgrow="ALWAYS" />
                                             </children>
                                         </HBox>
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                            <Label minWidth="-Infinity" text="Причина:" />
-                                            <ComboBox fx:id="writeOffReasonFilter" maxWidth="Infinity" promptText="Все" HBox.hgrow="ALWAYS" />
+                                            <Label minWidth="-Infinity" text="%label.reason" />
+                                            <ComboBox fx:id="writeOffReasonFilter" maxWidth="Infinity" promptText="%prompt.all" HBox.hgrow="ALWAYS" />
                                         </HBox>
-                                        <Button fx:id="btnApplyWriteOffFilters" maxWidth="Infinity" text="Применить" />
+                                        <Button fx:id="btnApplyWriteOffFilters" maxWidth="Infinity" text="%button.apply" />
                                         <Separator />
-                                        <Button fx:id="btnRestoreToFund" maxWidth="Infinity" text="Восстановить в фонд" />
+                                        <Button fx:id="btnRestoreToFund" maxWidth="Infinity" text="%button.restoreToFund" />
                                     </children>
                                 </VBox>
                                 <VBox spacing="10.0">
                                     <children>
                                         <TableView fx:id="writeOffsTable" VBox.vgrow="ALWAYS">
                                             <columns>
-                                                <TableColumn fx:id="colWriteOffDate" text="Дата" />
-                                                <TableColumn fx:id="colWriteOffInv" text="Инв. №" />
-                                                <TableColumn fx:id="colWriteOffTitle" text="Книга" />
-                                                <TableColumn fx:id="colWriteOffReason" text="Причина" />
-                                                <TableColumn fx:id="colWriteOffEmployee" text="Сотрудник" />
-                                                <TableColumn fx:id="colWriteOffPrice" text="Цена" />
+                                                <TableColumn fx:id="colWriteOffDate" text="%column.date" />
+                                                <TableColumn fx:id="colWriteOffInv" text="%column.inv" />
+                                                <TableColumn fx:id="colWriteOffTitle" text="%column.book" />
+                                                <TableColumn fx:id="colWriteOffReason" text="%column.reason" />
+                                                <TableColumn fx:id="colWriteOffEmployee" text="%column.employee" />
+                                                <TableColumn fx:id="colWriteOffPrice" text="%column.price" />
                                             </columns>
                                             <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
                                         </TableView>
                                         <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #f4f4f4; -fx-padding: 10;">
-                                            <Label fx:id="lblWriteOffCount" text="Списано книг: 0 шт."><font><Font name="System Bold" size="13.0" /></font></Label>
-                                            <Label fx:id="lblWriteOffTotalSum" text="Общая стоимость: 0,00 ₽"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                            <Label fx:id="lblWriteOffCount" text="%label.writeOffCount"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                            <Label fx:id="lblWriteOffTotalSum" text="%label.writeOffTotal"><font><Font name="System Bold" size="13.0" /></font></Label>
                                         </HBox>
                                     </children>
                                 </VBox>
@@ -342,7 +342,7 @@
                 </Tab>
 
                 <!-- 6. БРОНИРОВАНИЕ -->
-                <Tab text="Бронирование">
+                <Tab text="%tab.reservations">
                     <content>
                         <SplitPane dividerPositions="0.2">
                             <items>
@@ -350,30 +350,30 @@
                                     <padding><Insets bottom="15.0" left="10.0" right="10.0" top="15.0" /></padding>
                                     <children>
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                            <Label minWidth="-Infinity" text="Поиск:" />
-                                            <TextField fx:id="searchReservationField" promptText="Книга, ФИО..." HBox.hgrow="ALWAYS" />
+                                            <Label minWidth="-Infinity" text="%label.search" />
+                                            <TextField fx:id="searchReservationField" promptText="%prompt.searchRes" HBox.hgrow="ALWAYS" />
                                         </HBox>
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
-                                            <Label minWidth="-Infinity" text="Статус:" />
-                                            <ComboBox fx:id="reservationStatusFilter" maxWidth="Infinity" promptText="Все" HBox.hgrow="ALWAYS" />
+                                            <Label minWidth="-Infinity" text="%label.status" />
+                                            <ComboBox fx:id="reservationStatusFilter" maxWidth="Infinity" promptText="%prompt.all" HBox.hgrow="ALWAYS" />
                                         </HBox>
-                                        <Button fx:id="btnApplyResFilters" maxWidth="Infinity" text="Применить" />
+                                        <Button fx:id="btnApplyResFilters" maxWidth="Infinity" text="%button.apply" />
                                         <Separator />
-                                        <Button fx:id="btnNewReservation" maxWidth="Infinity" text="Оформить бронь" />
-                                        <Button fx:id="btnIssueFromRes" maxWidth="Infinity" text="Выдать по брони" />
-                                        <Button fx:id="btnCancelReservation" maxWidth="Infinity" text="Отменить бронь" />
+                                        <Button fx:id="btnNewReservation" maxWidth="Infinity" text="%button.newReservation" />
+                                        <Button fx:id="btnIssueFromRes" maxWidth="Infinity" text="%button.issueFromRes" />
+                                        <Button fx:id="btnCancelReservation" maxWidth="Infinity" text="%button.cancelReservation" />
                                     </children>
                                 </VBox>
                                 <TableView fx:id="reservationsTable" VBox.vgrow="ALWAYS">
                                     <columns>
-                                        <TableColumn fx:id="colResDate" text="Дата брони" />
-                                        <TableColumn fx:id="colResExpiry" text="Истекает" />
-                                        <TableColumn fx:id="colResTicket" text="№ Билета" />
-                                        <TableColumn fx:id="colResReader" text="Читатель" />
-                                        <TableColumn fx:id="colResReaderPhone" text="Телефон" />
-                                        <TableColumn fx:id="colResBook" text="Книга" />
-                                        <TableColumn fx:id="colResLibrarian" text="Сотрудник" />
-                                        <TableColumn fx:id="colResStatus" text="Статус" />
+                                        <TableColumn fx:id="colResDate" text="%column.resDate" />
+                                        <TableColumn fx:id="colResExpiry" text="%column.resExpiry" />
+                                        <TableColumn fx:id="colResTicket" text="%column.ticket" />
+                                        <TableColumn fx:id="colResReader" text="%column.reader" />
+                                        <TableColumn fx:id="colResReaderPhone" text="%column.phone" />
+                                        <TableColumn fx:id="colResBook" text="%column.book" />
+                                        <TableColumn fx:id="colResLibrarian" text="%column.employee" />
+                                        <TableColumn fx:id="colResStatus" text="%column.status" />
                                     </columns>
                                     <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
                                 </TableView>
@@ -383,7 +383,7 @@
                 </Tab>
 
                 <!-- 7. ОТЧЁТЫ -->
-                <Tab text="Отчёты">
+                <Tab text="%tab.reports">
                     <content>
                         <SplitPane dividerPositions="0.22">
                             <items>
@@ -392,22 +392,22 @@
                                     <children>
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
                                             <children>
-                                                <Label minWidth="-Infinity" text="Вид отчёта:" />
+                                                <Label minWidth="-Infinity" text="%label.reportType" />
                                                 <ComboBox fx:id="reportTypeCombo" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
                                             </children>
                                         </HBox>
-                                        <Label minWidth="-Infinity" text="Период:" />
+                                        <Label minWidth="-Infinity" text="%label.period" />
                                         <HBox alignment="CENTER_LEFT" spacing="5.0">
                                             <children>
-                                                <Label minWidth="-Infinity" text="с" />
+                                                <Label minWidth="-Infinity" text="%label.from" />
                                                 <DatePicker fx:id="reportStartDate" minWidth="50.0" prefWidth="105.0" HBox.hgrow="ALWAYS" />
-                                                <Label minWidth="-Infinity" text="по" />
+                                                <Label minWidth="-Infinity" text="%label.to" />
                                                 <DatePicker fx:id="reportEndDate" minWidth="50.0" prefWidth="105.0" HBox.hgrow="ALWAYS" />
                                             </children>
                                         </HBox>
                                         <Separator />
-                                        <Button fx:id="btnGenerateReport" maxWidth="Infinity" text="Сформировать" />
-                                        <Button fx:id="btnExportReport" maxWidth="Infinity" text="Экспорт" />
+                                        <Button fx:id="btnGenerateReport" maxWidth="Infinity" text="%button.generateReport" />
+                                        <Button fx:id="btnExportReport" maxWidth="Infinity" text="%button.exportReport" />
                                     </children>
                                 </VBox>
                                 <TableView fx:id="reportResultTable" VBox.vgrow="ALWAYS">

@@ -18,7 +18,7 @@ public interface ReportDao {
      * @param start дата начала периода
      * @param end дата конца периода
      */
-    List<Map<String, Object>> getReportData(String reportType, LocalDate start, LocalDate end);
+    List<Map<String, Object>> generateReport(String reportType, LocalDate start, LocalDate end);
 
     /**
      * Метод для экспорта текущих данных таблицы в файл (например, CSV или Excel).

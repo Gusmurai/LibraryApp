@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.GenreDao;
 import ru.library.libraryapp.domains.Genre;
 import java.sql.*;
@@ -12,7 +12,7 @@ public class GenreDaoImpl implements GenreDao {
     @Override
     public List<Genre> findAll() {
         List<Genre> list = new ArrayList<>();
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery("SELECT * FROM genres ORDER BY name")) {
             while (rs.next()) {
@@ -29,7 +29,7 @@ public class GenreDaoImpl implements GenreDao {
     @Override
     public Optional<Genre> findById(Integer id) {
         String sql = "SELECT * FROM genres WHERE genre_id = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();

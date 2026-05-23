@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.SupplierDao;
 import ru.library.libraryapp.domains.Supplier;
 
@@ -16,7 +16,7 @@ public class SupplierDaoImpl implements SupplierDao {
         List<Supplier> suppliers = new ArrayList<>();
         String sql = "SELECT * FROM suppliers ORDER BY name";
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
@@ -32,7 +32,7 @@ public class SupplierDaoImpl implements SupplierDao {
     @Override
     public Optional<Supplier> findByInn(String inn) {
         String sql = "SELECT * FROM suppliers WHERE inn = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, inn);

@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.AuditLogDao;
 import ru.library.libraryapp.domains.AuditLog;
 
@@ -15,7 +15,7 @@ public class AuditLogDaoImpl implements AuditLogDao {
         List<AuditLog> logs = new ArrayList<>();
         String sql = "SELECT * FROM audit_log ORDER BY operation_time DESC LIMIT ?";
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, limit);

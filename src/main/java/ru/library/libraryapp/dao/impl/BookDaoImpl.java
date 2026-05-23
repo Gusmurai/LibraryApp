@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.BookDao;
 import ru.library.libraryapp.domains.Author;
 import ru.library.libraryapp.domains.Book;
@@ -17,7 +17,7 @@ public class BookDaoImpl implements BookDao {
     public void add(Book book) {
         String sql = "INSERT INTO books (isbn, title, publication_year, page_count, bbk, author_mark, publisher_id, cover_image) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, book.getIsbn());
             ps.setString(2, book.getTitle());
@@ -35,7 +35,7 @@ public class BookDaoImpl implements BookDao {
     public void update(Book book) {
         String sql = "UPDATE books SET title = ?, publication_year = ?, page_count = ?, bbk = ?, " +
                 "author_mark = ?, publisher_id = ?, cover_image = ? WHERE isbn = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, book.getTitle());
             ps.setObject(2, book.getPublicationYear());
@@ -52,7 +52,7 @@ public class BookDaoImpl implements BookDao {
     @Override
     public Optional<Book> findByIsbn(String isbn) {
         String sql = "SELECT * FROM books WHERE isbn = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, isbn);
             ResultSet rs = ps.executeQuery();
@@ -66,7 +66,7 @@ public class BookDaoImpl implements BookDao {
         List<Book> list = new ArrayList<>();
         // Берем данные из представления!
         String sql = "SELECT * FROM view_book_catalog WHERE is_active = true";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) {
@@ -89,7 +89,7 @@ public class BookDaoImpl implements BookDao {
                 "LEFT JOIN book_authors ba ON b.isbn = ba.isbn " +
                 "LEFT JOIN authors a ON ba.author_id = a.author_id " +
                 "WHERE b.isbn ILIKE ? OR b.title ILIKE ? OR a.last_name ILIKE ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             String q = "%" + query + "%";
             ps.setString(1, q); ps.setString(2, q); ps.setString(3, q);
@@ -102,7 +102,7 @@ public class BookDaoImpl implements BookDao {
     @Override
     public void changeStatus(String isbn, boolean isActive) {
         String sql = "CALL sp_change_book_status(?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setString(1, isbn);
             cs.execute();
@@ -117,7 +117,7 @@ public class BookDaoImpl implements BookDao {
         String sql = "SELECT count(*) FROM copies c " +
                 "WHERE c.isbn = ? AND c.inventory_number NOT IN " +
                 "(SELECT inventory_number FROM lendings WHERE return_date IS NULL)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, isbn);
             ResultSet rs = ps.executeQuery();
@@ -129,7 +129,7 @@ public class BookDaoImpl implements BookDao {
     @Override
     public int getTotalCount(String isbn) {
         String sql = "SELECT count(*) FROM copies WHERE isbn = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, isbn);
             ResultSet rs = ps.executeQuery();
@@ -142,7 +142,7 @@ public class BookDaoImpl implements BookDao {
     public List<Author> getAuthorsByIsbn(String isbn) {
         List<Author> authors = new ArrayList<>();
         String sql = "SELECT a.* FROM authors a JOIN book_authors ba ON a.author_id = ba.author_id WHERE ba.isbn = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, isbn);
             ResultSet rs = ps.executeQuery();
@@ -161,7 +161,7 @@ public class BookDaoImpl implements BookDao {
     public List<Genre> getGenresByIsbn(String isbn) {
         List<Genre> genres = new ArrayList<>();
         String sql = "SELECT g.* FROM genres g JOIN book_genres bg ON g.genre_id = bg.genre_id WHERE bg.isbn = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, isbn);
             ResultSet rs = ps.executeQuery();
@@ -177,7 +177,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void updateAuthors(String isbn, List<Integer> authorIds) {
-        try (Connection conn = DbConnector.getConnection()) {
+        try (Connection conn = DBHelper.getConnection()) {
             conn.setAutoCommit(false); // Начинаем транзакцию
             try (PreparedStatement psDel = conn.prepareStatement("DELETE FROM book_authors WHERE isbn = ?")) {
                 psDel.setString(1, isbn);
@@ -197,7 +197,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void updateGenres(String isbn, List<Integer> genreIds) {
-        try (Connection conn = DbConnector.getConnection()) {
+        try (Connection conn = DBHelper.getConnection()) {
             conn.setAutoCommit(false);
             try (PreparedStatement psDel = conn.prepareStatement("DELETE FROM book_genres WHERE isbn = ?")) {
                 psDel.setString(1, isbn);

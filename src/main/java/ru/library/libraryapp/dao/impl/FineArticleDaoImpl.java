@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.FineArticleDao;
 import ru.library.libraryapp.domains.FineArticle;
 import java.sql.*;
@@ -12,7 +12,7 @@ public class FineArticleDaoImpl implements FineArticleDao {
     @Override
     public List<FineArticle> findAll() {
         List<FineArticle> list = new ArrayList<>();
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery("SELECT * FROM fine_articles")) {
             while (rs.next()) {
@@ -29,7 +29,7 @@ public class FineArticleDaoImpl implements FineArticleDao {
     @Override
     public Optional<FineArticle> findById(Integer id) {
         String sql = "SELECT * FROM fine_articles WHERE article_id = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();

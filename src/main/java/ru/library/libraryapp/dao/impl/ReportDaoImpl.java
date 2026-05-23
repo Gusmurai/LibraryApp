@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.ReportDao;
 
 import java.sql.*;
@@ -17,7 +17,7 @@ public class ReportDaoImpl implements ReportDao {
         List<Map<String, Object>> reportData = new ArrayList<>();
         String sql = getSqlByReportType(type);
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             // Если в запросе предусмотрены параметры дат

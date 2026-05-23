@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.AuthorDao;
 import ru.library.libraryapp.domains.Author;
 import java.sql.*;
@@ -13,7 +13,7 @@ public class AuthorDaoImpl implements AuthorDao {
     public List<Author> findAll() {
         List<Author> authors = new ArrayList<>();
         String sql = "SELECT * FROM authors ORDER BY last_name";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) authors.add(mapAuthor(rs));
@@ -24,7 +24,7 @@ public class AuthorDaoImpl implements AuthorDao {
     @Override
     public Optional<Author> findById(Integer id) {
         String sql = "SELECT * FROM authors WHERE author_id = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -37,7 +37,7 @@ public class AuthorDaoImpl implements AuthorDao {
     public List<Author> findByLastName(String lastName) {
         List<Author> authors = new ArrayList<>();
         String sql = "SELECT * FROM authors WHERE last_name ILIKE ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, "%" + lastName + "%");
             ResultSet rs = ps.executeQuery();

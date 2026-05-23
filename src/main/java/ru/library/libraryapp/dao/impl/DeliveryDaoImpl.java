@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.DeliveryDao;
 import ru.library.libraryapp.domains.Delivery;
 
@@ -15,7 +15,7 @@ public class DeliveryDaoImpl implements DeliveryDao {
     public void registerDelivery(String isbn, String supplierInn, double price, int quantity) {
         Connection conn = null;
         try {
-            conn = DbConnector.getConnection();
+            conn = DBHelper.getConnection();
             conn.setAutoCommit(false); // Начинаем транзакцию
 
             String sqlCopy = "INSERT INTO copies (isbn, cost) VALUES (?, ?) RETURNING inventory_number";
@@ -61,7 +61,7 @@ public class DeliveryDaoImpl implements DeliveryDao {
     public List<Delivery> findAll() {
         List<Delivery> list = new ArrayList<>();
         String sql = "SELECT * FROM deliveries ORDER BY delivery_date DESC";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) {
@@ -82,7 +82,7 @@ public class DeliveryDaoImpl implements DeliveryDao {
 
         sql.append(" ORDER BY delivery_date DESC");
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql.toString())) {
 
             int paramIndex = 1;

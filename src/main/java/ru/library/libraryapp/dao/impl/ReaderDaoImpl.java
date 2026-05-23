@@ -1,6 +1,7 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import lombok.extern.slf4j.Slf4j;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.ReaderDao;
 import ru.library.libraryapp.domains.Reader;
 
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
 
+@Slf4j
 public class ReaderDaoImpl implements ReaderDao {
 
     private final Properties sqlProps = new Properties();
@@ -33,7 +35,8 @@ public class ReaderDaoImpl implements ReaderDao {
     @Override
     public void add(Reader reader) {
         String sql = sqlProps.getProperty("reader.add");
-        try (Connection conn = DbConnector.getConnection();
+        log.debug("Выполнение SQL: {}", sql);
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, reader.getLastName());
@@ -47,7 +50,9 @@ public class ReaderDaoImpl implements ReaderDao {
             ps.setBytes(9, reader.getPhoto());
 
             ps.executeUpdate();
+            log.info("Запись о читателе {} добавлена в таблицу.", reader.getLastName());
         } catch (SQLException e) {
+            log.error("Ошибка исполнения SQL запроса 'reader.add': {}", e.getMessage());
             throw new RuntimeException(e.getMessage());
         }
     }
@@ -55,7 +60,8 @@ public class ReaderDaoImpl implements ReaderDao {
     @Override
     public void update(Reader reader) {
         String sql = sqlProps.getProperty("reader.update");
-        try (Connection conn = DbConnector.getConnection();
+        log.debug("Выполнение SQL: {}", sql);
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, reader.getLastName());
@@ -70,7 +76,9 @@ public class ReaderDaoImpl implements ReaderDao {
             ps.setInt(10, reader.getTicketNumber());
 
             ps.executeUpdate();
+            log.info("Данные читателя №{} ({}) успешно обновлены.", reader.getTicketNumber(), reader.getLastName());
         } catch (SQLException e) {
+            log.error("Ошибка исполнения SQL запроса 'reader.update' для билета №{}: {}", reader.getTicketNumber(), e.getMessage());
             throw new RuntimeException(e.getMessage());
         }
     }
@@ -78,17 +86,21 @@ public class ReaderDaoImpl implements ReaderDao {
     @Override
     public Optional<Reader> findByTicketNumber(Integer ticketNumber) {
         String sql = sqlProps.getProperty("reader.findByTicketNumber");
-        try (Connection conn = DbConnector.getConnection();
+        log.debug("Выполнение SQL: {}", sql);
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, ticketNumber);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                log.debug("Читатель с номером билета {} найден.", ticketNumber);
                 return Optional.of(mapResultSetToReader(rs));
             }
         } catch (SQLException e) {
+            log.error("Ошибка при поиске читателя по номеру билета {}: {}", ticketNumber, e.getMessage());
             throw new RuntimeException(e.getMessage());
         }
+        log.debug("Читатель с номером билета {} не найден.", ticketNumber);
         return Optional.empty();
     }
 
@@ -96,14 +108,17 @@ public class ReaderDaoImpl implements ReaderDao {
     public List<Reader> findAll() {
         List<Reader> list = new ArrayList<>();
         String sql = sqlProps.getProperty("reader.findAll");
-        try (Connection conn = DbConnector.getConnection();
+        log.debug("Выполнение SQL: {}", sql);
+        try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
             while (rs.next()) {
                 list.add(mapResultSetToReader(rs));
             }
+            log.debug("Загружен список всех читателей. Количество записей: {}", list.size());
         } catch (SQLException e) {
+            log.error("Ошибка при получении списка всех читателей: {}", e.getMessage());
             throw new RuntimeException(e.getMessage());
         }
         return list;
@@ -113,7 +128,8 @@ public class ReaderDaoImpl implements ReaderDao {
     public List<Reader> searchReaders(String searchQuery) {
         List<Reader> results = new ArrayList<>();
         String sql = sqlProps.getProperty("reader.search");
-        try (Connection conn = DbConnector.getConnection();
+        log.debug("Выполнение поиска (SQL: {}) по запросу: '{}'", sql, searchQuery);
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             String wrapQuery = "%" + searchQuery + "%";
@@ -125,7 +141,9 @@ public class ReaderDaoImpl implements ReaderDao {
             while (rs.next()) {
                 results.add(mapResultSetToReader(rs));
             }
+            log.debug("Поиск завершен. Найдено {} читателей по запросу '{}'", results.size(), searchQuery);
         } catch (SQLException e) {
+            log.error("Ошибка при выполнении поиска читателей: {}", e.getMessage());
             throw new RuntimeException(e.getMessage());
         }
         return results;
@@ -134,11 +152,14 @@ public class ReaderDaoImpl implements ReaderDao {
     @Override
     public void changeStatus(Integer ticketNumber, boolean isActive) {
         String sql = sqlProps.getProperty("reader.changeStatus");
-        try (Connection conn = DbConnector.getConnection();
+        log.debug("Вызов процедуры: {} с параметром ID: {}", sql, ticketNumber);
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setInt(1, ticketNumber);
             cs.execute();
+            log.info("Процедура смены статуса для билета №{} выполнена.", ticketNumber);
         } catch (SQLException e) {
+            log.error("Ошибка при вызове процедуры changeStatus: {}", e.getMessage());
             throw new RuntimeException(e.getMessage());
         }
     }

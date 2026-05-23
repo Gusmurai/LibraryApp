@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.WriteOffDao;
 import ru.library.libraryapp.domains.WriteOff;
 
@@ -14,7 +14,7 @@ public class WriteOffDaoImpl implements WriteOffDao {
     @Override
     public void create(WriteOff writeOff) {
         String sql = "CALL sp_write_off_copy(?, ?, ?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setInt(1, writeOff.getInventoryNumber());
             cs.setInt(2, writeOff.getTabelNumber());
@@ -42,7 +42,7 @@ public class WriteOffDaoImpl implements WriteOffDao {
 
         sql.append(" ORDER BY w.write_off_date DESC");
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql.toString())) {
 
             int paramIndex = 1;
@@ -69,7 +69,7 @@ public class WriteOffDaoImpl implements WriteOffDao {
         // В процедуре мы используем ID акта или инв. номер.
         // Если в базе процедура sp_restore_copy(p_inventory_number):
         String sql = "CALL sp_restore_copy(?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setInt(1, inventoryNumber);
             cs.execute();

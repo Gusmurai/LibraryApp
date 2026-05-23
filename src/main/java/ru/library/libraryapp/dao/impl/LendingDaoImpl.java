@@ -1,11 +1,10 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.LendingDao;
 import ru.library.libraryapp.domains.Lending;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +13,14 @@ public class LendingDaoImpl implements LendingDao {
     @Override
     public void issueBook(Integer ticketNumber, Integer inventoryNumber, Integer librarianId) {
         String sql = "CALL sp_issue_book(?, ?, ?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setInt(1, ticketNumber);
             cs.setInt(2, inventoryNumber);
             cs.setInt(3, librarianId);
             cs.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e.getMessage()); // База вернет наше сообщение об ошибке
+            throw new RuntimeException(e.getMessage());
         }
     }
 
@@ -29,7 +28,7 @@ public class LendingDaoImpl implements LendingDao {
     public void returnBook(Integer lendingId, Integer librarianId) {
         String sql = "{call sp_return_book(?, ?, ?)}";
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
 
             // Входной параметр (ID выдачи)
@@ -59,7 +58,7 @@ public class LendingDaoImpl implements LendingDao {
     @Override
     public void renewBook(Integer lendingId) {
         String sql = "CALL sp_extend_book(?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setInt(1, lendingId);
             cs.execute();
@@ -75,7 +74,7 @@ public class LendingDaoImpl implements LendingDao {
         // либо мы вызовем соответствующие DAO методы в контроллере)
         String sql = "UPDATE lendings SET return_date = CURRENT_DATE WHERE lending_id = ?";
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, lendingId);
@@ -91,7 +90,7 @@ public class LendingDaoImpl implements LendingDao {
         List<Lending> list = new ArrayList<>();
         String sql = "SELECT * FROM lendings WHERE ticket_number = ? AND return_date IS NULL ORDER BY lend_date DESC";
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, ticketNumber);
@@ -110,7 +109,7 @@ public class LendingDaoImpl implements LendingDao {
         List<Lending> list = new ArrayList<>();
         String sql = "SELECT * FROM lendings WHERE inventory_number = ? ORDER BY lend_date DESC";
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, inventoryNumber);
@@ -129,7 +128,7 @@ public class LendingDaoImpl implements LendingDao {
         List<Lending> list = new ArrayList<>();
         String sql = "SELECT * FROM lendings WHERE ticket_number = ? ORDER BY lend_date DESC";
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, ticketNumber);

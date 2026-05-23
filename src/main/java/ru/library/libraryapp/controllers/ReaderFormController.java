@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import ru.library.libraryapp.dao.ReaderDao;
 import ru.library.libraryapp.dao.impl.ReaderDaoImpl;
 import ru.library.libraryapp.domains.Reader;
@@ -13,12 +14,14 @@ import ru.library.libraryapp.domains.Reader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.nio.file.Files;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
- * Контроллер для управления формой читателя (регистрация, редактирование, просмотр).
- * Поддерживает полную локализацию и валидацию данных.
+ * Контроллер для управления формой читателя.
+ * Реализована строгая валидация и локализация всех сообщений.
  */
+@Slf4j
 public class ReaderFormController {
 
     @FXML private TextField lastNameField, firstNameField, patronymicField;
@@ -29,7 +32,7 @@ public class ReaderFormController {
     @FXML private Button btnSave, btnUploadPhoto, btnDeletePhoto, btnCancel;
     @FXML private Label lblStatus;
 
-    @FXML private ResourceBundle resources; // Автоматически внедряется FXMLLoader-ом
+    @FXML private ResourceBundle resources;
 
     private Reader currentReader;
     private byte[] photoBytes;
@@ -38,10 +41,14 @@ public class ReaderFormController {
 
     @FXML
     public void initialize() {
-        // Очистка статуса
         lblStatus.setText("");
 
-        // Ограничения ввода на лету (Лабораторная 7)
+        // Подсказки форматов
+        phoneField.setPromptText("+7XXXXXXXXXX");
+        passportSeriesField.setPromptText("4 цифры");
+        passportNumberField.setPromptText("6 цифр");
+
+        // Ограничения на ввод символов (Лабораторная 7)
         setupNameValidation(lastNameField);
         setupNameValidation(firstNameField);
         setupNameValidation(patronymicField);
@@ -49,23 +56,18 @@ public class ReaderFormController {
         setupNumericValidation(passportNumberField, 6);
         setupPhoneValidation(phoneField);
 
-        // Блокировка кнопки сохранения (Поля обязательны)
+        // Блокировка кнопки (пока поля пустые)
         btnSave.disableProperty().bind(
                 lastNameField.textProperty().isEmpty()
                         .or(firstNameField.textProperty().isEmpty())
-                        .or(birthDatePicker.valueProperty().isNull())
+                        .or(birthDatePicker.getEditor().textProperty().isEmpty())
                         .or(passportSeriesField.textProperty().isEmpty())
                         .or(passportNumberField.textProperty().isEmpty())
                         .or(addressField.textProperty().isEmpty())
                         .or(phoneField.textProperty().isEmpty())
         );
 
-        // Сброс текста ошибки при изменении данных
-        lastNameField.textProperty().addListener((obs, old, newVal) -> lblStatus.setText(""));
-        firstNameField.textProperty().addListener((obs, old, newVal) -> lblStatus.setText(""));
-        phoneField.textProperty().addListener((obs, old, newVal) -> lblStatus.setText(""));
-
-        // Запрет букв в редакторе даты
+        // Ограничение ввода в текстовое поле календаря (только цифры и точки)
         birthDatePicker.getEditor().textProperty().addListener((obs, oldVal, newVal) -> {
             if (!newVal.matches("[0-9.]*")) {
                 birthDatePicker.getEditor().setText(oldVal);
@@ -75,16 +77,27 @@ public class ReaderFormController {
 
     @FXML
     private void onSaveClick() {
-        lblStatus.setText("");
+        log.info("Попытка сохранения данных читателя...");
+        lblStatus.setText(""); // Очищаем статус только при новом клике
         StringBuilder errorMsg = new StringBuilder();
 
-        // 1. Проверка корректности даты (если введена вручную неверно)
-        if (birthDatePicker.getValue() == null && !birthDatePicker.getEditor().getText().isEmpty()) {
-            lblStatus.setText(resources.getString("error.dateFormat"));
-            return;
+        // 1. ВАЛИДАЦИЯ ДАТЫ РОЖДЕНИЯ
+        LocalDate birthday = birthDatePicker.getValue();
+        String dateText = birthDatePicker.getEditor().getText();
+
+        if (birthday == null && !dateText.isEmpty()) {
+            // Если текст введен, но Java не смогла превратить его в дату (неверный формат)
+            errorMsg.append(resources.getString("error.dateFormat")).append("\n");
+        } else if (birthday != null) {
+            // Если дата корректна по формату, проверяем логику
+            if (birthday.isAfter(LocalDate.now())) {
+                errorMsg.append(resources.getString("error.dateFuture")).append("\n");
+            } else if (birthday.isBefore(LocalDate.now().minusYears(120))) {
+                errorMsg.append(resources.getString("error.dateInvalid")).append("\n");
+            }
         }
 
-        // 2. Валидация форматов (Лабораторная 7)
+        // 2. ВАЛИДАЦИЯ ТЕЛЕФОНА И ПАСПОРТА
         if (!phoneField.getText().matches("^\\+7\\d{10}$")) {
             errorMsg.append(resources.getString("error.phoneFormat")).append("\n");
         }
@@ -92,12 +105,14 @@ public class ReaderFormController {
             errorMsg.append(resources.getString("error.passportFormat")).append("\n");
         }
 
+        // Вывод ошибок валидации
         if (errorMsg.length() > 0) {
+            log.warn("Валидация формы не прошла: {}", errorMsg.toString().replace("\n", " "));
             lblStatus.setText(errorMsg.toString());
             return;
         }
 
-        // 3. Сбор данных
+        // 3. СБОР ДАННЫХ
         if (currentReader == null) {
             currentReader = new Reader();
             currentReader.setActive(true);
@@ -107,34 +122,39 @@ public class ReaderFormController {
         currentReader.setFirstName(firstNameField.getText().trim());
         String patronymic = patronymicField.getText().trim();
         currentReader.setPatronymic(patronymic.isEmpty() ? null : patronymic);
-        currentReader.setBirthDate(birthDatePicker.getValue());
+        currentReader.setBirthDate(birthday);
         currentReader.setPassportSeries(passportSeriesField.getText().trim());
         currentReader.setPassportNumber(passportNumberField.getText().trim());
         currentReader.setAddress(addressField.getText().trim());
         currentReader.setPhone(phoneField.getText().trim());
         currentReader.setPhoto(photoBytes);
 
-        // 4. Попытка сохранения в БД
+        // 4. СОХРАНЕНИЕ В БД
         try {
+            log.debug("Отправка объекта Reader в DAO. Т_Номер: {}", currentReader.getTicketNumber());
             if (currentReader.getTicketNumber() == null) {
                 readerDao.add(currentReader);
             } else {
                 readerDao.update(currentReader);
             }
             this.saveSuccessful = true;
+            log.info("Данные читателя успешно сохранены в БД.");
             closeWindow();
         } catch (Exception e) {
-            // Локализация системных ошибок (из триггеров БД)
-            String dbError = e.getMessage();
-            if (dbError.contains("uq_passport") || dbError.contains("uq_reader_passport")) {
-                lblStatus.setText(resources.getString("error.duplicatePassport"));
-            } else if (dbError.contains("смешивать русские и английские")) {
-                lblStatus.setText(resources.getString("error.mixedLanguages"));
-            } else if (dbError.contains("недопустимые символы")) {
-                lblStatus.setText(resources.getString("error.invalidChars"));
-            } else {
-                lblStatus.setText(resources.getString("error.dbOther") + dbError);
-            }
+            log.error("Ошибка сохранения в базу данных: {}", e.getMessage());
+            handleDatabaseError(e.getMessage());
+        }
+    }
+
+    private void handleDatabaseError(String dbError) {
+        if (dbError.contains("uq_passport") || dbError.contains("uq_reader_passport")) {
+            lblStatus.setText(resources.getString("error.duplicatePassport"));
+        } else if (dbError.contains("смешивать русские и английские")) {
+            lblStatus.setText(resources.getString("error.mixedLanguages"));
+        } else if (dbError.contains("недопустимые символы")) {
+            lblStatus.setText(resources.getString("error.invalidChars"));
+        } else {
+            lblStatus.setText(resources.getString("error.dbOther") + dbError);
         }
     }
 
@@ -180,18 +200,23 @@ public class ReaderFormController {
 
     @FXML
     private void onUploadPhoto() {
+        log.info("Открытие диалога выбора фотографии.");
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(resources.getString("window.title.choosePhoto"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(resources.getString("filter.images"), "*.png", "*.jpg", "*.jpeg"));
         File selectedFile = fileChooser.showOpenDialog(btnCancel.getScene().getWindow());
 
         if (selectedFile != null) {
+            log.info("Выбрано изображение: {}", selectedFile.getName());
             try {
                 photoBytes = Files.readAllBytes(selectedFile.toPath());
                 photoView.setImage(new Image(new ByteArrayInputStream(photoBytes)));
             } catch (Exception e) {
                 lblStatus.setText(resources.getString("error.uploadPhoto"));
             }
+        } else {
+            log.debug("Выбор фото отменен.");
+
         }
     }
 

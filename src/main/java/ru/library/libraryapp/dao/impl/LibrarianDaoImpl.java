@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.LibrarianDao;
 import ru.library.libraryapp.domains.Librarian;
 import java.sql.*;
@@ -10,7 +10,7 @@ public class LibrarianDaoImpl implements LibrarianDao {
     @Override
     public Optional<Librarian> findByLogin(String dbLogin) {
         String sql = "SELECT * FROM librarians WHERE db_login = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, dbLogin);
             ResultSet rs = ps.executeQuery();

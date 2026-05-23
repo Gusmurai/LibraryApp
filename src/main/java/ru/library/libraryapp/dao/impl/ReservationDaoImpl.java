@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.ReservationDao;
 import ru.library.libraryapp.domains.Reservation;
 
@@ -13,7 +13,7 @@ public class ReservationDaoImpl implements ReservationDao {
     @Override
     public void add(String isbn, Integer ticketNumber, Integer librarianId) {
         String sql = "CALL sp_create_reservation(?, ?, ?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setString(1, isbn);
             cs.setInt(2, ticketNumber);
@@ -24,7 +24,7 @@ public class ReservationDaoImpl implements ReservationDao {
     @Override
     public void cancel(Integer reservationId) {
         String sql = "UPDATE reservations SET status = 'CANCELLED' WHERE reservation_id = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, reservationId);
@@ -56,7 +56,7 @@ public class ReservationDaoImpl implements ReservationDao {
 
         sql.append(" ORDER BY res.reservation_date DESC");
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql.toString())) {
 
             int paramIndex = 1;
@@ -85,7 +85,7 @@ public class ReservationDaoImpl implements ReservationDao {
     public boolean hasActiveReservation(Integer ticketNumber, String isbn) {
         String sql = "SELECT 1 FROM reservations WHERE ticket_number = ? AND isbn = ? " +
                 "AND status = 'ACTIVE' AND expiry_date >= CURRENT_DATE";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, ticketNumber);

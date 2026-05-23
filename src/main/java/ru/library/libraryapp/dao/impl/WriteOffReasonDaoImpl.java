@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.WriteOffReasonDao;
 import ru.library.libraryapp.domains.WriteOffReason;
 import java.sql.*;
@@ -12,7 +12,7 @@ public class WriteOffReasonDaoImpl implements WriteOffReasonDao {
     @Override
     public List<WriteOffReason> findAll() {
         List<WriteOffReason> list = new ArrayList<>();
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery("SELECT * FROM write_off_reasons")) {
             while (rs.next()) {
@@ -28,7 +28,7 @@ public class WriteOffReasonDaoImpl implements WriteOffReasonDao {
     @Override
     public Optional<WriteOffReason> findById(Integer id) {
         String sql = "SELECT * FROM write_off_reasons WHERE reason_id = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();

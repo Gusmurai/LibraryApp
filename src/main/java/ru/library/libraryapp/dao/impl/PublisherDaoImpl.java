@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.PublisherDao;
 import ru.library.libraryapp.domains.Publisher;
 import java.sql.*;
@@ -12,7 +12,7 @@ public class PublisherDaoImpl implements PublisherDao {
     @Override
     public List<Publisher> findAll() {
         List<Publisher> list = new ArrayList<>();
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery("SELECT * FROM publishers ORDER BY name")) {
             while (rs.next()) {
@@ -29,7 +29,7 @@ public class PublisherDaoImpl implements PublisherDao {
     @Override
     public Optional<Publisher> findById(Integer id) {
         String sql = "SELECT * FROM publishers WHERE publisher_id = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();

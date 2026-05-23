@@ -1,10 +1,9 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.FineDao;
 import ru.library.libraryapp.domains.Fine;
 
-import java.math.BigDecimal;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class FineDaoImpl implements FineDao {
         String sql = "SELECT f.* FROM fines f " +
                 "JOIN lendings l ON f.lending_id = l.lending_id " +
                 "WHERE l.ticket_number = ? AND f.is_paid = false";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, ticketNumber);
             ResultSet rs = ps.executeQuery();
@@ -48,7 +47,7 @@ public class FineDaoImpl implements FineDao {
         if (articleId != null) sql.append(" AND f.article_id = ?");
         if (isPaid != null) sql.append(" AND f.is_paid = ?");
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql.toString())) {
 
             int paramIndex = 1;
@@ -79,7 +78,7 @@ public class FineDaoImpl implements FineDao {
     @Override
     public void payFine(Integer fineId) {
         String sql = "CALL sp_pay_fine(?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setInt(1, fineId);
             cs.execute();
@@ -88,7 +87,7 @@ public class FineDaoImpl implements FineDao {
     @Override
     public void updateNote(Integer fineId, String note) {
         String sql = "UPDATE fines SET comment = ? WHERE fine_id = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, note);
             ps.setInt(2, fineId);
@@ -99,7 +98,7 @@ public class FineDaoImpl implements FineDao {
     @Override
     public void updateAmount(Integer fineId, double newAmount) {
         String sql = "CALL sp_update_fine_amount(?, ?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setInt(1, fineId);
             cs.setDouble(2, newAmount);
@@ -110,7 +109,7 @@ public class FineDaoImpl implements FineDao {
     @Override
     public void annulFine(Integer fineId, int mode) {
         String sql = "CALL sp_annul_fine(?, ?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setInt(1, fineId);
             cs.setBoolean(2, (mode == 1)); // true - нашел книгу, false - замена

@@ -1,6 +1,6 @@
 package ru.library.libraryapp.dao.impl;
 
-import ru.library.libraryapp.DbConnector;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.CopyDao;
 import ru.library.libraryapp.domains.Copy;
 
@@ -16,7 +16,7 @@ public class CopyDaoImpl implements CopyDao {
         List<Copy> list = new ArrayList<>();
         // Используем view_copies_status, чтобы сразу видеть "Выдан", "В наличии" и т.д.
         String sql = "SELECT * FROM view_copies_status WHERE isbn = ?";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, isbn);
             ResultSet rs = ps.executeQuery();
@@ -36,7 +36,7 @@ public class CopyDaoImpl implements CopyDao {
     public Optional<Copy> findByInventoryNumber(Integer invNumber) {
         String sql = "SELECT * FROM copies WHERE inventory_number = ?";
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, invNumber);
@@ -59,7 +59,7 @@ public class CopyDaoImpl implements CopyDao {
                 "AND NOT EXISTS (SELECT 1 FROM lendings l WHERE l.inventory_number = c.inventory_number AND l.return_date IS NULL) " +
                 "AND NOT EXISTS (SELECT 1 FROM write_offs w WHERE w.inventory_number = c.inventory_number)";
 
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, isbn);
@@ -81,7 +81,7 @@ public class CopyDaoImpl implements CopyDao {
     @Override
     public void addDelivery(String isbn, Integer supplierId, double price, int quantity) {
         String sql = "INSERT INTO copies (isbn, cost) VALUES (?, ?)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             for (int i = 0; i < quantity; i++) {
@@ -100,7 +100,7 @@ public class CopyDaoImpl implements CopyDao {
     @Override
     public void writeOff(Integer invNumber, Integer librarianId, Integer reasonId) {
         String sql = "INSERT INTO write_offs (inventory_number, tabel_number, reason_id, write_off_date) VALUES (?, ?, ?, CURRENT_DATE)";
-        try (Connection conn = DbConnector.getConnection();
+        try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, invNumber);

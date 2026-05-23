@@ -11,13 +11,15 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.ReaderDao;
 import ru.library.libraryapp.dao.impl.ReaderDaoImpl;
 import ru.library.libraryapp.domains.Reader;
-
+import lombok.extern.slf4j.Slf4j;
+import javafx.application.Platform;
 import java.io.IOException;
 import java.util.Optional;
-
+@Slf4j
 public class LibraryController {
 
     @FXML private TextField searchField;
@@ -36,6 +38,7 @@ public class LibraryController {
     @FXML private Button btnDetails;
     @FXML private Button btnFormular;
     @FXML private Label lblMainStatus;
+    @FXML private Label lblCurrentUser;
     @FXML
     private java.util.ResourceBundle resources;
     private final ReaderDao readerDao = new ReaderDaoImpl();
@@ -43,7 +46,13 @@ public class LibraryController {
 
     @FXML
     public void initialize() {
-
+        log.info("Запуск главного окна библиотеки.");
+        String user = DBHelper.getCurrentDbUser();
+        if (user != null) {
+            String headerText = resources.getString("header.employee").replace("-", user);
+            lblCurrentUser.setText(headerText);
+            log.debug("Авторизованный пользователь СУБД: {}", user);
+        }
         colTicket.setCellValueFactory(new PropertyValueFactory<>("ticketNumber"));
         colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -63,11 +72,11 @@ public class LibraryController {
             }
         });
 
-        // 2. Первоначальная загрузка данных
         loadReaders();
 
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == null || newValue.trim().isEmpty()) {
+                log.debug("Поиск читателей по запросу: '{}'", newValue);
                 loadReaders();
             } else {
                 readerData.setAll(readerDao.searchReaders(newValue));
@@ -118,6 +127,7 @@ public class LibraryController {
     }
 
     private void loadReaders() {
+        log.debug("Запрос к DAO на получение списка всех читателей.");
         readerData.setAll(readerDao.findAll());
         readersTable.setItems(readerData);
     }
@@ -127,8 +137,8 @@ public class LibraryController {
         if (selected == null) return;
 
         String fullName = selected.getLastName() + " " + selected.getFirstName();
-
-        // ЛОКАЛИЗАЦИЯ ВОПРОСА
+        log.info("Инициирована смена статуса читателя {} на {}", fullName, moveToActive ? "Активен" : "Архив");
+        // локал
         String confirmMsg = moveToActive ? resources.getString("alert.confirm.restore") : resources.getString("alert.confirm.archive");
 
         Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -141,14 +151,18 @@ public class LibraryController {
             try {
                 readerDao.changeStatus(selected.getTicketNumber(), moveToActive);
                 loadReaders();
+                log.info("Статус читателя {} успешно изменен в БД.", fullName);
                 showSuccess(resources.getString("success.statusChanged"));
             } catch (Exception e) {
+                log.error("Ошибка при смене статуса читателя {}: {}", fullName, e.getMessage());
                 showErrorAlert(resources.getString("alert.error.title"), e.getMessage());
             }
         }
     }
 
     private void openReaderForm(Reader reader, boolean isViewOnly) {
+        String mode = isViewOnly ? "ПРОСМОТР" : (reader == null ? "РЕГИСТРАЦИЯ" : "РЕДАКТИРОВАНИЕ");
+        log.info("Открытие окна читателя. Режим: {}", mode);
         try {
             // Используем bundle из LibraryApplication или загружаем заново для этого окна
             java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("ru.library.libraryapp.messages", java.util.Locale.getDefault());
@@ -170,6 +184,7 @@ public class LibraryController {
 
             if (!isViewOnly && controller.isSaveSuccessful()) {
                 loadReaders();
+                log.info("Операция '{}' успешно завершена для читателя {}.", mode, controller.getReader().getLastName());
                 Reader savedReader = controller.getReader();
                 String fullName = savedReader.getLastName() + " " + savedReader.getFirstName();
 
@@ -178,7 +193,7 @@ public class LibraryController {
                 showSuccess(msg);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Ошибка при загрузке FXML формы читателя", e);
             showErrorAlert(resources.getString("alert.error.interfaceTitle"), resources.getString("alert.error.openForm"));
         }
     }

@@ -1,0 +1,274 @@
+2026-05-23 16:37:26 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 16:37:26 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 16:38:18 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 16:52:14 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 16:52:14 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 16:52:24 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 17:50:25 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 17:50:25 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 17:50:37 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 17:51:28 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 17:51:28 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 17:53:19 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 17:53:24 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 17:53:24 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 17:53:24 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 17:53:35 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 17:53:35 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 17:53:35 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 17:54:22 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 17:54:22 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 17:56:03 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 18:02:18 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 18:02:18 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 18:02:24 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Попытка подключения к БД пользователем: -
+2026-05-23 18:02:24 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Неудачная попытка входа. Пользователь: -. Причина: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:02:28 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Попытка подключения к БД пользователем: -
+2026-05-23 18:02:28 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Неудачная попытка входа. Пользователь: -. Причина: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:02:58 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Попытка подключения к БД пользователем: guseva_v
+2026-05-23 18:02:58 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Соединение с СУБД успешно установлено.
+2026-05-23 18:02:58 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-05-23 18:02:58 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Загрузка основного интерфейса системы.
+2026-05-23 18:03:47 [JavaFX Application Thread] ERROR ru.library.libraryapp.DBHelper - Попытка получить соединение до авторизации!
+2026-05-23 18:03:52 [JavaFX Application Thread] ERROR ru.library.libraryapp.DBHelper - Попытка получить соединение до авторизации!
+2026-05-23 18:04:51 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 18:10:05 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 18:10:05 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 18:10:08 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Неудачная попытка входа. Пользователь: -. Причина: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:10:11 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 18:11:47 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 18:11:47 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 18:11:52 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:11:55 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:12:07 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-05-23 18:12:07 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Загрузка основного интерфейса системы.
+2026-05-23 18:12:27 [JavaFX Application Thread] ERROR ru.library.libraryapp.DBHelper - Попытка получить соединение до авторизации!
+2026-05-23 18:19:40 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 18:19:40 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 18:19:46 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа: �����: ������������ "12" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:20:49 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 18:20:49 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 18:20:52 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Попытка подключения пользователя: -
+2026-05-23 18:20:52 [JavaFX Application Thread] ERROR r.l.l.controllers.LoginController - SQL Error State: 28P01
+2026-05-23 18:20:52 [JavaFX Application Thread] ERROR r.l.l.controllers.LoginController - SQL Error Code: 0
+2026-05-23 18:20:52 [JavaFX Application Thread] ERROR r.l.l.controllers.LoginController - SQL Error Message: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:20:52 [JavaFX Application Thread] ERROR r.l.l.controllers.LoginController - Full exception:
+org.postgresql.util.PSQLException: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
+	at org.postgresql.Driver.makeConnection(Driver.java:448)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:682)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:191)
+	at ru.library.libraryapp/ru.library.libraryapp.DBHelper.initConnection(DBHelper.java:58)
+	at ru.library.libraryapp/ru.library.libraryapp.controllers.LoginController.onLoginClick(LoginController.java:46)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21.0.6/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21.0.6/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1855)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-05-23 18:20:56 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Попытка подключения пользователя: -
+2026-05-23 18:20:56 [JavaFX Application Thread] ERROR r.l.l.controllers.LoginController - SQL Error State: 28P01
+2026-05-23 18:20:56 [JavaFX Application Thread] ERROR r.l.l.controllers.LoginController - SQL Error Code: 0
+2026-05-23 18:20:56 [JavaFX Application Thread] ERROR r.l.l.controllers.LoginController - SQL Error Message: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:20:56 [JavaFX Application Thread] ERROR r.l.l.controllers.LoginController - Full exception:
+org.postgresql.util.PSQLException: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
+	at org.postgresql.Driver.makeConnection(Driver.java:448)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:682)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:191)
+	at ru.library.libraryapp/ru.library.libraryapp.DBHelper.initConnection(DBHelper.java:58)
+	at ru.library.libraryapp/ru.library.libraryapp.controllers.LoginController.onLoginClick(LoginController.java:46)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21.0.6/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21.0.6/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1855)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-05-23 18:21:09 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 18:34:29 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 18:34:29 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 18:34:33 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:35:15 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 18:36:37 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 18:36:37 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 18:36:42 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа: �����: ������������ "-" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:40:55 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 18:40:55 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 18:41:10 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа: �����: ������������ "7" �� ������ �������� ����������� (�� ������)
+2026-05-23 18:51:27 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 18:51:27 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 18:51:32 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-05-23 18:52:15 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-05-23 18:52:15 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Загрузка основного интерфейса системы.
+2026-05-23 18:52:37 [JavaFX Application Thread] ERROR ru.library.libraryapp.DBHelper - Попытка получить соединение до авторизации!
+2026-05-23 18:53:30 [JavaFX Application Thread] ERROR ru.library.libraryapp.DBHelper - Попытка получить соединение до авторизации!
+2026-05-23 19:03:13 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 19:03:13 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 19:03:17 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-05-23 19:03:26 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Авторизация успешна. Пользователь: guseva_v
+2026-05-23 19:03:26 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-05-23 19:03:26 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Загрузка основного интерфейса системы.
+2026-05-23 19:14:14 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 19:14:14 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сессия пользователя в приложении завершена.
+2026-05-23 19:14:27 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 19:14:27 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 19:14:35 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Авторизация успешна. Пользователь: guseva_v
+2026-05-23 19:14:35 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-05-23 19:14:35 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Загрузка основного интерфейса системы.
+2026-05-23 19:39:40 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 19:39:40 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 19:39:55 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Авторизация успешна. Пользователь: guseva_v
+2026-05-23 19:39:55 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-05-23 19:39:55 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Загрузка основного интерфейса системы.
+2026-05-23 20:23:30 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 20:23:30 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 20:23:45 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Авторизация успешна. Пользователь: guseva_v
+2026-05-23 20:23:45 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-05-23 20:23:45 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Загрузка основного интерфейса системы.
+2026-05-23 20:23:45 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Запуск главного окна библиотеки.
+2026-05-23 20:23:51 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Открытие окна читателя. Режим: РЕДАКТИРОВАНИЕ
+2026-05-23 20:24:30 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Открытие окна читателя. Режим: РЕДАКТИРОВАНИЕ
+2026-05-23 20:24:35 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-05-23 20:24:35 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-05-23 20:24:35 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Операция 'РЕДАКТИРОВАНИЕ' успешно завершена для читателя Новиков.
+2026-05-23 21:02:50 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 21:02:50 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сессия пользователя в приложении завершена.
+2026-05-23 21:03:09 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 21:03:09 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 21:04:42 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-05-23 21:04:46 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-05-23 21:10:37 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 21:10:37 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 21:12:40 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-05-23 21:13:47 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-05-23 21:14:01 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Авторизация успешна. Пользователь: guseva_v
+2026-05-23 21:14:01 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-05-23 21:14:01 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Загрузка основного интерфейса системы.
+2026-05-23 21:14:02 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Запуск главного окна библиотеки.
+2026-05-23 21:14:27 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Открытие окна читателя. Режим: РЕДАКТИРОВАНИЕ
+2026-05-23 21:14:31 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Открытие окна читателя. Режим: РЕДАКТИРОВАНИЕ
+2026-05-23 21:15:04 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-05-23 21:15:04 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Данные читателя №2 (Васильев) успешно обновлены.
+2026-05-23 21:15:04 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-05-23 21:15:04 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Операция 'РЕДАКТИРОВАНИЕ' успешно завершена для читателя Васильев.
+2026-05-23 21:22:54 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение запускается...
+2026-05-23 21:22:54 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Отображение окна авторизации.
+2026-05-23 21:23:15 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Авторизация успешна. Пользователь: guseva_v
+2026-05-23 21:23:15 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-05-23 21:23:15 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Загрузка основного интерфейса системы.
+2026-05-23 21:23:15 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Запуск главного окна библиотеки.
+2026-05-23 21:23:24 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициирована смена статуса читателя Кузнецова Елена на Архив
+2026-05-23 21:23:28 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициирована смена статуса читателя Писарева Алеся на Активен
+2026-05-23 21:23:30 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Процедура смены статуса для билета №12 выполнена.
+2026-05-23 21:23:30 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Статус читателя Писарева Алеся успешно изменен в БД.
+2026-05-23 21:24:07 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициирована смена статуса читателя Писарева Алеся на Архив
+2026-05-23 21:24:22 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Процедура смены статуса для билета №12 выполнена.
+2026-05-23 21:24:22 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Статус читателя Писарева Алеся успешно изменен в БД.
+2026-05-23 21:31:00 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Приложение закрывается. Завершение сессии БД.
+2026-05-23 21:31:00 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сессия пользователя в приложении завершена.

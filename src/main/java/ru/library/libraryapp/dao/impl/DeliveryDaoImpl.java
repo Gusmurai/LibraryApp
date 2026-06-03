@@ -1,14 +1,23 @@
 package ru.library.libraryapp.dao.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.DeliveryDao;
+import ru.library.libraryapp.dao.SqlProvider;
 import ru.library.libraryapp.domains.Delivery;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class DeliveryDaoImpl implements DeliveryDao {
 
     @Override
@@ -16,97 +25,116 @@ public class DeliveryDaoImpl implements DeliveryDao {
         Connection conn = null;
         try {
             conn = DBHelper.getConnection();
-            conn.setAutoCommit(false); // Начинаем транзакцию
+            conn.setAutoCommit(false);
 
-            String sqlCopy = "INSERT INTO copies (isbn, cost) VALUES (?, ?) RETURNING inventory_number";
-            String sqlDelivery = "INSERT INTO deliveries (supplier_inn, inventory_number, delivery_date) VALUES (?, ?, CURRENT_DATE)";
-
-            try (PreparedStatement psCopy = conn.prepareStatement(sqlCopy);
-                 PreparedStatement psDeliv = conn.prepareStatement(sqlDelivery)) {
-
+            try (PreparedStatement psCopy = conn.prepareStatement(SqlProvider.get("delivery.insertCopy"));
+                 PreparedStatement psDelivery = conn.prepareStatement(SqlProvider.get("delivery.insert"))) {
                 for (int i = 0; i < quantity; i++) {
-                    // 1. Создаем экземпляр
                     psCopy.setString(1, isbn);
                     psCopy.setDouble(2, price);
-
-                    ResultSet rs = psCopy.executeQuery();
-                    if (rs.next()) {
-                        int newInvNumber = rs.getInt(1);
-
-                        // 2. Создаем запись о поставке для этого экземпляра
-                        if (supplierInn == null || supplierInn.isEmpty()) {
-                            psDeliv.setNull(1, Types.VARCHAR);
-                        } else {
-                            psDeliv.setString(1, supplierInn);
+                    try (ResultSet rs = psCopy.executeQuery()) {
+                        if (rs.next()) {
+                            int inventoryNumber = rs.getInt(1);
+                            if (supplierInn == null || supplierInn.isBlank()) {
+                                psDelivery.setNull(1, Types.VARCHAR);
+                            } else {
+                                psDelivery.setString(1, supplierInn);
+                            }
+                            psDelivery.setInt(2, inventoryNumber);
+                            psDelivery.executeUpdate();
                         }
-                        psDeliv.setInt(2, newInvNumber);
-                        psDeliv.executeUpdate();
                     }
                 }
             }
-            conn.commit(); // Подтверждаем всё разом
+            conn.commit();
+            log.info("Delivery registered. ISBN={}, quantity={}.", isbn, quantity);
         } catch (SQLException e) {
-            if (conn != null) {
-                try { conn.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
-            }
-            e.printStackTrace();
+            rollback(conn);
+            log.error("Failed to register delivery for ISBN={}.", isbn, e);
+            throw new RuntimeException(e.getMessage(), e);
         } finally {
-            if (conn != null) {
-                try { conn.close(); } catch (SQLException ex) { ex.printStackTrace(); }
-            }
+            close(conn);
         }
     }
 
     @Override
     public List<Delivery> findAll() {
         List<Delivery> list = new ArrayList<>();
-        String sql = "SELECT * FROM deliveries ORDER BY delivery_date DESC";
         try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
-             ResultSet rs = st.executeQuery(sql)) {
+             ResultSet rs = st.executeQuery(SqlProvider.get("delivery.findAll"))) {
             while (rs.next()) {
                 list.add(mapDelivery(rs));
             }
-        } catch (SQLException e) { e.printStackTrace(); }
+        } catch (SQLException e) {
+            log.error("Failed to load deliveries.", e);
+        }
         return list;
     }
 
     @Override
     public List<Delivery> findWithFilters(LocalDate start, LocalDate end, String supplierInn) {
         List<Delivery> list = new ArrayList<>();
-        StringBuilder sql = new StringBuilder("SELECT * FROM deliveries WHERE 1=1");
-
-        if (start != null) sql.append(" AND delivery_date >= ?");
-        if (end != null) sql.append(" AND delivery_date <= ?");
-        if (supplierInn != null && !supplierInn.equals("Все")) sql.append(" AND supplier_inn = ?");
-
-        sql.append(" ORDER BY delivery_date DESC");
+        StringBuilder sql = new StringBuilder(SqlProvider.get("delivery.findWithFilters.base"));
+        if (start != null) appendSql(sql, "delivery.filter.start");
+        if (end != null) appendSql(sql, "delivery.filter.end");
+        boolean filterSupplier = supplierInn != null && !supplierInn.isBlank()
+                && !"Все".equalsIgnoreCase(supplierInn)
+                && !"All".equalsIgnoreCase(supplierInn)
+                && !"Alle".equalsIgnoreCase(supplierInn);
+        if (filterSupplier) appendSql(sql, "delivery.filter.supplier");
+        appendSql(sql, "delivery.order");
 
         try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql.toString())) {
-
-            int paramIndex = 1;
-            if (start != null) ps.setDate(paramIndex++, Date.valueOf(start));
-            if (end != null) ps.setDate(paramIndex++, Date.valueOf(end));
-            if (supplierInn != null && !supplierInn.equals("Все")) ps.setString(paramIndex, supplierInn);
-
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(mapDelivery(rs));
+            int index = 1;
+            if (start != null) ps.setDate(index++, Date.valueOf(start));
+            if (end != null) ps.setDate(index++, Date.valueOf(end));
+            if (filterSupplier) ps.setString(index, supplierInn);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    list.add(mapDelivery(rs));
+                }
             }
-        } catch (SQLException e) { e.printStackTrace(); }
+        } catch (SQLException e) {
+            log.error("Failed to load deliveries with filters. SQL={}", sql, e);
+        }
         return list;
     }
 
+    private void appendSql(StringBuilder sql, String key) {
+        sql.append(' ').append(SqlProvider.get(key));
+    }
+
     private Delivery mapDelivery(ResultSet rs) throws SQLException {
-        Delivery d = new Delivery();
-        d.setDeliveryId(rs.getInt("delivery_id"));
-        d.setSupplierInn(rs.getString("supplier_inn"));
-        d.setInventoryNumber(rs.getInt("inventory_number"));
-
+        Delivery delivery = new Delivery();
+        delivery.setDeliveryId(rs.getInt("delivery_id"));
+        delivery.setSupplierInn(rs.getString("supplier_inn"));
+        delivery.setInventoryNumber(rs.getInt("inventory_number"));
         Date date = rs.getDate("delivery_date");
-        if (date != null) d.setDeliveryDate(date.toLocalDate());
+        if (date != null) {
+            delivery.setDeliveryDate(date.toLocalDate());
+        }
+        return delivery;
+    }
 
-        return d;
+    private void rollback(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                log.warn("Rollback failed.", e);
+            }
+        }
+    }
+
+    private void close(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                log.warn("Connection close failed.", e);
+            }
+        }
     }
 }

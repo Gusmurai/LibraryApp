@@ -45,8 +45,8 @@ public class ReaderFormController {
 
         // Подсказки форматов
         phoneField.setPromptText("+7XXXXXXXXXX");
-        passportSeriesField.setPromptText("4 цифры");
-        passportNumberField.setPromptText("6 цифр");
+        passportSeriesField.setPromptText(resources.getString("prompt.passportSeriesFormat"));
+        passportNumberField.setPromptText(resources.getString("prompt.passportNumberFormat"));
 
         // Ограничения на ввод символов (Лабораторная 7)
         setupNameValidation(lastNameField);
@@ -131,7 +131,7 @@ public class ReaderFormController {
 
         // 4. СОХРАНЕНИЕ В БД
         try {
-            log.debug("Отправка объекта Reader в DAO. Т_Номер: {}", currentReader.getTicketNumber());
+            log.debug("Отправка объекта читателя в DAO. Табельный номер: {}", currentReader.getTicketNumber());
             if (currentReader.getTicketNumber() == null) {
                 readerDao.add(currentReader);
             } else {
@@ -179,8 +179,12 @@ public class ReaderFormController {
         if (isViewOnly) {
             setFieldsEditable(false);
             btnUploadPhoto.setVisible(false);
+            btnUploadPhoto.setManaged(false);
             btnDeletePhoto.setVisible(false);
+            btnDeletePhoto.setManaged(false);
             btnSave.setVisible(false);
+            btnSave.setManaged(false);
+            lblStatus.setManaged(false);
             btnCancel.setText(resources.getString("button.close"));
         }
     }

@@ -13,21 +13,21 @@
         <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
     </padding>
 
-    <Label text="Вход в систему">
+    <Label text="%login.title">
         <font>
             <Font name="System Bold" size="20.0" />
         </font>
     </Label>
 
     <VBox spacing="10.0">
-        <Label text="Логин:" />
-        <TextField fx:id="loginField" promptText="Введите ваш логин" />
+        <Label text="%login.label.user" />
+        <TextField fx:id="loginField" promptText="%login.prompt.user" />
 
-        <Label text="Пароль:" />
-        <PasswordField fx:id="passwordField" promptText="Введите ваш пароль" />
+        <Label text="%login.label.pass" />
+        <PasswordField fx:id="passwordField" promptText="%login.prompt.pass" />
     </VBox>
 
-    <Label fx:id="lblError" text="Неверный логин или пароль" textFill="RED" visible="false" />
+    <Label fx:id="lblError" style="-fx-font-size: 12px;" text="" textFill="#e74c3c" visible="false" wrapText="true" />
 
-    <Button fx:id="btnLogin" maxWidth="1.7976931348623157E308" onAction="#onLoginClick" prefHeight="35.0" text="Войти" />
+    <Button fx:id="btnLogin" maxWidth="1.7976931348623157E308" onAction="#onLoginClick" prefHeight="35.0" text="%login.button" />
 </VBox>

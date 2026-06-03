@@ -1,17 +1,19 @@
 package ru.library.libraryapp.dao.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.LibrarianDao;
+import ru.library.libraryapp.dao.SqlProvider;
 import ru.library.libraryapp.domains.Librarian;
 import java.sql.*;
 import java.util.Optional;
 
+@Slf4j
 public class LibrarianDaoImpl implements LibrarianDao {
     @Override
     public Optional<Librarian> findByLogin(String dbLogin) {
-        String sql = "SELECT * FROM librarians WHERE db_login = ?";
         try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(SqlProvider.get("librarian.findFullByLogin"))) {
             ps.setString(1, dbLogin);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -24,7 +26,9 @@ public class LibrarianDaoImpl implements LibrarianDao {
                 l.setActive(rs.getBoolean("is_active"));
                 return Optional.of(l);
             }
-        } catch (SQLException e) { e.printStackTrace(); }
+        } catch (SQLException e) {
+            log.error("Не удалось найти сотрудника по логину БД {}.", dbLogin, e);
+        }
         return Optional.empty();
     }
 }

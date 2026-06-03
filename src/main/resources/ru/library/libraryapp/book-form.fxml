@@ -15,12 +15,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="650.0" prefWidth="850.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="650.0" prefWidth="850.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.library.libraryapp.controllers.BookFormController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
-
         <HBox spacing="30.0">
             <children>
                 <VBox alignment="TOP_CENTER" spacing="10.0">
@@ -28,8 +27,8 @@
                         <ImageView fx:id="coverView" fitHeight="260.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: #cccccc; -fx-border-style: dashed; -fx-border-width: 2;" />
                         <HBox alignment="CENTER" spacing="10.0">
                             <children>
-                                <Button minWidth="-Infinity" text="Удалить" />
-                                <Button minWidth="-Infinity" text="Загрузить" />
+                                <Button fx:id="btnDeleteCover" minWidth="-Infinity" text="%button.delete" onAction="#onDeleteCover" />
+                                <Button fx:id="btnUploadCover" minWidth="-Infinity" text="%button.upload" onAction="#onUploadCover" />
                             </children>
                         </HBox>
                     </children>
@@ -49,62 +48,63 @@
                         <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label text="ISBN*" />
+                        <Label text="%label.isbn" />
                         <TextField fx:id="isbnField" GridPane.columnIndex="1" />
-                        <Label text="Название*" GridPane.rowIndex="1" />
+                        <Label text="%label.title" GridPane.rowIndex="1" />
                         <TextField fx:id="titleField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Издательство" GridPane.rowIndex="2" />
+                        <Label text="%label.publisher" GridPane.rowIndex="2" />
                         <ComboBox fx:id="publisherCombo" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Год издания" GridPane.rowIndex="3" />
+                        <Label text="%label.publicationYear" GridPane.rowIndex="3" />
                         <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                             <children>
                                 <TextField fx:id="yearField" prefWidth="100.0" />
-                                <CheckBox fx:id="noYearCheck" text="Без года" />
+                                <CheckBox fx:id="noYearCheck" text="%label.noYear" />
                             </children>
                         </HBox>
-                        <Label text="Кол-во страниц*" GridPane.rowIndex="4" />
+                        <Label text="%label.pageCount" GridPane.rowIndex="4" />
                         <TextField fx:id="pagesField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label text="ББК*" GridPane.rowIndex="5" />
+                        <Label text="%label.bbk" GridPane.rowIndex="5" />
                         <TextField fx:id="bbkField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label text="Авторский знак*" GridPane.rowIndex="6" />
+                        <Label text="%label.authorMark" GridPane.rowIndex="6" />
                         <TextField fx:id="authorMarkField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                     </children>
                 </GridPane>
             </children>
         </HBox>
 
-
         <HBox spacing="20.0" VBox.vgrow="ALWAYS">
             <children>
                 <VBox spacing="5.0" HBox.hgrow="ALWAYS">
                     <children>
-                        <Label text="Автор*">
+                        <Label text="%label.author">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="searchAuthorField" promptText="Поиск автора..." />
+                        <TextField fx:id="searchAuthorField" promptText="%prompt.searchAuthor" />
                         <ListView fx:id="authorsListView" VBox.vgrow="ALWAYS" />
                     </children>
                 </VBox>
                 <VBox spacing="5.0" HBox.hgrow="ALWAYS">
                     <children>
-                        <Label text="Жанр*">
+                        <Label text="%label.genre">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="searchGenreField" promptText="Поиск жанра..." />
+                        <TextField fx:id="searchGenreField" promptText="%prompt.searchGenre" />
                         <ListView fx:id="genresListView" VBox.vgrow="ALWAYS" />
                     </children>
                 </VBox>
             </children>
         </HBox>
 
+        <Label fx:id="lblFormError" managed="false" textFill="#b00020" visible="false" wrapText="true" />
+
         <HBox alignment="CENTER_RIGHT" spacing="10.0">
             <children>
-                <Button minWidth="80.0" text="Отмена" />
-                <Button minWidth="80.0" text="Сохранить" />
+                <Button fx:id="btnCancel" minWidth="80.0" text="%button.cancel" onAction="#onCancel" />
+                <Button fx:id="btnSave" minWidth="80.0" text="%button.save" onAction="#onSave" />
             </children>
         </HBox>
     </children>

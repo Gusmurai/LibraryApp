@@ -1,22 +1,23 @@
 package ru.library.libraryapp.dao.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.AuditLogDao;
+import ru.library.libraryapp.dao.SqlProvider;
 import ru.library.libraryapp.domains.AuditLog;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class AuditLogDaoImpl implements AuditLogDao {
 
     @Override
     public List<AuditLog> findRecent(int limit) {
         List<AuditLog> logs = new ArrayList<>();
-        String sql = "SELECT * FROM audit_log ORDER BY operation_time DESC LIMIT ?";
-
         try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(SqlProvider.get("audit.findRecent"))) {
 
             ps.setInt(1, limit);
             ResultSet rs = ps.executeQuery();
@@ -36,7 +37,7 @@ public class AuditLogDaoImpl implements AuditLogDao {
                 logs.add(log);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Не удалось загрузить последние записи аудита.", e);
         }
         return logs;
     }

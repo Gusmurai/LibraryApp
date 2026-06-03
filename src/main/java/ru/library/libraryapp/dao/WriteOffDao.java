@@ -24,4 +24,8 @@ public interface WriteOffDao {
      * @param inventoryNumber номер восстанавливаемого экземпляра
      */
     void restore(Integer inventoryNumber);
+    /**
+     * Создаёт акт списания экземпляра
+     */
+    void createWriteOff(Integer inventoryNumber, Integer librarianId, Integer reasonId, String comment);
 }

@@ -13,6 +13,46 @@ public class Fine {
     private BigDecimal amount;
     private String comment;
 
+    // === ДОБАВЛЕННЫЕ ПОЛЯ ДЛЯ ОТОБРАЖЕНИЯ ===
+    private String articleName;  // Название статьи штрафа (из fine_articles)
+    private String bookTitle;    // Название книги (из books)
+    private Integer ticketNumber;
+    private String readerFullName;
+
+    // === ГЕТТЕРЫ И СЕТТЕРЫ ДЛЯ НОВЫХ ПОЛЕЙ ===
+    public String getArticleName() {
+        return articleName;
+    }
+
+    public void setArticleName(String articleName) {
+        this.articleName = articleName;
+    }
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public Integer getTicketNumber() {
+        return ticketNumber;
+    }
+
+    public void setTicketNumber(Integer ticketNumber) {
+        this.ticketNumber = ticketNumber;
+    }
+
+    public String getReaderFullName() {
+        return readerFullName;
+    }
+
+    public void setReaderFullName(String readerFullName) {
+        this.readerFullName = readerFullName;
+    }
+
+    // === СУЩЕСТВУЮЩИЕ ГЕТТЕРЫ И СЕТТЕРЫ ===
     public Integer getFineId() {
         return fineId;
     }

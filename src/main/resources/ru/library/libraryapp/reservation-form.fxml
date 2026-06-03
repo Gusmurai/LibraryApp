@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.library.libraryapp.controllers.ReservationFormController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
     <children>
-        <Label text="Оформление новой брони">
+        <Label text="%window.title.reservationForm">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -21,24 +21,23 @@
 
         <HBox spacing="20.0" VBox.vgrow="ALWAYS">
             <children>
-
                 <VBox spacing="10.0" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 15;" HBox.hgrow="ALWAYS">
                     <children>
-                        <Label text="ЧИТАТЕЛЬ" textFill="#7f8c8d">
+                        <Label text="%label.readerUpper" textFill="#7f8c8d">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Label>
-                        <Button fx:id="btnSelectReaderForRes" maxWidth="1.7976931348623157E308" text="Выбрать читателя..." />
+                        <Button fx:id="btnSelectReaderForRes" maxWidth="1.7976931348623157E308" text="%button.selectReader" onAction="#onSelectReaderClick" />
                         <Separator />
                         <VBox spacing="5.0">
                             <children>
-                                <Label fx:id="lblResReaderName" text="Не выбран" wrapText="true">
+                                <Label fx:id="lblResReaderName" text="%text.notSelectedReader" wrapText="true">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="lblResReaderTicket" text="Билет: -" />
+                                <Label fx:id="lblResReaderTicket" text="%text.ticketDash" />
                             </children>
                         </VBox>
                     </children>
@@ -46,16 +45,16 @@
 
                 <VBox spacing="10.0" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 15;" HBox.hgrow="ALWAYS">
                     <children>
-                        <Label text="КНИГА" textFill="#7f8c8d">
+                        <Label text="%label.bookUpper" textFill="#7f8c8d">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
                         </Label>
-                        <Button fx:id="btnSelectBookForRes" maxWidth="1.7976931348623157E308" text="Выбрать из каталога..." />
+                        <Button fx:id="btnSelectBookForRes" maxWidth="1.7976931348623157E308" text="%button.selectFromCatalog" onAction="#onSelectBookClick" />
                         <Separator />
                         <VBox spacing="5.0">
                             <children>
-                                <Label fx:id="lblResBookTitle" text="Не выбрана" wrapText="true">
+                                <Label fx:id="lblResBookTitle" text="%text.notSelectedBook" wrapText="true">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font>
@@ -70,8 +69,8 @@
 
         <HBox alignment="CENTER_RIGHT" spacing="15.0">
             <children>
-                <Button minWidth="100.0" prefHeight="35.0" text="Отмена" />
-                <Button fx:id="btnConfirmReservation" minWidth="150.0" prefHeight="35.0" text="Оформить бронь" />
+                <Button minWidth="100.0" prefHeight="35.0" text="%button.cancel" onAction="#onCancelClick" />
+                <Button fx:id="btnConfirmReservation" minWidth="150.0" prefHeight="35.0" text="%button.newReservation" onAction="#onConfirmClick" />
             </children>
         </HBox>
     </children>

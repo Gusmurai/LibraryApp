@@ -1,103 +1,108 @@
 package ru.library.libraryapp.dao.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.ReportDao;
+import ru.library.libraryapp.dao.SqlProvider;
 
-import java.sql.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 public class ReportDaoImpl implements ReportDao {
 
     @Override
-    public List<Map<String, Object>> generateReport(String type, LocalDate start, LocalDate end) {
+    public List<Map<String, Object>> generateReport(String reportType, LocalDate start, LocalDate end) {
         List<Map<String, Object>> reportData = new ArrayList<>();
-        String sql = getSqlByReportType(type);
+        ReportQuery query = reportQuery(reportType);
 
         try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-
-            // Если в запросе предусмотрены параметры дат
-            if (sql.contains("?")) {
-                ps.setDate(1, Date.valueOf(start != null ? start : LocalDate.of(1900, 1, 1)));
-                ps.setDate(2, Date.valueOf(end != null ? end : LocalDate.now()));
+             PreparedStatement ps = conn.prepareStatement(query.sql())) {
+            if (query.withPeriod()) {
+                ps.setDate(1, Date.valueOf(start));
+                ps.setDate(2, Date.valueOf(end));
             }
 
-            ResultSet rs = ps.executeQuery();
-            ResultSetMetaData metaData = rs.getMetaData();
-            int columnCount = metaData.getColumnCount();
-
-            while (rs.next()) {
-                Map<String, Object> row = new HashMap<>();
-                for (int i = 1; i <= columnCount; i++) {
-                    // Имя колонки -> Значение
-                    row.put(metaData.getColumnLabel(i), rs.getObject(i));
+            try (ResultSet rs = ps.executeQuery()) {
+                ResultSetMetaData metaData = rs.getMetaData();
+                int columnCount = metaData.getColumnCount();
+                while (rs.next()) {
+                    Map<String, Object> row = new LinkedHashMap<>();
+                    for (int i = 1; i <= columnCount; i++) {
+                        row.put(metaData.getColumnLabel(i), rs.getObject(i));
+                    }
+                    reportData.add(row);
                 }
-                reportData.add(row);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Не удалось сформировать отчет {}", reportType, e);
+            throw new RuntimeException(e.getMessage(), e);
         }
         return reportData;
     }
 
-    /**
-     * Возвращает SQL-запрос в зависимости от выбранного типа отчета.
-     */
-    private String getSqlByReportType(String type) {
-        switch (type) {
-            case "Читательская активность":
-                return "SELECT r.last_name || ' ' || r.first_name as \"Читатель\", " +
-                        "COUNT(l.lending_id) as \"Книг взято\" " +
-                        "FROM readers r JOIN lendings l ON r.ticket_number = l.ticket_number " +
-                        "WHERE l.lend_date BETWEEN ? AND ? GROUP BY r.ticket_number ORDER BY 2 DESC";
-
-            case "Список должников":
-                return "SELECT r.last_name || ' ' || r.first_name as \"Читатель\", r.phone as \"Телефон\", " +
-                        "b.title as \"Книга\", l.due_date as \"Срок был до\" " +
-                        "FROM readers r JOIN lendings l ON r.ticket_number = l.ticket_number " +
-                        "JOIN copies c ON l.inventory_number = c.inventory_number " +
-                        "JOIN books b ON c.isbn = b.isbn " +
-                        "WHERE l.return_date IS NULL AND l.due_date < CURRENT_DATE";
-
-            case "Топ-20 популярных книг":
-                return "SELECT b.title as \"Название\", COUNT(l.lending_id) as \"Раз выдана\" " +
-                        "FROM books b JOIN copies c ON b.isbn = c.isbn " +
-                        "JOIN lendings l ON c.inventory_number = l.inventory_number " +
-                        "WHERE l.lend_date BETWEEN ? AND ? GROUP BY b.isbn ORDER BY 2 DESC LIMIT 20";
-
-            case "Неоплаченные штрафы":
-                return "SELECT r.last_name as \"Читатель\", f.amount as \"Сумма\", fa.name as \"Причина\" " +
-                        "FROM fines f JOIN fine_articles fa ON f.article_id = fa.article_id " +
-                        "JOIN lendings l ON f.lending_id = l.lending_id " +
-                        "JOIN readers r ON l.ticket_number = r.ticket_number " +
-                        "WHERE f.is_paid = false";
-
-            case "Текущее состояние фонда":
-                return "SELECT b.title as \"Книга\", " +
-                        "(SELECT count(*) FROM copies WHERE isbn = b.isbn) as \"Всего\", " +
-                        "(SELECT count(*) FROM copies c2 WHERE c2.isbn = b.isbn AND c2.inventory_number NOT IN " +
-                        "(SELECT inventory_number FROM lendings WHERE return_date IS NULL)) as \"В наличии\" " +
-                        "FROM books b";
-
-            default:
-                return "SELECT 'Выберите корректный тип отчета' as Error";
-        }
+    private ReportQuery reportQuery(String reportType) {
+        return switch (reportType) {
+            case "reader_activity" -> new ReportQuery(SqlProvider.get("report.reader_activity"), true);
+            case "debtors" -> new ReportQuery(SqlProvider.get("report.debtors"), false);
+            case "popular_books" -> new ReportQuery(SqlProvider.get("report.popular_books"), true);
+            case "unpaid_fines" -> new ReportQuery(SqlProvider.get("report.unpaid_fines"), true);
+            case "fund_state" -> new ReportQuery(SqlProvider.get("report.fund_state"), false);
+            case "write_offs" -> new ReportQuery(SqlProvider.get("report.write_offs"), true);
+            case "deliveries" -> new ReportQuery(SqlProvider.get("report.deliveries"), true);
+            default -> throw new IllegalArgumentException("Unknown report type: " + reportType);
+        };
     }
 
     @Override
-    public void exportToExcel(List<Map<String, Object>> data, String path) {
-        // Логика экспорта (например, через библиотеку Apache POI)
-        System.out.println("Экспорт в Excel по пути: " + path);
-        // Здесь будет код создания файла .xlsx
+    public void exportToExcel(List<Map<String, Object>> data, String filePath) {
+        exportCsv(data, filePath);
     }
 
     @Override
     public void exportToPdf(List<Map<String, Object>> data, String path) {
-        // Логика экспорта (например, через iText)
-        System.out.println("Экспорт в PDF по пути: " + path);
+        exportCsv(data, path);
+    }
+
+    private void exportCsv(List<Map<String, Object>> data, String filePath) {
+        if (data == null || data.isEmpty()) {
+            return;
+        }
+        List<String> lines = new ArrayList<>();
+        List<String> headers = new ArrayList<>(data.get(0).keySet());
+        lines.add(toCsvLine(headers));
+        for (Map<String, Object> row : data) {
+            lines.add(toCsvLine(headers.stream()
+                    .map(header -> row.get(header) == null ? "" : row.get(header).toString())
+                    .toList()));
+        }
+        try {
+            Files.write(Path.of(filePath), lines);
+        } catch (IOException e) {
+            log.error("Не удалось экспортировать отчет {}", filePath, e);
+            throw new RuntimeException(e.getMessage(), e);
+        }
+    }
+
+    private String toCsvLine(List<String> values) {
+        return values.stream()
+                .map(value -> "\"" + value.replace("\"", "\"\"") + "\"")
+                .reduce((left, right) -> left + ";" + right)
+                .orElse("");
+    }
+
+    private record ReportQuery(String sql, boolean withPeriod) {
     }
 }

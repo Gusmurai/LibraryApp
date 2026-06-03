@@ -15,18 +15,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="700.0" prefWidth="1100.0" spacing="15.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="700.0" prefWidth="1100.0" spacing="15.0"
+      xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fx/1"
+      fx:controller="ru.library.libraryapp.controllers.BookSelectController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
         <HBox alignment="CENTER_LEFT" spacing="15.0">
             <children>
-                <Label text="Поиск книги:">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-                <TextField fx:id="searchBookSelect" promptText="Введите название, автора, жанр или ISBN..." HBox.hgrow="ALWAYS" />
+                <Label text="%label.bookSearch"><font><Font size="14.0" /></font></Label>
+                <TextField fx:id="searchBookSelect" promptText="%prompt.searchBookSelect" HBox.hgrow="ALWAYS" />
             </children>
         </HBox>
 
@@ -37,17 +37,13 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
                     <children>
-                        <Label text="Выберите издание" textFill="#2c3e50">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                        </Label>
+                        <Label text="%label.selectEdition" textFill="#2c3e50"><font><Font name="System Bold" size="14.0" /></font></Label>
                         <TableView fx:id="bookSelectionTable" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="colSelIsbn" prefWidth="110.0" text="ISBN" />
-                                <TableColumn fx:id="colSelTitle" prefWidth="150.0" text="Название" />
-                                <TableColumn fx:id="colSelAuthor" prefWidth="130.0" text="Автор" />
-                                <TableColumn fx:id="colSelTotal" prefWidth="80.0" text="В фонде" />
+                                <TableColumn fx:id="colSelTitle" prefWidth="150.0" text="%column.title" />
+                                <TableColumn fx:id="colSelAuthor" prefWidth="130.0" text="%column.authors" />
+                                <TableColumn fx:id="colSelTotal" prefWidth="80.0" text="%column.total" />
                             </columns>
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -61,37 +57,26 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
                     <children>
-                        <Label text="Доступные экземпляры" textFill="#2c3e50">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                        </Label>
+                        <Label fx:id="labelAvailableCopies" text="%label.availableCopies" textFill="#2c3e50"><font><Font name="System Bold" size="14.0" /></font></Label>
 
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <HBox fx:id="invSearchBox" alignment="CENTER_LEFT" spacing="10.0">
                             <children>
-                                <Label text="Поиск по ИНВ №:">
-                           <font>
-                              <Font size="14.0" />
-                           </font></Label>
+                                <Label text="%label.invSearch"><font><Font size="14.0" /></font></Label>
                                 <TextField fx:id="searchInvInSelect" prefWidth="150.0" />
                             </children>
                         </HBox>
 
                         <TableView fx:id="copySelectionTable" minHeight="150.0" prefHeight="200.0" VBox.vgrow="SOMETIMES">
                             <columns>
-                                <TableColumn fx:id="colSelInv" prefWidth="120.0" text="Инв. номер" />
-                                <TableColumn fx:id="colSelPrice" prefWidth="120.0" text="Стоимость" />
+                                <TableColumn fx:id="colSelInv" prefWidth="120.0" text="%column.inv" />
+                                <TableColumn fx:id="colSelPrice" prefWidth="120.0" text="%column.price" />
                             </columns>
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                             </columnResizePolicy>
                         </TableView>
 
-                        <Label text="Детальная информация об издании:">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                        </Label>
+                        <Label text="%label.bookDetailedInfo"><font><Font name="System Bold" size="14.0" /></font></Label>
 
                         <HBox spacing="20.0" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-background-color: #ffffff; -fx-background-radius: 5; -fx-border-radius: 5;" VBox.vgrow="ALWAYS">
                             <padding>
@@ -111,33 +96,33 @@
                                         <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
                                     </columnConstraints>
                                     <children>
-                                        <Label text="Название:" textFill="#7f8c8d" />
+                                        <Label text="%column.title" textFill="#7f8c8d" />
                                         <Label fx:id="lblSelTitle" text="-" wrapText="true" GridPane.columnIndex="1">
                                             <font><Font name="System Bold" size="13.0" /></font>
                                         </Label>
 
-                                        <Label text="Автор(ы):" textFill="#7f8c8d" GridPane.rowIndex="1" />
+                                        <Label text="%column.authors" textFill="#7f8c8d" GridPane.rowIndex="1" />
                                         <Label fx:id="lblSelAuthors" text="-" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                                        <Label text="Издательство:" textFill="#7f8c8d" GridPane.rowIndex="2" />
+                                        <Label text="%label.publisher" textFill="#7f8c8d" GridPane.rowIndex="2" />
                                         <Label fx:id="lblSelPublisher" text="-" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                                        <Label text="Год издания:" textFill="#7f8c8d" GridPane.rowIndex="3" />
+                                        <Label text="%label.publicationYear" textFill="#7f8c8d" GridPane.rowIndex="3" />
                                         <Label fx:id="lblSelYear" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                                        <Label text="Кол-во страниц:" textFill="#7f8c8d" GridPane.rowIndex="4" />
+                                        <Label text="%label.pageCountPlain" textFill="#7f8c8d" GridPane.rowIndex="4" />
                                         <Label fx:id="lblSelPages" text="-" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-                                        <Label text="Жанр(ы):" textFill="#7f8c8d" GridPane.rowIndex="5" />
+                                        <Label text="%column.genres" textFill="#7f8c8d" GridPane.rowIndex="5" />
                                         <Label fx:id="lblSelGenres" text="-" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
                                         <Label text="ISBN:" textFill="#7f8c8d" GridPane.rowIndex="6" />
                                         <Label fx:id="lblSelIsbn" text="-" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-                                        <Label text="ББК:" textFill="#7f8c8d" GridPane.rowIndex="7" />
+                                        <Label text="%label.bbkPlain" textFill="#7f8c8d" GridPane.rowIndex="7" />
                                         <Label fx:id="lblSelBbk" text="-" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-                                        <Label text="Автор. знак:" textFill="#7f8c8d" GridPane.rowIndex="8" />
+                                        <Label text="%label.authorMarkPlain" textFill="#7f8c8d" GridPane.rowIndex="8" />
                                         <Label fx:id="lblSelAuthorMark" text="-" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                                     </children>
                                     <rowConstraints>
@@ -155,7 +140,7 @@
                             </children>
                         </HBox>
 
-                        <Button fx:id="btnFinalSelect" maxWidth="1.7976931348623157E308" prefHeight="45.0" style="-fx-font-weight: bold; -fx-font-size: 12; -fx-cursor: hand;" text="ВЫБРАТЬ ДАННЫЙ ЭКЗЕМПЛЯР" />
+                        <Button fx:id="btnFinalSelect" maxWidth="1.7976931348623157E308" onAction="#onSelectAction" prefHeight="45.0" style="-fx-font-weight: bold; -fx-font-size: 12; -fx-cursor: hand;" text="%button.selectThisCopy" />
                     </children>
                 </VBox>
             </items>
@@ -163,7 +148,7 @@
 
         <HBox alignment="CENTER_RIGHT" spacing="10.0">
             <children>
-                <Button minWidth="100.0" prefHeight="30.0" text="Отмена" />
+                <Button minWidth="100.0" prefHeight="30.0" text="%button.cancel" onAction="#onCancelClick" />
             </children>
         </HBox>
     </children>

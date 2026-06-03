@@ -1,7 +1,9 @@
 package ru.library.libraryapp.dao.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.dao.BookDao;
+import ru.library.libraryapp.dao.SqlProvider;
 import ru.library.libraryapp.domains.Author;
 import ru.library.libraryapp.domains.Book;
 import ru.library.libraryapp.domains.Genre;
@@ -11,221 +13,302 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 public class BookDaoImpl implements BookDao {
 
     @Override
     public void add(Book book) {
-        String sql = "INSERT INTO books (isbn, title, publication_year, page_count, bbk, author_mark, publisher_id, cover_image) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, book.getIsbn());
-            ps.setString(2, book.getTitle());
-            ps.setObject(3, book.getPublicationYear()); // setObject для поддержки null
-            ps.setInt(4, book.getPageCount());
-            ps.setString(5, book.getBbk());
-            ps.setString(6, book.getAuthorMark());
-            ps.setObject(7, book.getPublisherId());
-            ps.setBytes(8, book.getCoverImage());
+             PreparedStatement ps = conn.prepareStatement(SqlProvider.get("book.add"))) {
+            fillBookStatement(ps, book);
             ps.executeUpdate();
-        } catch (SQLException e) { e.printStackTrace(); }
+            log.info("Книга {} добавлена.", book.getIsbn());
+        } catch (SQLException e) {
+            log.error("Не удалось добавить книгу {}.", book.getIsbn(), e);
+            throw new RuntimeException(e.getMessage(), e);
+        }
     }
 
     @Override
     public void update(Book book) {
-        String sql = "UPDATE books SET title = ?, publication_year = ?, page_count = ?, bbk = ?, " +
-                "author_mark = ?, publisher_id = ?, cover_image = ? WHERE isbn = ?";
         try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(SqlProvider.get("book.update"))) {
             ps.setString(1, book.getTitle());
             ps.setObject(2, book.getPublicationYear());
-            ps.setInt(3, book.getPageCount());
+            ps.setObject(3, book.getPageCount());
             ps.setString(4, book.getBbk());
             ps.setString(5, book.getAuthorMark());
             ps.setObject(6, book.getPublisherId());
             ps.setBytes(7, book.getCoverImage());
             ps.setString(8, book.getIsbn());
             ps.executeUpdate();
-        } catch (SQLException e) { e.printStackTrace(); }
+            log.info("Книга {} обновлена.", book.getIsbn());
+        } catch (SQLException e) {
+            log.error("Не удалось обновить книгу {}.", book.getIsbn(), e);
+            throw new RuntimeException(e.getMessage(), e);
+        }
     }
 
     @Override
     public Optional<Book> findByIsbn(String isbn) {
-        String sql = "SELECT * FROM books WHERE isbn = ?";
         try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(SqlProvider.get("book.findByIsbn"))) {
             ps.setString(1, isbn);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) return Optional.of(mapBook(rs));
-        } catch (SQLException e) { e.printStackTrace(); }
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next() ? Optional.of(mapBook(rs)) : Optional.empty();
+            }
+        } catch (SQLException e) {
+            log.error("Не удалось найти книгу по ISBN {}.", isbn, e);
+        }
         return Optional.empty();
     }
 
     @Override
     public List<Book> findAll() {
         List<Book> list = new ArrayList<>();
-        // Берем данные из представления!
-        String sql = "SELECT * FROM view_book_catalog WHERE is_active = true";
         try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
-             ResultSet rs = st.executeQuery(sql)) {
+             ResultSet rs = st.executeQuery(SqlProvider.get("book.findAll"))) {
             while (rs.next()) {
-                Book b = new Book();
-                b.setIsbn(rs.getString("isbn"));
-                b.setTitle(rs.getString("title"));
-                // Мы можем добавить в класс Book поля authorsList и genresList (String),
-                // чтобы просто выводить то, что прислал View
-                list.add(b);
+                list.add(mapBook(rs));
             }
-        } catch (SQLException e) { e.printStackTrace(); }
+        } catch (SQLException e) {
+            log.error("Не удалось загрузить книги.", e);
+        }
         return list;
     }
 
     @Override
     public List<Book> searchBooks(String query) {
         List<Book> list = new ArrayList<>();
-        // Сложный поиск: по ISBN, Названию или Фамилии автора через JOIN
-        String sql = "SELECT DISTINCT b.* FROM books b " +
-                "LEFT JOIN book_authors ba ON b.isbn = ba.isbn " +
-                "LEFT JOIN authors a ON ba.author_id = a.author_id " +
-                "WHERE b.isbn ILIKE ? OR b.title ILIKE ? OR a.last_name ILIKE ?";
         try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-            String q = "%" + query + "%";
-            ps.setString(1, q); ps.setString(2, q); ps.setString(3, q);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) list.add(mapBook(rs));
-        } catch (SQLException e) { e.printStackTrace(); }
+             PreparedStatement ps = conn.prepareStatement(SqlProvider.get("book.search"))) {
+            String like = "%" + query + "%";
+            ps.setString(1, like);
+            ps.setString(2, like);
+            ps.setString(3, like);
+            ps.setString(4, like);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    list.add(mapBook(rs));
+                }
+            }
+        } catch (SQLException e) {
+            log.error("Не удалось выполнить поиск книг по запросу {}.", query, e);
+        }
         return list;
     }
 
     @Override
     public void changeStatus(String isbn, boolean isActive) {
-        String sql = "CALL sp_change_book_status(?)";
         try (Connection conn = DBHelper.getConnection();
-             CallableStatement cs = conn.prepareCall(sql)) {
+             CallableStatement cs = conn.prepareCall(SqlProvider.get("book.changeStatus"))) {
             cs.setString(1, isbn);
             cs.execute();
+            log.info("Статус книги {} изменен.", isbn);
         } catch (SQLException e) {
-            throw new RuntimeException(e.getMessage());
+            log.error("Не удалось изменить статус книги {}.", isbn, e);
+            throw new RuntimeException(e.getMessage(), e);
         }
     }
 
     @Override
     public int getAvailableCount(String isbn) {
-        // Считаем те экземпляры, которые НЕ выданы (нет записи в lendings с пустым return_date)
-        String sql = "SELECT count(*) FROM copies c " +
-                "WHERE c.isbn = ? AND c.inventory_number NOT IN " +
-                "(SELECT inventory_number FROM lendings WHERE return_date IS NULL)";
-        try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, isbn);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) return rs.getInt(1);
-        } catch (SQLException e) { e.printStackTrace(); }
-        return 0;
+        return getCount("book.availableCount", isbn);
     }
 
     @Override
     public int getTotalCount(String isbn) {
-        String sql = "SELECT count(*) FROM copies WHERE isbn = ?";
-        try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, isbn);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) return rs.getInt(1);
-        } catch (SQLException e) { e.printStackTrace(); }
-        return 0;
+        return getCount("book.totalCount", isbn);
     }
 
     @Override
     public List<Author> getAuthorsByIsbn(String isbn) {
         List<Author> authors = new ArrayList<>();
-        String sql = "SELECT a.* FROM authors a JOIN book_authors ba ON a.author_id = ba.author_id WHERE ba.isbn = ?";
         try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(SqlProvider.get("book.authorsByIsbn"))) {
             ps.setString(1, isbn);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Author a = new Author();
-                a.setAuthorId(rs.getInt("author_id"));
-                a.setLastName(rs.getString("last_name"));
-                a.setFirstName(rs.getString("first_name"));
-                authors.add(a);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Author author = new Author();
+                    author.setAuthorId(rs.getInt("author_id"));
+                    author.setLastName(rs.getString("last_name"));
+                    author.setFirstName(rs.getString("first_name"));
+                    setStringIfPresent(rs, "patronymic", author::setPatronymic);
+                    authors.add(author);
+                }
             }
-        } catch (SQLException e) { e.printStackTrace(); }
+        } catch (SQLException e) {
+            log.error("Не удалось загрузить авторов для ISBN {}.", isbn, e);
+        }
         return authors;
     }
 
     @Override
     public List<Genre> getGenresByIsbn(String isbn) {
         List<Genre> genres = new ArrayList<>();
-        String sql = "SELECT g.* FROM genres g JOIN book_genres bg ON g.genre_id = bg.genre_id WHERE bg.isbn = ?";
         try (Connection conn = DBHelper.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(SqlProvider.get("book.genresByIsbn"))) {
             ps.setString(1, isbn);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Genre g = new Genre();
-                g.setGenreId(rs.getInt("genre_id"));
-                g.setName(rs.getString("name"));
-                genres.add(g);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Genre genre = new Genre();
+                    genre.setGenreId(rs.getInt("genre_id"));
+                    genre.setName(rs.getString("name"));
+                    genres.add(genre);
+                }
             }
-        } catch (SQLException e) { e.printStackTrace(); }
+        } catch (SQLException e) {
+            log.error("Не удалось загрузить жанры для ISBN {}.", isbn, e);
+        }
         return genres;
     }
 
     @Override
     public void updateAuthors(String isbn, List<Integer> authorIds) {
-        try (Connection conn = DBHelper.getConnection()) {
-            conn.setAutoCommit(false); // Начинаем транзакцию
-            try (PreparedStatement psDel = conn.prepareStatement("DELETE FROM book_authors WHERE isbn = ?")) {
-                psDel.setString(1, isbn);
-                psDel.executeUpdate();
-            }
-            try (PreparedStatement psIns = conn.prepareStatement("INSERT INTO book_authors (isbn, author_id) VALUES (?, ?)")) {
-                for (Integer id : authorIds) {
-                    psIns.setString(1, isbn);
-                    psIns.setInt(2, id);
-                    psIns.addBatch();
-                }
-                psIns.executeBatch();
-            }
-            conn.commit(); // Завершаем транзакцию
-        } catch (SQLException e) { e.printStackTrace(); }
+        updateManyToMany(isbn, authorIds, "book.deleteAuthors", "book.insertAuthor");
     }
 
     @Override
     public void updateGenres(String isbn, List<Integer> genreIds) {
-        try (Connection conn = DBHelper.getConnection()) {
-            conn.setAutoCommit(false);
-            try (PreparedStatement psDel = conn.prepareStatement("DELETE FROM book_genres WHERE isbn = ?")) {
-                psDel.setString(1, isbn);
-                psDel.executeUpdate();
+        updateManyToMany(isbn, genreIds, "book.deleteGenres", "book.insertGenre");
+    }
+
+    private void fillBookStatement(PreparedStatement ps, Book book) throws SQLException {
+        ps.setString(1, book.getIsbn());
+        ps.setString(2, book.getTitle());
+        ps.setObject(3, book.getPublicationYear());
+        ps.setObject(4, book.getPageCount());
+        ps.setString(5, book.getBbk());
+        ps.setString(6, book.getAuthorMark());
+        ps.setObject(7, book.getPublisherId());
+        ps.setBytes(8, book.getCoverImage());
+    }
+
+    private int getCount(String sqlKey, String isbn) {
+        try (Connection conn = DBHelper.getConnection();
+             PreparedStatement ps = conn.prepareStatement(SqlProvider.get(sqlKey))) {
+            ps.setString(1, isbn);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next() ? rs.getInt(1) : 0;
             }
-            try (PreparedStatement psIns = conn.prepareStatement("INSERT INTO book_genres (isbn, genre_id) VALUES (?, ?)")) {
-                for (Integer id : genreIds) {
-                    psIns.setString(1, isbn);
-                    psIns.setInt(2, id);
-                    psIns.addBatch();
+        } catch (SQLException e) {
+            log.error("Не удалось загрузить количество книг по ключу {} для ISBN {}.", sqlKey, isbn, e);
+        }
+        return 0;
+    }
+
+    private void updateManyToMany(String isbn, List<Integer> ids, String deleteKey, String insertKey) {
+        Connection conn = null;
+        try {
+            conn = DBHelper.getConnection();
+            conn.setAutoCommit(false);
+            try (PreparedStatement ps = conn.prepareStatement(SqlProvider.get(deleteKey))) {
+                ps.setString(1, isbn);
+                ps.executeUpdate();
+            }
+            try (PreparedStatement ps = conn.prepareStatement(SqlProvider.get(insertKey))) {
+                for (Integer id : ids) {
+                    ps.setString(1, isbn);
+                    ps.setInt(2, id);
+                    ps.addBatch();
                 }
-                psIns.executeBatch();
+                ps.executeBatch();
             }
             conn.commit();
-        } catch (SQLException e) { e.printStackTrace(); }
+        } catch (SQLException e) {
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException rollbackError) {
+                    log.warn("Не удалось выполнить откат транзакции.", rollbackError);
+                }
+            }
+            log.error("Не удалось обновить связи книги для ISBN {}.", isbn, e);
+            throw new RuntimeException(e.getMessage(), e);
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    log.warn("Не удалось закрыть соединение с БД.", e);
+                }
+            }
+        }
     }
 
     private Book mapBook(ResultSet rs) throws SQLException {
-        Book b = new Book();
-        b.setIsbn(rs.getString("isbn"));
-        b.setTitle(rs.getString("title"));
-        b.setPublicationYear(rs.getInt("publication_year"));
-        b.setPageCount(rs.getInt("page_count"));
-        b.setBbk(rs.getString("bbk"));
-        b.setAuthorMark(rs.getString("author_mark"));
-        b.setPublisherId(rs.getInt("publisher_id"));
-        b.setCoverImage(rs.getBytes("cover_image"));
-        b.setActive(rs.getBoolean("is_active"));
-        return b;
+        Book book = new Book();
+        book.setIsbn(rs.getString("isbn"));
+        book.setTitle(rs.getString("title"));
+        setIntegerIfPresent(rs, "publication_year", book::setPublicationYear);
+        setStringIfPresent(rs, "publisher_name", book::setPublisherName);
+        setStringIfPresent(rs, "authors", book::setAuthors);
+        setStringIfPresent(rs, "genres", book::setGenres);
+        setBooleanIfPresent(rs, "is_active", book::setActive);
+        setIntegerIfPresent(rs, "page_count", book::setPageCount);
+        setIntegerIfPresent(rs, "total_copies", book::setTotalCopies);
+        setIntegerIfPresent(rs, "available_copies", book::setAvailableCopies);
+        setStringIfPresent(rs, "bbk", book::setBbk);
+        setStringIfPresent(rs, "author_mark", book::setAuthorMark);
+        setIntegerIfPresent(rs, "publisher_id", book::setPublisherId);
+        setBytesIfPresent(rs, "cover_image", book::setCoverImage);
+        return book;
+    }
+
+    private interface IntegerSetter {
+        void set(Integer value);
+    }
+
+    private interface StringSetter {
+        void set(String value);
+    }
+
+    private interface BooleanSetter {
+        void set(Boolean value);
+    }
+
+    private interface BytesSetter {
+        void set(byte[] value);
+    }
+
+    private void setIntegerIfPresent(ResultSet rs, String column, IntegerSetter setter) throws SQLException {
+        if (hasColumn(rs, column)) {
+            int value = rs.getInt(column);
+            if (!rs.wasNull()) {
+                setter.set(value);
+            }
+        }
+    }
+
+    private void setStringIfPresent(ResultSet rs, String column, StringSetter setter) throws SQLException {
+        if (hasColumn(rs, column)) {
+            setter.set(rs.getString(column));
+        }
+    }
+
+    private void setBooleanIfPresent(ResultSet rs, String column, BooleanSetter setter) throws SQLException {
+        if (hasColumn(rs, column)) {
+            boolean value = rs.getBoolean(column);
+            if (!rs.wasNull()) {
+                setter.set(value);
+            }
+        }
+    }
+
+    private void setBytesIfPresent(ResultSet rs, String column, BytesSetter setter) throws SQLException {
+        if (hasColumn(rs, column)) {
+            setter.set(rs.getBytes(column));
+        }
+    }
+
+    private boolean hasColumn(ResultSet rs, String column) throws SQLException {
+        ResultSetMetaData metaData = rs.getMetaData();
+        for (int i = 1; i <= metaData.getColumnCount(); i++) {
+            if (column.equalsIgnoreCase(metaData.getColumnLabel(i))) {
+                return true;
+            }
+        }
+        return false;
     }
 }

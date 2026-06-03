@@ -16,7 +16,13 @@ public class Reader {
     private LocalDate registrationDate;
     private byte[] photo;
     private Boolean isActive;
-
+    public String getFullName() {
+        String result = lastName + " " + firstName;
+        if (patronymic != null && !patronymic.isEmpty()) {
+            result += " " + patronymic;
+        }
+        return result;
+    }
     public Integer getTicketNumber() {
         return ticketNumber;
     }

@@ -33,6 +33,7 @@ public interface FineDao {
      * @param fineId идентификатор записи
      * @param newAmount новая сумма взыскания
      */
+
     void updateAmount(Integer fineId, double newAmount);
 
     /**
@@ -41,4 +42,16 @@ public interface FineDao {
      * @param mode 1 - Читатель нашел книгу (восстановление), 2 - Читатель принес замену
      */
     void annulFine(Integer fineId, int mode);
+    /**
+     * Создает новый штраф через хранимую процедуру sp_create_fine.
+     */
+    void createFine(Integer lendingId, Integer articleId, double amount, String comment, boolean isPaid);
+    /**
+     * Рассчитывает сумму штрафа через функцию БД
+     * @param lendingId ID выдачи
+     * @param articleId ID статьи штрафа
+     * @param daysOverdue Количество дней просрочки (0 или null если не просрочка)
+     * @return рассчитанная сумма штрафа
+     */
+    double calculateFineAmount(Integer lendingId, Integer articleId, Integer daysOverdue);
 }

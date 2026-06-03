@@ -12,6 +12,36 @@ public class Lending {
     private LocalDate returnDate;
     private Integer renewalsCount;
 
+
+    private String bookTitle;
+    private String readerFullName;
+    private String readerPhone;
+    private String librarianName;
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+    public String getReaderFullName() {
+        return readerFullName;
+    }
+    public void setReaderFullName(String readerFullName) {
+        this.readerFullName = readerFullName;
+    }
+    public String getReaderPhone() {
+        return readerPhone;
+    }
+    public void setReaderPhone(String readerPhone) {
+        this.readerPhone = readerPhone;
+    }
+    public String getLibrarianName() {
+        return librarianName;
+    }
+    public void setLibrarianName(String librarianName) {
+        this.librarianName = librarianName;
+    }
     public void setLendingId(Integer lendingId) {
         this.lendingId = lendingId;
     }

@@ -22,23 +22,18 @@ public class ReaderDaoImpl implements ReaderDao {
 
     public ReaderDaoImpl() {
         try (InputStream is = getClass().getResourceAsStream("/ru/library/libraryapp/statements.properties")) {
-            if (is == null) {
-                throw new RuntimeException("Файл statements.properties не найден!");
-            }
+            if (is == null) throw new RuntimeException("Файл statements.properties не найден!");
             sqlProps.load(new InputStreamReader(is, StandardCharsets.UTF_8));
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Ошибка загрузки SQL-запросов: " + e.getMessage());
+            log.error("Ошибка загрузки SQL для DAO читателей.", e);
         }
     }
 
     @Override
     public void add(Reader reader) {
         String sql = sqlProps.getProperty("reader.add");
-        log.debug("Выполнение SQL: {}", sql);
         try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-
             ps.setString(1, reader.getLastName());
             ps.setString(2, reader.getFirstName());
             ps.setString(3, reader.getPatronymic());
@@ -48,11 +43,10 @@ public class ReaderDaoImpl implements ReaderDao {
             ps.setString(7, reader.getAddress());
             ps.setString(8, reader.getPhone());
             ps.setBytes(9, reader.getPhoto());
-
             ps.executeUpdate();
-            log.info("Запись о читателе {} добавлена в таблицу.", reader.getLastName());
+            log.info("Добавлен читатель: {}", reader.getLastName());
         } catch (SQLException e) {
-            log.error("Ошибка исполнения SQL запроса 'reader.add': {}", e.getMessage());
+            log.error("Ошибка SQL при добавлении читателя: {}", e.getMessage());
             throw new RuntimeException(e.getMessage());
         }
     }
@@ -60,10 +54,8 @@ public class ReaderDaoImpl implements ReaderDao {
     @Override
     public void update(Reader reader) {
         String sql = sqlProps.getProperty("reader.update");
-        log.debug("Выполнение SQL: {}", sql);
         try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-
             ps.setString(1, reader.getLastName());
             ps.setString(2, reader.getFirstName());
             ps.setString(3, reader.getPatronymic());
@@ -74,11 +66,10 @@ public class ReaderDaoImpl implements ReaderDao {
             ps.setString(8, reader.getPhone());
             ps.setBytes(9, reader.getPhoto());
             ps.setInt(10, reader.getTicketNumber());
-
             ps.executeUpdate();
-            log.info("Данные читателя №{} ({}) успешно обновлены.", reader.getTicketNumber(), reader.getLastName());
+            log.info("Обновлен читатель №{}", reader.getTicketNumber());
         } catch (SQLException e) {
-            log.error("Ошибка исполнения SQL запроса 'reader.update' для билета №{}: {}", reader.getTicketNumber(), e.getMessage());
+            log.error("Ошибка SQL при обновлении читателя: {}", e.getMessage());
             throw new RuntimeException(e.getMessage());
         }
     }
@@ -86,21 +77,12 @@ public class ReaderDaoImpl implements ReaderDao {
     @Override
     public Optional<Reader> findByTicketNumber(Integer ticketNumber) {
         String sql = sqlProps.getProperty("reader.findByTicketNumber");
-        log.debug("Выполнение SQL: {}", sql);
         try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-
             ps.setInt(1, ticketNumber);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                log.debug("Читатель с номером билета {} найден.", ticketNumber);
-                return Optional.of(mapResultSetToReader(rs));
-            }
-        } catch (SQLException e) {
-            log.error("Ошибка при поиске читателя по номеру билета {}: {}", ticketNumber, e.getMessage());
-            throw new RuntimeException(e.getMessage());
-        }
-        log.debug("Читатель с номером билета {} не найден.", ticketNumber);
+            if (rs.next()) return Optional.of(mapResultSetToReader(rs));
+        } catch (SQLException e) { log.error("Ошибка SQL при поиске читателя по номеру билета: {}", e.getMessage()); }
         return Optional.empty();
     }
 
@@ -108,19 +90,11 @@ public class ReaderDaoImpl implements ReaderDao {
     public List<Reader> findAll() {
         List<Reader> list = new ArrayList<>();
         String sql = sqlProps.getProperty("reader.findAll");
-        log.debug("Выполнение SQL: {}", sql);
         try (Connection conn = DBHelper.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
-
-            while (rs.next()) {
-                list.add(mapResultSetToReader(rs));
-            }
-            log.debug("Загружен список всех читателей. Количество записей: {}", list.size());
-        } catch (SQLException e) {
-            log.error("Ошибка при получении списка всех читателей: {}", e.getMessage());
-            throw new RuntimeException(e.getMessage());
-        }
+            while (rs.next()) list.add(mapResultSetToReader(rs));
+        } catch (SQLException e) { log.error("Ошибка SQL при загрузке списка читателей: {}", e.getMessage()); }
         return list;
     }
 
@@ -128,22 +102,26 @@ public class ReaderDaoImpl implements ReaderDao {
     public List<Reader> searchReaders(String searchQuery) {
         List<Reader> results = new ArrayList<>();
         String sql = sqlProps.getProperty("reader.search");
-        log.debug("Выполнение поиска (SQL: {}) по запросу: '{}'", sql, searchQuery);
+
         try (Connection conn = DBHelper.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            String wrapQuery = "%" + searchQuery + "%";
-            ps.setString(1, searchQuery);  // Для поиска по ID
-            ps.setString(2, wrapQuery);    // Для поиска по ФИО
-            ps.setString(3, wrapQuery);    // Для поиска по телефону
+            // 1. Первый параметр - для поиска по номеру билета (точное совпадение строки)
+            ps.setString(1, searchQuery.trim());
+
+            // 2. Второй параметр - для поиска по ФИО (ищем вхождение подстроки)
+            // Мы добавляем %, чтобы находило, даже если ввели только "Иванов Иван" без отчества
+            ps.setString(2, "%" + searchQuery.trim() + "%");
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 results.add(mapResultSetToReader(rs));
             }
-            log.debug("Поиск завершен. Найдено {} читателей по запросу '{}'", results.size(), searchQuery);
+
+            log.debug("Поиск по ФИО/Билету завершен. Найдено: {}", results.size());
+
         } catch (SQLException e) {
-            log.error("Ошибка при выполнении поиска читателей: {}", e.getMessage());
+            log.error("Ошибка поиска читателей: {}", e.getMessage());
             throw new RuntimeException(e.getMessage());
         }
         return results;
@@ -152,14 +130,13 @@ public class ReaderDaoImpl implements ReaderDao {
     @Override
     public void changeStatus(Integer ticketNumber, boolean isActive) {
         String sql = sqlProps.getProperty("reader.changeStatus");
-        log.debug("Вызов процедуры: {} с параметром ID: {}", sql, ticketNumber);
         try (Connection conn = DBHelper.getConnection();
              CallableStatement cs = conn.prepareCall(sql)) {
             cs.setInt(1, ticketNumber);
             cs.execute();
-            log.info("Процедура смены статуса для билета №{} выполнена.", ticketNumber);
+            log.info("Статус билета №{} изменен через процедуру", ticketNumber);
         } catch (SQLException e) {
-            log.error("Ошибка при вызове процедуры changeStatus: {}", e.getMessage());
+            log.error("Ошибка SQL при изменении статуса читателя: {}", e.getMessage());
             throw new RuntimeException(e.getMessage());
         }
     }
@@ -170,21 +147,16 @@ public class ReaderDaoImpl implements ReaderDao {
         r.setLastName(rs.getString("last_name"));
         r.setFirstName(rs.getString("first_name"));
         r.setPatronymic(rs.getString("patronymic"));
-
         Date bDate = rs.getDate("birth_date");
         if (bDate != null) r.setBirthDate(bDate.toLocalDate());
-
         r.setPassportSeries(rs.getString("passport_series"));
         r.setPassportNumber(rs.getString("passport_number"));
         r.setAddress(rs.getString("address"));
         r.setPhone(rs.getString("phone"));
-
         Date rDate = rs.getDate("registration_date");
         if (rDate != null) r.setRegistrationDate(rDate.toLocalDate());
-
         r.setPhoto(rs.getBytes("photo"));
         r.setActive(rs.getBoolean("is_active"));
-
         return r;
     }
 }

@@ -7,6 +7,15 @@ public class Copy {
     private Integer inventoryNumber;
     private String isbn;
     private BigDecimal cost;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Integer getInventoryNumber() {
         return inventoryNumber;

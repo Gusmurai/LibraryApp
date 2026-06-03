@@ -13,6 +13,8 @@ public interface LendingDao {
     /** Оформление возврата (кнопка "Возврат") */
     void returnBook(Integer lendingId, Integer librarianId);
 
+    void closeReturn(Integer lendingId);
+
     /** Продление срока (кнопка "Продлить") */
     void renewBook(Integer lendingId);
 

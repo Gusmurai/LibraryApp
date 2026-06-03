@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefWidth="350.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefWidth="360.0" spacing="16.0" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.library.libraryapp.controllers.FineAmountEditController">
     <padding>
-        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+        <Insets bottom="22.0" left="24.0" right="24.0" top="22.0" />
     </padding>
     <children>
-        <Label text="Изменение суммы штрафа">
-            <font><Font name="System Bold" size="14.0" /></font>
+        <Label text="%window.title.changeFineAmount">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
         </Label>
-        <VBox spacing="5.0">
-            <Label fx:id="lblCurrentFineAmount" text="Текущая сумма: 0.00 ₽" />
+
+        <VBox spacing="8.0">
+            <Label fx:id="lblCurrentFineAmount" />
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                 <children>
-                    <Label text="Новая сумма:" />
-                    <TextField fx:id="newAmountField" prefWidth="150.0" />
+                    <Label minWidth="100.0" text="%label.newFineAmount" />
+                    <TextField fx:id="newAmountField" prefWidth="160.0" />
                 </children>
-                <VBox.margin><Insets top="10.0" /></VBox.margin>
             </HBox>
+            <Label fx:id="lblError" style="-fx-text-fill: #b3261e;" wrapText="true" />
         </VBox>
+
         <HBox alignment="CENTER_RIGHT" spacing="10.0">
-            <Button text="Отмена" minWidth="80.0" />
-            <Button text="Сохранить" minWidth="100.0" />
+            <Button fx:id="btnCancel" minWidth="90.0" text="%button.cancel" />
+            <Button fx:id="btnSave" minWidth="105.0" text="%button.save" />
         </HBox>
     </children>
 </VBox>

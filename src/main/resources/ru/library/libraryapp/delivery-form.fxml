@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefWidth="400.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefWidth="400.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.library.libraryapp.controllers.DeliveryFormController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
-        <Label fx:id="lblDeliveryTitle" text="Поставка: Название книги">
+        <Label fx:id="lblDeliveryTitle" text="%window.title.delivery">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -21,22 +21,22 @@
                 <ColumnConstraints hgrow="ALWAYS" />
             </columnConstraints>
             <children>
-                <Label text="Поставщик:" />
+                <Label text="%label.supplier" />
                 <VBox spacing="5.0" GridPane.columnIndex="1">
-                    <ComboBox fx:id="supplierCombo" maxWidth="1.7976931348623157E308" promptText="Выберите поставщика..." />
-                    <CheckBox fx:id="noSupplierCheck" text="Без поставщика" />
+                    <ComboBox fx:id="supplierCombo" maxWidth="1.7976931348623157E308" promptText="%prompt.selectSupplier" />
+                    <CheckBox fx:id="noSupplierCheck" text="%label.noSupplier" />
                 </VBox>
 
-                <Label text="Стоимость за шт.:" GridPane.rowIndex="1" />
+                <Label text="%label.unitPrice" GridPane.rowIndex="1" />
                 <TextField fx:id="priceField" promptText="0.00" GridPane.rowIndex="1" GridPane.columnIndex="1" />
 
-                <Label text="Количество:" GridPane.rowIndex="2" />
+                <Label text="%label.quantity" GridPane.rowIndex="2" />
                 <TextField fx:id="quantityField" promptText="1" GridPane.rowIndex="2" GridPane.columnIndex="1" />
             </children>
         </GridPane>
         <HBox alignment="CENTER_RIGHT" spacing="10.0">
-            <Button text="Отмена" />
-            <Button text="Принять" />
+            <Button text="%button.cancel" onAction="#onCancel" />
+            <Button text="%button.accept" onAction="#onSave" />
         </HBox>
     </children>
 </VBox>

@@ -46,5 +46,5 @@ public interface CopyDao {
      * @param invNumberQuery часть инвентарного номера
      * @return список найденных свободных экземпляров
      */
-    List<Copy> searchAvailableByInv(String isbn, String invNumberQuery);
+    List<Copy> searchAvailable(String isbn, String invNumberQuery);
 }

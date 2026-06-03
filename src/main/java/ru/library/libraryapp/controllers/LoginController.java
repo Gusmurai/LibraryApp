@@ -7,8 +7,7 @@ import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.LibraryApplication;
 
 import java.sql.SQLException;
-
-
+import java.util.ResourceBundle;
 
 @Slf4j
 public class LoginController {
@@ -18,11 +17,18 @@ public class LoginController {
     @FXML private Label lblError;
     @FXML private Button btnLogin;
 
+    @FXML private ResourceBundle resources; // Сюда JavaFX подставит текущий язык
+
     @FXML
     public void initialize() {
-        System.setProperty("file.encoding", "UTF-8");
-        // Вход по нажатию Enter в поле пароля (удобство для пользователя)
+        // Вход по нажатию Enter в поле пароля
         passwordField.setOnAction(event -> onLoginClick());
+
+        // Скрываем ошибку, когда пользователь начинает заново вводить данные
+        loginField.textProperty().addListener((obs, old, newVal) -> lblError.setVisible(false));
+        passwordField.textProperty().addListener((obs, old, newVal) -> lblError.setVisible(false));
+
+
 
     }
 
@@ -31,24 +37,21 @@ public class LoginController {
         String user = loginField.getText().trim();
         String pass = passwordField.getText();
 
-        // Простая проверка на пустые поля перед обращением к БД
         if (user.isEmpty() || pass.isEmpty()) {
-            lblError.setText("Заполните все поля");
+            lblError.setText(resources.getString("login.error.empty"));
             lblError.setVisible(true);
             return;
         }
 
         try {
-
             DBHelper.initConnection(user, pass);
-
             log.info("Пользователь {} успешно вошел в систему.", user);
 
             try {
                 LibraryApplication.showMainView();
             } catch (Exception e) {
                 log.error("Критическая ошибка при загрузке главного окна", e);
-                lblError.setText("Ошибка интерфейса. Проверьте логи.");
+                lblError.setText(resources.getString("login.error.ui"));
                 lblError.setVisible(true);
             }
 
@@ -56,23 +59,55 @@ public class LoginController {
             String sqlState = e.getSQLState();
             String clearMessage;
 
-            // 28P01 - неверный пароль, 28000 - пользователь не найден
-            if ("28P01".equals(sqlState) || "28000".equals(sqlState)) {
-                clearMessage = "Неверный логин или пароль";
+            // Локализация стандартных ошибок Postgres
+            if (isAuthenticationError(e)) {
+                clearMessage = resources.getString("login.error.auth");
             } else {
-                // Если кодировка всё еще сломана, попробуем перекодировать вручную для лога
+                // Пытаемся расшифровать другие системные ошибки, если есть проблемы с кодировкой
                 try {
-                    clearMessage = new String(e.getMessage().getBytes("ISO-8859-1"), "Windows-1251");
+                    String rawMessage = e.getMessage();
+                    clearMessage = new String(rawMessage.getBytes("ISO-8859-1"), "Windows-1251");
                 } catch (Exception ex) {
                     clearMessage = e.getMessage();
                 }
+                clearMessage = resources.getString("login.error.dbPrefix") + clearMessage;
             }
 
             log.warn("Ошибка входа (Код {}): {}", sqlState, clearMessage);
-
             lblError.setText(clearMessage);
             lblError.setVisible(true);
-
+            //passwordField.clear(); не буду очищать пароль
         }
+    }
+
+    private boolean isAuthenticationError(SQLException e) {
+        Throwable current = e;
+        while (current != null) {
+            if (current instanceof SQLException sqlException) {
+                String sqlState = sqlException.getSQLState();
+                if (sqlState != null && sqlState.startsWith("28")) {
+                    return true;
+                }
+            }
+            String message = current.getMessage();
+            if (message != null) {
+                String normalized = message.toLowerCase();
+                if (normalized.contains("password authentication failed")
+                        || normalized.contains("authentication failed")
+                        || normalized.contains("invalid password")
+                        || normalized.contains("password")
+                        || (normalized.contains("role") && normalized.contains("does not exist"))
+                        || normalized.contains("роль")
+                        || normalized.contains("пользователь")
+                        || normalized.contains("аутентификац")
+                        || normalized.contains("проверку подлинности")
+                        || normalized.contains("не прошла")
+                        || normalized.contains("парол")) {
+                    return true;
+                }
+            }
+            current = current.getCause();
+        }
+        return false;
     }
 }

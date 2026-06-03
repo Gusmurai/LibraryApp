@@ -12,56 +12,50 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 
 /**
- * Основной класс приложения.
- * Реализует логику переключения между окном авторизации и основным интерфейсом.
+ * Main JavaFX application class.
+ * Loads configuration, initializes localization and switches between login and main windows.
  */
 @Slf4j
 public class LibraryApplication extends Application {
 
     private static Stage primaryStage;
     private static ResourceBundle bundle;
-    private static Properties config = new Properties();
+    private static final Properties config = new Properties();
 
     @Override
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
-        log.info("Приложение запускается...");
+        log.info("Запуск приложения.");
 
-        // 1. Загрузка общих настроек (URL базы данных и язык)
         try (InputStream is = getClass().getResourceAsStream("/ru/library/libraryapp/config.properties")) {
             if (is == null) {
-                log.error("Файл config.properties не найден!");
-                throw new RuntimeException("Файл config.properties не найден!");
+                log.error("Файл config.properties не найден.");
+                throw new RuntimeException("config.properties was not found.");
             }
             config.load(is);
         }
 
-        // 2. Настройка локализации (из файла конфигурации)
         String lang = config.getProperty("app.language", "ru");
         String country = config.getProperty("app.country", "RU");
         Locale locale = new Locale(lang, country);
         Locale.setDefault(locale);
-
-        // Загружаем тексты интерфейса
         bundle = ResourceBundle.getBundle("ru.library.libraryapp.messages", locale);
 
-        // 3. ПЕРВЫМ ПОКАЗЫВАЕМ ОКНО АВТОРИЗАЦИИ
         showLoginView();
     }
 
     /**
-     * Отображает окно входа в систему.
+     * Shows the database-authentication window.
      */
     public static void showLoginView() throws Exception {
-        log.info("Отображение окна авторизации.");
-        // ИСПРАВЛЕНО: getClass() -> LibraryApplication.class
+        log.info("Открыто окно входа.");
         FXMLLoader loader = new FXMLLoader(
                 LibraryApplication.class.getResource("/ru/library/libraryapp/login-view.fxml"),
                 bundle
         );
         Scene scene = new Scene(loader.load());
 
-        primaryStage.setTitle(bundle.getString("app.title") + " - Вход");
+        primaryStage.setTitle(bundle.getString("app.title") + " - " + bundle.getString("login.title"));
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.centerOnScreen();
@@ -69,16 +63,15 @@ public class LibraryApplication extends Application {
     }
 
     /**
-     * Отображает основное рабочее окно библиотеки.
+     * Shows the main library workspace.
      */
     public static void showMainView() throws Exception {
-        log.info("Загрузка основного интерфейса системы.");
-        // ИСПРАВЛЕНО: getClass() -> LibraryApplication.class
+        log.info("Открыто главное окно библиотеки.");
         FXMLLoader loader = new FXMLLoader(
                 LibraryApplication.class.getResource("/ru/library/libraryapp/library-view.fxml"),
                 bundle
         );
-        Scene scene = new Scene(loader.load());
+        Scene scene = new Scene(loader.load(), 1300, 750);
 
         primaryStage.setTitle(bundle.getString("app.title"));
         primaryStage.setScene(scene);
@@ -88,12 +81,12 @@ public class LibraryApplication extends Application {
     }
 
     /**
-     * Выполняется при закрытии приложения.
+     * Closes the database session when the application stops.
      */
     @Override
     public void stop() {
-        log.info("Приложение закрывается. Завершение сессии БД.");
-        DBHelper.closeConnection(); // Закрываем соединение с PostgreSQL
+        log.info("Завершение приложения. Закрытие сеанса БД.");
+        DBHelper.closeConnection();
     }
 
     public static void main(String[] args) {

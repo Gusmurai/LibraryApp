@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefWidth="400.0" spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefWidth="400.0" spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.library.libraryapp.controllers.FineFormController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <children>
-        <Label fx:id="lblFineTitle" text="Штраф: Название">
+        <Label fx:id="lblFineTitle" text="%window.title.fine">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
@@ -21,21 +30,27 @@
                 <ColumnConstraints hgrow="ALWAYS" />
             </columnConstraints>
             <children>
-                <Label text="Статья штрафа:" />
-                <ComboBox fx:id="fineArticleCombo" maxWidth="Infinity" disable="true" />
+                <Label text="%label.fineArticle" />
+                <ComboBox fx:id="fineArticleCombo" disable="true" maxWidth="Infinity" GridPane.columnIndex="1" />
 
-                <Label text="Сумма к оплате:" GridPane.rowIndex="1" />
-                <TextField fx:id="fineAmountField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                <Label text="%label.amountToPay" GridPane.rowIndex="1" />
+                <TextField fx:id="fineAmountField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <CheckBox fx:id="isPaidImmediately" text="Оплачено сразу" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                <CheckBox fx:id="isPaidImmediately" text="%label.paidImmediately" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Заметка:" GridPane.rowIndex="3" />
-                <TextArea fx:id="fineNoteArea" prefHeight="80.0" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                <Label text="%label.noteField" GridPane.rowIndex="3" />
+                <TextArea fx:id="fineNoteArea" prefHeight="80.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </children>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
         </GridPane>
         <HBox alignment="CENTER_RIGHT" spacing="10.0">
-            <Button fx:id="btnCancelFine" text="Отмена" />
-            <Button fx:id="btnConfirmFine" text="Оформить" />
+            <Button fx:id="btnCancelFine" text="%button.cancel" />
+            <Button fx:id="btnConfirmFine" text="%button.confirmFine" />
         </HBox>
     </children>
 </VBox>

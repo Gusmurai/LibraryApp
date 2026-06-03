@@ -48,7 +48,7 @@ public class ReaderFormController {
         passportSeriesField.setPromptText(resources.getString("prompt.passportSeriesFormat"));
         passportNumberField.setPromptText(resources.getString("prompt.passportNumberFormat"));
 
-        // Ограничения на ввод символов (Лабораторная 7)
+        // Ограничиваем ввод символов прямо в полях формы.
         setupNameValidation(lastNameField);
         setupNameValidation(firstNameField);
         setupNameValidation(patronymicField);
@@ -56,7 +56,7 @@ public class ReaderFormController {
         setupNumericValidation(passportNumberField, 6);
         setupPhoneValidation(phoneField);
 
-        // Блокировка кнопки (пока поля пустые)
+        // Блокируем сохранение, пока обязательные поля пустые.
         btnSave.disableProperty().bind(
                 lastNameField.textProperty().isEmpty()
                         .or(firstNameField.textProperty().isEmpty())
@@ -81,12 +81,12 @@ public class ReaderFormController {
         lblStatus.setText(""); // Очищаем статус только при новом клике
         StringBuilder errorMsg = new StringBuilder();
 
-        // 1. ВАЛИДАЦИЯ ДАТЫ РОЖДЕНИЯ
+        // Проверяем дату рождения.
         LocalDate birthday = birthDatePicker.getValue();
         String dateText = birthDatePicker.getEditor().getText();
 
         if (birthday == null && !dateText.isEmpty()) {
-            // Если текст введен, но Java не смогла превратить его в дату (неверный формат)
+            // Если дата не распознана, показываем ошибку формата.
             errorMsg.append(resources.getString("error.dateFormat")).append("\n");
         } else if (birthday != null) {
             // Если дата корректна по формату, проверяем логику
@@ -97,7 +97,7 @@ public class ReaderFormController {
             }
         }
 
-        // 2. ВАЛИДАЦИЯ ТЕЛЕФОНА И ПАСПОРТА
+        // Проверяем телефон и паспортные данные.
         if (!phoneField.getText().matches("^\\+7\\d{10}$")) {
             errorMsg.append(resources.getString("error.phoneFormat")).append("\n");
         }
@@ -112,7 +112,7 @@ public class ReaderFormController {
             return;
         }
 
-        // 3. СБОР ДАННЫХ
+        // Собираем данные из полей формы.
         if (currentReader == null) {
             currentReader = new Reader();
             currentReader.setActive(true);
@@ -129,7 +129,7 @@ public class ReaderFormController {
         currentReader.setPhone(phoneField.getText().trim());
         currentReader.setPhoto(photoBytes);
 
-        // 4. СОХРАНЕНИЕ В БД
+        // Сохраняем читателя в базе данных.
         try {
             log.debug("Отправка объекта читателя в DAO. Читательский билет: {}", currentReader.getTicketNumber());
             if (currentReader.getTicketNumber() == null) {

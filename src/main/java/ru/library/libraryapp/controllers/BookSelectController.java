@@ -19,17 +19,20 @@ import ru.library.libraryapp.domains.Book;
 import ru.library.libraryapp.domains.Copy;
 
 import java.io.ByteArrayInputStream;
-import java.util.ResourceBundle;
+import java.util.ResourceBundle;/**
+ * Контроллер окна выбора книги или конкретного экземпляра для выдачи и бронирования.
+ */
+
 
 @Slf4j
 public class BookSelectController {
 
-    // --- ЛЕВАЯ ТАБЛИЦА (Все книги в каталоге) ---
+    // Таблица всех книг каталога.
     @FXML private TextField searchBookSelect;
     @FXML private TableView<Book> bookSelectionTable;
     @FXML private TableColumn<Book, String> colSelIsbn, colSelTitle, colSelAuthor, colSelTotal;
 
-    // --- ПРАВАЯ ТАБЛИЦА (Только свободные экземпляры) ---
+    // Таблица доступных экземпляров выбранной книги.
     @FXML private TextField searchInvInSelect;
     @FXML private TableView<Copy> copySelectionTable;
     @FXML private TableColumn<Copy, Integer> colSelInv;
@@ -55,33 +58,31 @@ public class BookSelectController {
 
     @FXML
     public void initialize() {
-        // 1. Привязка каталога (Берем данные из View, где есть столбец totalCopies)
+        // Настраиваем таблицу каталога.
         colSelIsbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         colSelTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colSelAuthor.setCellValueFactory(new PropertyValueFactory<>("authors"));
         colSelTotal.setCellValueFactory(new PropertyValueFactory<>("totalCopies"));
 
-        // 2. Привязка экземпляров
+        // Настраиваем таблицу экземпляров.
         colSelInv.setCellValueFactory(new PropertyValueFactory<>("inventoryNumber"));
         colSelPrice.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
-        // 3. Загружаем ВЕСЬ каталог
         loadAllBooks("");
 
-        // 4. Поиск по каталогу
+        // Поиск сразу обновляет список книг.
         searchBookSelect.textProperty().addListener((obs, old, newVal) -> loadAllBooks(newVal));
 
-        // 5. Выбор книги -> Показ карточки + Загрузка только ДОСТУПНЫХ экземпляров
+        // При выборе книги показываем карточку и доступные экземпляры.
         bookSelectionTable.getSelectionModel().selectedItemProperty().addListener((obs, old, newVal) -> {
             if (newVal != null) {
                 updateDetailCard(newVal);
-                // Очищаем поиск по инвентарному номеру при смене книги
                 searchInvInSelect.clear();
                 loadOnlyAvailableCopies(newVal.getIsbn(), "");
             }
         });
 
-        // 6. Поиск по инвентарному номеру (внутри выбранной книги)
+        // Поиск по инвентарному номеру работает внутри выбранного издания.
         searchInvInSelect.textProperty().addListener((obs, old, newVal) -> {
             Book selected = bookSelectionTable.getSelectionModel().getSelectedItem();
             if (selected != null) {
@@ -135,8 +136,7 @@ public class BookSelectController {
     }
 
     private void loadAllBooks(String query) {
-        // Используем метод findAll/searchBooks, которые обращаются к view_book_catalog
-        // Это обеспечит показ всех книг, независимо от наличия экземпляров
+        // Загружаем все книги каталога, даже если сейчас нет свободных экземпляров.
         bookData.setAll(query.isEmpty() ? bookDao.findAll() : bookDao.searchBooks(query));
         bookSelectionTable.setItems(bookData);
         if (preselectedIsbn != null) {
@@ -175,7 +175,7 @@ public class BookSelectController {
     }
 
     private void loadOnlyAvailableCopies(String isbn, String invQuery) {
-        // Вызываем метод, который в SQL имеет условие: WHERE status = 'В наличии'
+        // Для выдачи показываем только экземпляры со статусом "В наличии".
         copyData.setAll(copyDao.searchAvailable(isbn, invQuery));
         copySelectionTable.setItems(copyData);
         if (!bookOnlyMode && copySelectionTable.getSelectionModel().getSelectedItem() == null && !copyData.isEmpty()) {

@@ -2,6 +2,9 @@ package ru.library.libraryapp.domains;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+/**
+ * Модель автора книги.
+ */
 
 public class Author {
     private Integer authorId;

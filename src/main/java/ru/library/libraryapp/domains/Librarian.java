@@ -1,6 +1,9 @@
 package ru.library.libraryapp.domains;
 
 import java.time.LocalDateTime;
+/**
+ * Модель сотрудника библиотеки, связанного с логином СУБД.
+ */
 
 public class Librarian {
     private Integer tabelNumber;

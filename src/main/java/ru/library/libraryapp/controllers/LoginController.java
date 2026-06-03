@@ -7,7 +7,10 @@ import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.LibraryApplication;
 
 import java.sql.SQLException;
-import java.util.ResourceBundle;
+import java.util.ResourceBundle;/**
+ * Контроллер окна входа, выполняющий аутентификацию через механизмы СУБД.
+ */
+
 
 @Slf4j
 public class LoginController {
@@ -21,7 +24,7 @@ public class LoginController {
 
     @FXML
     public void initialize() {
-        // Вход по нажатию Enter в поле пароля
+        // Вход по нажатию клавиши ввода в поле пароля.
         passwordField.setOnAction(event -> onLoginClick());
 
         // Скрываем ошибку, когда пользователь начинает заново вводить данные
@@ -59,11 +62,11 @@ public class LoginController {
             String sqlState = e.getSQLState();
             String clearMessage;
 
-            // Локализация стандартных ошибок Postgres
+            // Показываем понятное сообщение при ошибке входа в СУБД.
             if (isAuthenticationError(e)) {
                 clearMessage = resources.getString("login.error.auth");
             } else {
-                // Пытаемся расшифровать другие системные ошибки, если есть проблемы с кодировкой
+                // Приводим системное сообщение к читаемому виду.
                 try {
                     String rawMessage = e.getMessage();
                     clearMessage = new String(rawMessage.getBytes("ISO-8859-1"), "Windows-1251");
@@ -76,7 +79,6 @@ public class LoginController {
             log.warn("Ошибка входа (Код {}): {}", sqlState, clearMessage);
             lblError.setText(clearMessage);
             lblError.setVisible(true);
-            //passwordField.clear(); не буду очищать пароль
         }
     }
 

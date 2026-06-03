@@ -2,6 +2,9 @@ package ru.library.libraryapp.domains;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+/**
+ * Модель акта списания экземпляра.
+ */
 
 public class WriteOff {
     private Integer writeOffId;
@@ -99,10 +102,9 @@ public class WriteOff {
         this.inventoryNumber = inventoryNumber;
         this.tabelNumber = tabelNumber;
         this.reasonId = reasonId;
-        // Дату можно не передавать, так как в БД стоит DEFAULT CURRENT_DATE,
-        // либо можно добавить: this.writeOffDate = java.time.LocalDate.now();
+
     }
 
-    // Не забудь оставить и пустой конструктор, он нужен для работы JDBC
+
     public WriteOff() {}
 }

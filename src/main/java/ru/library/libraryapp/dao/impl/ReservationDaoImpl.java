@@ -15,6 +15,9 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * Реализация слоя доступа к данным для работы с таблицами и процедурами БД.
+ */
 
 @Slf4j
 public class ReservationDaoImpl implements ReservationDao {

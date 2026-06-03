@@ -2,6 +2,9 @@ package ru.library.libraryapp.domains;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+/**
+ * Модель штрафа, начисленного читателю.
+ */
 
 public class Fine {
     private Integer fineId;
@@ -13,13 +16,12 @@ public class Fine {
     private BigDecimal amount;
     private String comment;
 
-    // === ДОБАВЛЕННЫЕ ПОЛЯ ДЛЯ ОТОБРАЖЕНИЯ ===
-    private String articleName;  // Название статьи штрафа (из fine_articles)
-    private String bookTitle;    // Название книги (из books)
+    // Эти поля нужны для вывода штрафов в таблицах приложения.
+    private String articleName;
+    private String bookTitle;
     private Integer ticketNumber;
     private String readerFullName;
 
-    // === ГЕТТЕРЫ И СЕТТЕРЫ ДЛЯ НОВЫХ ПОЛЕЙ ===
     public String getArticleName() {
         return articleName;
     }
@@ -52,7 +54,6 @@ public class Fine {
         this.readerFullName = readerFullName;
     }
 
-    // === СУЩЕСТВУЮЩИЕ ГЕТТЕРЫ И СЕТТЕРЫ ===
     public Integer getFineId() {
         return fineId;
     }

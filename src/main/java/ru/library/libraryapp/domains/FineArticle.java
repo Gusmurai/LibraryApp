@@ -2,6 +2,9 @@ package ru.library.libraryapp.domains;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+/**
+ * Модель статьи штрафа из справочника нарушений.
+ */
 
 public class FineArticle {
     private Integer articleId;

@@ -1,6 +1,9 @@
 package ru.library.libraryapp.domains;
 
 import java.time.LocalDate;
+/**
+ * Модель бронирования книги читателем.
+ */
 
 public class Reservation {
     private Integer reservationId;

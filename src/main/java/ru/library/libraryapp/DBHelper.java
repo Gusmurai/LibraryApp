@@ -7,6 +7,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+/**
+ * Вспомогательный класс для настройки и выдачи подключений к базе данных PostgreSQL.
+ */
 
 @Slf4j
 public class DBHelper {

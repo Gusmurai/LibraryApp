@@ -1,6 +1,9 @@
 package ru.library.libraryapp.domains;
 
 import java.time.LocalDateTime;
+/**
+ * Модель жанра книги.
+ */
 
 public class Genre {
     private Integer genreId;

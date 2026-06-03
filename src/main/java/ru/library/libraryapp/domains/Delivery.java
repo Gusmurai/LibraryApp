@@ -1,6 +1,9 @@
 package ru.library.libraryapp.domains;
 
 import java.time.LocalDate;
+/**
+ * Модель записи о поставке экземпляров.
+ */
 
 public class Delivery {
     private Integer deliveryId;

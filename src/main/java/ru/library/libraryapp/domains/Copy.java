@@ -2,6 +2,9 @@ package ru.library.libraryapp.domains;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+/**
+ * Модель физического экземпляра книги.
+ */
 
 public class Copy {
     private Integer inventoryNumber;

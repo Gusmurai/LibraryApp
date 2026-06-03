@@ -1,6 +1,9 @@
 package ru.library.libraryapp.domains;
 
 import java.time.LocalDateTime;
+/**
+ * Модель библиографической карточки книги.
+ */
 
 public class Book {
     private String isbn;

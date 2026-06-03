@@ -1,6 +1,9 @@
 package ru.library.libraryapp.domains;
 
 import java.time.LocalDate;
+/**
+ * Модель записи о выдаче книги читателю.
+ */
 
 public class Lending {
     private Integer lendingId;

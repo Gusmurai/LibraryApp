@@ -64,7 +64,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.ResourceBundle;/**
+ * Основной контроллер рабочего окна библиотекаря, объединяющий вкладки системы.
+ */
+
 
 @Slf4j
 public class LibraryController {
@@ -167,7 +170,7 @@ public class LibraryController {
             "deliveries"
     );
 
-    // === DAO ===
+    // DAO-объекты отвечают за обращение к базе данных.
     private final BookDao bookDao = new BookDaoImpl();
     private final LendingDao lendingDao = new LendingDaoImpl();
     private final FineDao fineDao = new FineDaoImpl();
@@ -625,7 +628,7 @@ public class LibraryController {
         }
         List<String> columns = new ArrayList<>(reportData.get(0).keySet());
         try (Writer writer = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8)) {
-            writer.write('\ufeff');
+            writer.write(0xFEFF);
             writer.write(toCsvLine(columns.stream().map(this::reportColumnTitle).toList()));
             writer.write(System.lineSeparator());
             for (Map<String, Object> row : reportData) {
@@ -736,6 +739,7 @@ public class LibraryController {
             if (!confirmAction(resources.getString("button.issue"), String.format(resources.getString("text.confirmIssueBook"), invNum))) {
                 return;
             }
+            // Выдача книги выполняется через хранимую процедуру БД.
             log.info("Экземпляр {} выдан читателю {}.", invNum, selectedReaderLending.getTicketNumber());
             lendingDao.issueBook(selectedReaderLending.getTicketNumber(), invNum, currentLibrarianId);
             showSuccess(String.format(resources.getString("success.bookIssued"), invNum));
@@ -766,6 +770,7 @@ public class LibraryController {
                 int days = Integer.parseInt(parts[1]);
                 showInfo(String.format(resources.getString("text.overdueDetected"), days));
 
+                // При отмене штрафа возврат не закрывается: книга остаётся у читателя.
                 if (!openFineForm(sel.getLendingId(), 1, resources.getString("fine.article.overdue"), null, false)) {
                     showInfo(resources.getString("success.returnCancelledByFineCancel"));
                     refreshLendingData();
@@ -798,6 +803,7 @@ public class LibraryController {
 
         Optional<ButtonType> res = cond.showAndWait();
         if (res.isPresent() && res.get() == ButtonType.OK) {
+            // После возврата библиотекарь может оформить отдельный штраф за порчу.
             openFineForm(lending.getLendingId(), 2, resources.getString("fine.article.damage"), null, false);
         }
     }
@@ -828,11 +834,13 @@ public class LibraryController {
         if (sel.getDueDate() != null && sel.getDueDate().isBefore(LocalDate.now())) {
             long days = ChronoUnit.DAYS.between(sel.getDueDate(), LocalDate.now());
             showInfo(String.format(resources.getString("text.lostBookOverdue"), days));
+            // Если утерянная книга просрочена, сначала оформляется штраф за просрочку.
             if (!openFineForm(sel.getLendingId(), 1, resources.getString("fine.article.overdue"), null, false)) {
                 return;
             }
         }
 
+        // После штрафа за утерю открывается форма списания экземпляра.
         if (!openFineForm(sel.getLendingId(), 3, resources.getString("fine.article.lost"), null, false)) {
             return;
         }
@@ -910,6 +918,7 @@ public class LibraryController {
 
     private boolean openFineForm(Integer lendingId, Integer articleId, String articleName, Double amount, boolean isPaid) {
         try {
+            // Единая форма используется для всех видов штрафов.
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/ru/library/libraryapp/fine-form.fxml"), resources);
             Parent root = loader.load();
@@ -954,16 +963,16 @@ public class LibraryController {
 
         private boolean isDamageFine(Fine fine) {
         return fine != null && (Integer.valueOf(2).equals(fine.getArticleId())
-                || containsAny(fine.getArticleName(), "\u043f\u043e\u0440\u0447", "\u043f\u043e\u0432\u0440\u0435\u0436\u0434", "damage", "besch\u00e4d", "beschad"));
+                || containsAny(fine.getArticleName(), "порч", "поврежд", "damage", "beschäd", "beschad"));
     }
 
         private boolean isLostFine(Fine fine) {
         return fine != null && (Integer.valueOf(3).equals(fine.getArticleId())
-                || containsAny(fine.getArticleName(), "\u0443\u0442\u0435\u0440", "\u0443\u0442\u0440\u0430\u0442", "\u043f\u043e\u0442\u0435\u0440", "lost", "loss", "verlust"));
+                || containsAny(fine.getArticleName(), "утер", "утрат", "потер", "lost", "loss", "verlust"));
     }
 
         private boolean isReaderLossReason(String reason) {
-        return containsAny(reason, "\u0443\u0442\u0435\u0440", "\u0443\u0442\u0440\u0430\u0442", "\u043f\u043e\u0442\u0435\u0440", "loss", "lost", "verlust");
+        return containsAny(reason, "утер", "утрат", "потер", "loss", "lost", "verlust");
     }
 
     private boolean containsAny(String value, String... needles) {
@@ -1061,14 +1070,14 @@ public class LibraryController {
             return fallback;
         }
         String normalized = msg.toLowerCase();
-        if (normalized.contains("\u043b\u0438\u043c\u0438\u0442 \u043f\u0440\u043e\u0434\u043b\u0435\u043d")
-                || normalized.contains("\u043b\u0438\u043c\u0438\u0442 \u043f\u0440\u043e\u0434\u043b\u0435\u043d\u0438\u0439")) {
+        if (normalized.contains("лимит продлен")
+                || normalized.contains("лимит продлений")) {
             return resources.getString("error.renewLimitExceeded");
         }
-        if ((normalized.contains("\u043d\u0435\u043b\u044c\u0437\u044f \u043f\u0440\u043e\u0434\u043b\u0438\u0442\u044c")
-                && normalized.contains("\u0441\u0440\u043e\u043a \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430"))
-                || normalized.contains("\u0441\u0440\u043e\u043a \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0443\u0436\u0435 \u0438\u0441\u0442\u0435\u043a")
-                || normalized.contains("\u0441\u0440\u043e\u043a \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0443\u0436\u0435 \u0438\u0441\u0442\u0451\u043a")) {
+        if ((normalized.contains("нельзя продлить")
+                && normalized.contains("срок возврата"))
+                || normalized.contains("срок возврата уже истек")
+                || normalized.contains("срок возврата уже истёк")) {
             return resources.getString("error.renewOverdue");
         }
         if (normalized.contains("лимит продлен") || normalized.contains("лимит продлений")
@@ -1370,6 +1379,7 @@ public class LibraryController {
         }
         try {
             if (isLostFine(fine)) {
+                // Для штрафа за утерю библиотекарь выбирает отдельный сценарий аннулирования.
                 Integer mode = openLostFineAnnulDialog();
                 if (mode == null) return;
                 fineDao.annulFine(fine.getFineId(), mode);
@@ -1431,6 +1441,7 @@ public class LibraryController {
         WriteOff writeOff = writeOffsTable.getSelectionModel().getSelectedItem();
         if (writeOff == null) return;
         if (isReaderLossReason(writeOff.getReason()) || containsAny(writeOff.getReason(), "утрат", "утер")) {
+            // Списание из-за утери читателем восстанавливается только через аннулирование штрафа.
             showInfo(resources.getString("alert.forbidden.title"),
                     resources.getString("text.restoreLostWriteOffForbidden"));
             return;
@@ -1462,13 +1473,13 @@ public class LibraryController {
             return null;
         }
         if (resources.getString("reservation.status.active").equals(selected)) {
-            return "\u0410\u043A\u0442\u0438\u0432\u043D\u0430";
+            return "Активна";
         }
         if (resources.getString("reservation.status.closed").equals(selected)) {
-            return "\u0417\u0430\u043A\u0440\u044B\u0442\u0430";
+            return "Закрыта";
         }
         if (resources.getString("reservation.status.overdue").equals(selected)) {
-            return "\u041F\u0440\u043E\u0441\u0440\u043E\u0447\u0435\u043D\u0430";
+            return "Просрочена";
         }
         return selected;
     }
@@ -1546,6 +1557,7 @@ public class LibraryController {
             fillLendingReaderCard(reader);
             mainTabPane.getSelectionModel().select(0);
 
+            // Бронь хранится на издание, поэтому перед выдачей выбирается свободный экземпляр.
             Integer inv = openBookSelectionForReservation(reservation.getIsbn());
             if (inv == null) {
                 return;

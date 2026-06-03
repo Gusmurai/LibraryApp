@@ -20,6 +20,9 @@ import ru.library.libraryapp.domains.WriteOffReason;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
+/**
+ * Контроллер формы списания экземпляра из библиотечного фонда.
+ */
 
 @Slf4j
 public class WriteOffFormController {
@@ -151,8 +154,8 @@ public class WriteOffFormController {
             return false;
         }
         String name = text.toLowerCase();
-        return name.contains("\u0443\u0442\u0440\u0430\u0442")
-                || name.contains("\u0443\u0442\u0435\u0440")
+        return name.contains("утрат")
+                || name.contains("утер")
                 || name.contains("loss")
                 || name.contains("lost");
     }

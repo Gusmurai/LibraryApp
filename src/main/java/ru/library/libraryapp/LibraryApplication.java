@@ -10,11 +10,10 @@ import java.io.InputStream;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
-
 /**
- * Main JavaFX application class.
- * Loads configuration, initializes localization and switches between login and main windows.
+ * Главный класс JavaFX-приложения, отвечающий за запуск, локализацию и переключение окон.
  */
+
 @Slf4j
 public class LibraryApplication extends Application {
 
@@ -44,9 +43,6 @@ public class LibraryApplication extends Application {
         showLoginView();
     }
 
-    /**
-     * Shows the database-authentication window.
-     */
     public static void showLoginView() throws Exception {
         log.info("Открыто окно входа.");
         FXMLLoader loader = new FXMLLoader(
@@ -62,9 +58,6 @@ public class LibraryApplication extends Application {
         primaryStage.show();
     }
 
-    /**
-     * Shows the main library workspace.
-     */
     public static void showMainView() throws Exception {
         log.info("Открыто главное окно библиотеки.");
         FXMLLoader loader = new FXMLLoader(
@@ -76,13 +69,10 @@ public class LibraryApplication extends Application {
         primaryStage.setTitle(bundle.getString("app.title"));
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);
-        primaryStage.setMaximized(true);
+        primaryStage.setMaximized(true); // на полную
         primaryStage.show();
     }
 
-    /**
-     * Closes the database session when the application stops.
-     */
     @Override
     public void stop() {
         log.info("Завершение приложения. Закрытие сеанса БД.");

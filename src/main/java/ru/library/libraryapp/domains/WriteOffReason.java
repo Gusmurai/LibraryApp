@@ -1,6 +1,9 @@
 package ru.library.libraryapp.domains;
 
 import java.time.LocalDateTime;
+/**
+ * Модель причины списания экземпляра.
+ */
 
 public class WriteOffReason {
     private Integer reasonId;

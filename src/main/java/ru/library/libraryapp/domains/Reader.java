@@ -2,6 +2,9 @@ package ru.library.libraryapp.domains;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+/**
+ * Модель читателя библиотеки.
+ */
 
 public class Reader {
     private Integer ticketNumber;

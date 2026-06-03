@@ -1,6 +1,9 @@
 package ru.library.libraryapp.domains;
 
 import java.time.LocalDateTime;
+/**
+ * Модель записи журнала аудита действий в системе.
+ */
 
 public class AuditLog {
     private Integer logId;

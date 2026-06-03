@@ -97,12 +97,12 @@ public class WriteOffFormController {
             writeOff.setReasonId(reason.getReasonId());
             writeOff.setTabelNumber(librarianId);
             writeOffDao.create(writeOff);
-            log.info("Write-off created. Inventory={}, librarian={}, reason={}.",
+            log.info("Создан акт списания. Инвентарный номер={}, сотрудник={}, причина={}.",
                     currentInvNumber, librarianId, reason.getName());
             saveSuccessful = true;
             closeWindow();
         } catch (Exception e) {
-            log.error("Failed to create write-off for inventory {}.", currentInvNumber, e);
+            log.error("Не удалось создать акт списания для экземпляра {}.", currentInvNumber, e);
             showError(e.getMessage());
         }
     }

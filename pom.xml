@@ -21,13 +21,13 @@
             <artifactId>slf4j-api</artifactId>
             <version>2.0.12</version>
         </dependency>
-        <!-- Logback - реализация логгера -->
+        <!-- Logback logging implementation -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.5.3</version>
         </dependency>
-        <!-- Lombok для аннотации @Slf4j -->
+        <!-- Lombok for @Slf4j annotation -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

@@ -131,7 +131,7 @@ public class ReaderFormController {
 
         // 4. СОХРАНЕНИЕ В БД
         try {
-            log.debug("Отправка объекта читателя в DAO. Табельный номер: {}", currentReader.getTicketNumber());
+            log.debug("Отправка объекта читателя в DAO. Читательский билет: {}", currentReader.getTicketNumber());
             if (currentReader.getTicketNumber() == null) {
                 readerDao.add(currentReader);
             } else {

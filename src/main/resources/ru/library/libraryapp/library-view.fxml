@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="800.0" prefWidth="1400.0" spacing="0.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.library.libraryapp.controllers.LibraryController">
+<VBox prefHeight="800.0" prefWidth="1400.0" spacing="0.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.library.libraryapp.controllers.LibraryController">
     <children>
         <!-- HEADER -->
         <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #cccccc; -fx-border-width: 0 0 1 0;">
@@ -32,7 +32,7 @@
                 <Label text="%app.title" textFill="#2c3e50">
                     <font><Font name="System Bold" size="18.0" /></font>
                 </Label>
-                <Label fx:id="lblMainStatus" text="" textFill="#27ae60" style="-fx-font-weight: bold;">
+                <Label fx:id="lblMainStatus" style="-fx-font-weight: bold;" text="" textFill="#27ae60">
                     <HBox.margin><Insets left="30.0" /></HBox.margin>
                 </Label>
                 <Region HBox.hgrow="ALWAYS" />
@@ -100,6 +100,15 @@
                                                             <font><Font name="System Bold" size="13.0" /></font>
                                                         </Label>
                                                     </children>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                       </rowConstraints>
                                                 </GridPane>
                                             </children>
                                         </HBox>
@@ -292,7 +301,7 @@
                                         </TableView>
                                         <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f4f4f4; -fx-padding: 10;">
                                             <Label text="%label.totalSumList"><font><Font name="System Bold" size="13.0" /></font></Label>
-                                            <Label fx:id="lblTotalFinesSum" text="0,00 ₽"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                            <Label fx:id="lblTotalFinesSum" text="%label.zeroMoney"><font><Font name="System Bold" size="13.0" /></font></Label>
                                         </HBox>
                                     </children>
                                 </VBox>

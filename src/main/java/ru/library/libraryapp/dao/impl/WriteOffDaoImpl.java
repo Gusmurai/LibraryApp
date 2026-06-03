@@ -28,9 +28,9 @@ public class WriteOffDaoImpl implements WriteOffDao {
             cs.setInt(2, writeOff.getTabelNumber());
             cs.setInt(3, writeOff.getReasonId());
             cs.execute();
-            log.info("Write-off created for copy {}.", writeOff.getInventoryNumber());
+            log.info("Экземпляр списан {}.", writeOff.getInventoryNumber());
         } catch (SQLException e) {
-            log.error("Failed to create write-off.", e);
+            log.error("Не удалось списать книгу.", e);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
@@ -67,7 +67,7 @@ public class WriteOffDaoImpl implements WriteOffDao {
                 }
             }
         } catch (SQLException e) {
-            log.error("Failed to load write-offs. SQL={}", sql, e);
+            log.error("Не удалось загрузить списания. SQL={}", sql, e);
         }
         return list;
     }
@@ -78,9 +78,9 @@ public class WriteOffDaoImpl implements WriteOffDao {
              CallableStatement cs = conn.prepareCall(SqlProvider.get("writeOff.restore"))) {
             cs.setInt(1, inventoryNumber);
             cs.execute();
-            log.info("Copy {} restored to fund.", inventoryNumber);
+            log.info("Экземпляр {} возвращён в фонд.", inventoryNumber);
         } catch (SQLException e) {
-            log.error("Failed to restore copy {}.", inventoryNumber, e);
+            log.error("Не удалось восстановить экземпляр {}.", inventoryNumber, e);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
@@ -94,9 +94,9 @@ public class WriteOffDaoImpl implements WriteOffDao {
             ps.setInt(3, reasonId);
             ps.setString(4, comment);
             ps.executeUpdate();
-            log.info("Write-off with comment created for copy {}.", inventoryNumber);
+            log.info("Создан акт списания для экземпляра {}.", inventoryNumber);
         } catch (SQLException e) {
-            log.error("Failed to create write-off with comment.", e);
+            log.error("Ошибка создания акта списания.", e);
             throw new RuntimeException(e.getMessage(), e);
         }
     }

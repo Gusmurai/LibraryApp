@@ -51,11 +51,16 @@ import ru.library.libraryapp.domains.WriteOffReason;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -295,11 +300,12 @@ public class LibraryController {
             return new javafx.beans.property.SimpleStringProperty(c != null ? c : "-");
         });
 
-        // === Р В Р’В Р вЂ™Р’В Р В Р Р‹Р РЋРІР‚С”Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В°Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В±Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В»Р В Р’В Р вЂ™Р’В Р В Р Р‹Р Р†Р вЂљР’ВР В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р вЂ™Р’В Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В° Р В Р’В Р вЂ™Р’В Р В Р Р‹Р Р†Р вЂљРЎСљР В Р’В Р вЂ™Р’В Р В Р’В Р Р†Р вЂљР’В¦Р В Р’В Р вЂ™Р’В Р В Р Р‹Р Р†Р вЂљР’ВР В Р’В Р вЂ™Р’В Р В Р Р‹Р Р†Р вЂљРІР‚Сљ Р В Р’В Р вЂ™Р’В Р В Р’В Р Р†Р вЂљР’В¦Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В° Р В Р’В Р В Р вЂ№Р В Р’В Р Р†Р вЂљРЎв„ўР В Р’В Р В Р вЂ№Р В Р Р‹Р Р†Р вЂљРЎС™Р В Р’В Р вЂ™Р’В Р В Р Р‹Р Р†Р вЂљРЎСљР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В°Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р вЂ™Р’В¦ ===
         colHandTitle.setCellValueFactory(cellData -> {
             String t = cellData.getValue().getBookTitle();
-            return new javafx.beans.property.SimpleStringProperty(
-                    t != null ? t : "Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’ВР В Р’В Р вЂ™Р’В Р В Р’В Р Р†Р вЂљР’В¦Р В Р’В Р вЂ™Р’В Р В Р’В Р Р†Р вЂљР’В . Р В Р’В Р В РІР‚В Р В Р вЂ Р В РІР‚С™Р РЋРІР‚С”Р В Р вЂ Р В РІР‚С™Р Р†Р вЂљРЎС™" + cellData.getValue().getInventoryNumber());
+            if (t == null) {
+                t = String.format(resources.getString("text.copyNumber"), cellData.getValue().getInventoryNumber());
+            }
+            return new javafx.beans.property.SimpleStringProperty(t);
         });
         colHandInv.setCellValueFactory(new PropertyValueFactory<>("inventoryNumber"));
         colHandLendDate.setCellValueFactory(cellData -> {
@@ -606,11 +612,53 @@ public class LibraryController {
         java.io.File file = chooser.showSaveDialog(stage);
         if (file == null) return;
         try {
-            reportDao.exportToExcel(reportData, file.getAbsolutePath());
+            exportReportCsv(file);
             showSuccess(resources.getString("success.reportExported"));
         } catch (Exception e) {
             showErrorAlert(resources.getString("alert.error.title"), extractUserFriendlyMessage(e.getMessage()));
         }
+    }
+
+    private void exportReportCsv(java.io.File file) throws IOException {
+        if (reportData.isEmpty()) {
+            return;
+        }
+        List<String> columns = new ArrayList<>(reportData.get(0).keySet());
+        try (Writer writer = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8)) {
+            writer.write('\ufeff');
+            writer.write(toCsvLine(columns.stream().map(this::reportColumnTitle).toList()));
+            writer.write(System.lineSeparator());
+            for (Map<String, Object> row : reportData) {
+                writer.write(toCsvLine(columns.stream()
+                        .map(column -> formatReportExportValue(column, row.get(column)))
+                        .toList()));
+                writer.write(System.lineSeparator());
+            }
+        }
+    }
+
+    private String formatReportExportValue(String columnName, Object value) {
+        String formatted = formatReportValue(columnName, value);
+        if (isCsvTextColumn(columnName) && !formatted.isBlank()) {
+            return "=\"" + formatted.replace("\"", "\"\"") + "\"";
+        }
+        return formatted;
+    }
+
+    private boolean isCsvTextColumn(String columnName) {
+        return columnName.equals("isbn") || columnName.equals("inn");
+    }
+
+    private String toCsvLine(List<String> values) {
+        return values.stream()
+                .map(this::escapeCsvValue)
+                .reduce((left, right) -> left + ";" + right)
+                .orElse("");
+    }
+
+    private String escapeCsvValue(String value) {
+        String safe = value == null ? "" : value;
+        return "\"" + safe.replace("\"", "\"\"") + "\"";
     }
 
     private String selectedReportKey() {
@@ -1170,7 +1218,12 @@ public class LibraryController {
         Book book = booksTable.getSelectionModel().getSelectedItem();
         if (book == null) return;
         try {
+            if (!toActive && bookDao.getTotalCount(book.getIsbn()) > 0) {
+                showErrorAlert(resources.getString("alert.error.title"), resources.getString("error.bookArchiveHasCopies"));
+                return;
+            }
             bookDao.changeStatus(book.getIsbn(), toActive);
+            log.info("{} книга ISBN={}.", toActive ? "Восстановлена" : "Архивирована", book.getIsbn());
             loadBooks();
             showSuccess(resources.getString("success.statusChanged"));
         } catch (Exception e) {
@@ -1580,7 +1633,6 @@ public class LibraryController {
     private <T> T firstNonNull(T first, T second) {
         return first != null ? first : second;
     }
-
 
     private void loadReaders() {
         readerData.setAll(readerDao.findAll());

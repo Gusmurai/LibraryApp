@@ -33,7 +33,7 @@ public class FineDaoImpl implements FineDao {
                 }
             }
         } catch (SQLException e) {
-            log.error("Failed to load unpaid fines for reader {}.", ticketNumber, e);
+            log.error("Ошибка загрузки неоплаченных штрафов читателя {}.", ticketNumber, e);
         }
         return list;
     }
@@ -78,7 +78,7 @@ public class FineDaoImpl implements FineDao {
                 }
             }
         } catch (SQLException e) {
-            log.error("Failed to load fines with filters. SQL={}", sql, e);
+            log.error("Ошибка фильтрации. SQL={}", sql, e);
         }
         return list;
     }
@@ -97,9 +97,9 @@ public class FineDaoImpl implements FineDao {
              CallableStatement cs = conn.prepareCall(SqlProvider.get("fine.pay"))) {
             cs.setInt(1, fineId);
             cs.execute();
-            log.info("Fine {} paid.", fineId);
+            log.info("Штраф {} оплачен.", fineId);
         } catch (SQLException e) {
-            log.error("Failed to pay fine {}.", fineId, e);
+            log.error("Ошибка оплаты штрафа {}.", fineId, e);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
@@ -111,9 +111,9 @@ public class FineDaoImpl implements FineDao {
             ps.setString(1, note);
             ps.setInt(2, fineId);
             ps.executeUpdate();
-            log.info("Fine {} note updated.", fineId);
+            log.info("Штраф {} заметка обновлена.", fineId);
         } catch (SQLException e) {
-            log.error("Failed to update fine {} note.", fineId, e);
+            log.error("Ошибка обновления заметки штрафа {}.", fineId, e);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
@@ -125,9 +125,9 @@ public class FineDaoImpl implements FineDao {
             cs.setInt(1, fineId);
             cs.setBigDecimal(2, BigDecimal.valueOf(newAmount));
             cs.execute();
-            log.info("Fine {} amount changed to {}.", fineId, newAmount);
+            log.info("Штраф {} изменена сумма {}.", fineId, newAmount);
         } catch (SQLException e) {
-            log.error("Failed to update fine {} amount.", fineId, e);
+            log.error("Ошибка обновления суммы штрафа {}.", fineId, e);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
@@ -150,7 +150,7 @@ public class FineDaoImpl implements FineDao {
             if (isPaid) {
                 Integer fineId = findLastCreatedFineId(conn, lendingId, articleId);
                 if (fineId == null) {
-                    throw new SQLException("Created fine id was not found.");
+                    throw new SQLException("Созданный fine id не был найден.");
                 }
                 try (CallableStatement cs = conn.prepareCall(SqlProvider.get("fine.pay"))) {
                     cs.setInt(1, fineId);
@@ -159,10 +159,10 @@ public class FineDaoImpl implements FineDao {
             }
 
             conn.commit();
-            log.info("Fine created. Lending={}, article={}, paidImmediately={}.", lendingId, articleId, isPaid);
+            log.info("Штраф создан. Выдача={}, статья={}, оплачен сразу={}.", lendingId, articleId, isPaid);
         } catch (SQLException e) {
             rollbackQuietly(conn);
-            log.error("Failed to create fine.", e);
+            log.error("Ошибка создания штрафа.", e);
             throw new RuntimeException(e.getMessage(), e);
         } finally {
             closeQuietly(conn);
@@ -177,9 +177,9 @@ public class FineDaoImpl implements FineDao {
             cs.setInt(1, fineId);
             cs.setBoolean(2, restoreCopy);
             cs.execute();
-            log.info("Fine {} annulled. restoreCopy={}.", fineId, restoreCopy);
+            log.info("Штраф {} аннулирован. Восстановленный экземпляр={}.", fineId, restoreCopy);
         } catch (SQLException e) {
-            log.error("Failed to annul fine {}.", fineId, e);
+            log.error("Ошибка аннулирования штрафа {}.", fineId, e);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
@@ -197,7 +197,7 @@ public class FineDaoImpl implements FineDao {
                 }
             }
         } catch (SQLException e) {
-            log.warn("Database fine amount calculation failed, fallback will be used.", e);
+            log.warn("Не удалось рассчитать сумму штрафа по базе данных, резервный вариант.", e);
             return fallbackFineAmount(lendingId, articleId, daysOverdue);
         }
         return 0.0;
@@ -254,7 +254,7 @@ public class FineDaoImpl implements FineDao {
                     }
                 }
             } catch (SQLException e) {
-                log.warn("Lost-copy fine fallback for current schema failed.", e);
+                log.warn("Не удалось выполнить резервную копию для текущей схемы.", e);
                 Double amount = lostCopyAmountFallback(lendingId);
                 if (amount != null) {
                     return amount;
@@ -275,7 +275,7 @@ public class FineDaoImpl implements FineDao {
                 }
             }
         } catch (SQLException e) {
-            log.warn("Lost-copy fine fallback for new schema failed.", e);
+            log.warn("Не удалось выполнить резервную копию для новой схемы.", e);
         }
         return null;
     }
@@ -289,7 +289,7 @@ public class FineDaoImpl implements FineDao {
             try {
                 conn.rollback();
             } catch (SQLException e) {
-                log.warn("Transaction rollback failed.", e);
+                log.warn("Не удалось выполнить откат.", e);
             }
         }
     }
@@ -299,7 +299,7 @@ public class FineDaoImpl implements FineDao {
             try {
                 conn.close();
             } catch (SQLException e) {
-                log.warn("Connection close failed.", e);
+                log.warn("Не удалось закрыть соединение.", e);
             }
         }
     }

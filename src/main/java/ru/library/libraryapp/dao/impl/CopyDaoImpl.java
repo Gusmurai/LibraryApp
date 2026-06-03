@@ -106,8 +106,6 @@ public class CopyDaoImpl implements CopyDao {
         copy.setInventoryNumber(rs.getInt("inventory_number"));
         copy.setIsbn(rs.getString("isbn"));
         copy.setCost(rs.getBigDecimal("cost"));
-
-        // ДОБАВЬ ЭТУ СТРОКУ (имя столбца должно совпадать с тем, что в View)
         copy.setStatus(rs.getString("status"));
 
         return copy;

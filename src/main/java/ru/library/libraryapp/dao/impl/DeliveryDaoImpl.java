@@ -47,10 +47,10 @@ public class DeliveryDaoImpl implements DeliveryDao {
                 }
             }
             conn.commit();
-            log.info("Delivery registered. ISBN={}, quantity={}.", isbn, quantity);
+            log.info("Поставка зарегистрирована. ISBN={}, количество={}.", isbn, quantity);
         } catch (SQLException e) {
             rollback(conn);
-            log.error("Failed to register delivery for ISBN={}.", isbn, e);
+            log.error("Ошибка регистрации поставки для ISBN={}.", isbn, e);
             throw new RuntimeException(e.getMessage(), e);
         } finally {
             close(conn);
@@ -67,7 +67,7 @@ public class DeliveryDaoImpl implements DeliveryDao {
                 list.add(mapDelivery(rs));
             }
         } catch (SQLException e) {
-            log.error("Failed to load deliveries.", e);
+            log.error("Ошибка загрузки поставок.", e);
         }
         return list;
     }
@@ -97,7 +97,7 @@ public class DeliveryDaoImpl implements DeliveryDao {
                 }
             }
         } catch (SQLException e) {
-            log.error("Failed to load deliveries with filters. SQL={}", sql, e);
+            log.error("Не удалось загрузить поставки с фильтрами. SQL={}", sql, e);
         }
         return list;
     }
@@ -123,7 +123,7 @@ public class DeliveryDaoImpl implements DeliveryDao {
             try {
                 conn.rollback();
             } catch (SQLException e) {
-                log.warn("Rollback failed.", e);
+                log.warn("Ошибка отката.", e);
             }
         }
     }
@@ -133,7 +133,7 @@ public class DeliveryDaoImpl implements DeliveryDao {
             try {
                 conn.close();
             } catch (SQLException e) {
-                log.warn("Connection close failed.", e);
+                log.warn("Не удалось закрыть соединение.", e);
             }
         }
     }

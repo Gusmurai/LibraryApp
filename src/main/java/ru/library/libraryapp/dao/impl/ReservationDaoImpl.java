@@ -27,9 +27,9 @@ public class ReservationDaoImpl implements ReservationDao {
             cs.setInt(2, ticketNumber);
             cs.setInt(3, librarianId);
             cs.execute();
-            log.info("Reservation created. ISBN={}, reader={}, librarian={}.", isbn, ticketNumber, librarianId);
+            log.info("Бронирование создано. ISBN={}, читатель={}, сотрудник={}.", isbn, ticketNumber, librarianId);
         } catch (SQLException e) {
-            log.error("Failed to create reservation.", e);
+            log.error("Не удалось создать бронирование.", e);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
@@ -40,9 +40,9 @@ public class ReservationDaoImpl implements ReservationDao {
              PreparedStatement ps = conn.prepareStatement(SqlProvider.get("reservation.cancel"))) {
             ps.setInt(1, reservationId);
             ps.executeUpdate();
-            log.info("Reservation {} cancelled.", reservationId);
+            log.info("Бронирование {} отменено.", reservationId);
         } catch (SQLException e) {
-            log.error("Failed to cancel reservation {}.", reservationId, e);
+            log.error("Ошибка отмены бронирования {}.", reservationId, e);
             throw new RuntimeException(e.getMessage(), e);
         }
     }
@@ -75,7 +75,7 @@ public class ReservationDaoImpl implements ReservationDao {
                 }
             }
         } catch (SQLException e) {
-            log.error("Failed to load reservations. SQL={}", sql, e);
+            log.error("Ошибка загрузки бронирования. SQL={}", sql, e);
         }
         return list;
     }
@@ -90,7 +90,7 @@ public class ReservationDaoImpl implements ReservationDao {
                 return rs.next();
             }
         } catch (SQLException e) {
-            log.error("Failed to check active reservation.", e);
+            log.error("Не удалось проверить активное бронирование.", e);
             return hasActiveReservationFallback(ticketNumber, isbn);
         }
     }
@@ -104,7 +104,7 @@ public class ReservationDaoImpl implements ReservationDao {
                 return rs.next();
             }
         } catch (SQLException fallbackError) {
-            log.error("Fallback active reservation check failed.", fallbackError);
+            log.error("Не удалось выполнить проверку активной брони.", fallbackError);
             return false;
         }
     }

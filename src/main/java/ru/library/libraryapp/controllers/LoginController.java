@@ -7,8 +7,9 @@ import ru.library.libraryapp.DBHelper;
 import ru.library.libraryapp.LibraryApplication;
 
 import java.sql.SQLException;
-import java.util.ResourceBundle;/**
- * Контроллер окна входа, выполняющий аутентификацию через механизмы СУБД.
+import java.util.ResourceBundle;
+/**
+ * Контроллер окна входа, выполняющий аутентификацию через механизмы СУБД
  */
 
 
@@ -24,7 +25,7 @@ public class LoginController {
 
     @FXML
     public void initialize() {
-        // Вход по нажатию клавиши ввода в поле пароля.
+        // Вход по нажатию клавиши ввода в поле пароля
         passwordField.setOnAction(event -> onLoginClick());
 
         // Скрываем ошибку, когда пользователь начинает заново вводить данные
@@ -83,33 +84,8 @@ public class LoginController {
     }
 
     private boolean isAuthenticationError(SQLException e) {
-        Throwable current = e;
-        while (current != null) {
-            if (current instanceof SQLException sqlException) {
-                String sqlState = sqlException.getSQLState();
-                if (sqlState != null && sqlState.startsWith("28")) {
-                    return true;
-                }
-            }
-            String message = current.getMessage();
-            if (message != null) {
-                String normalized = message.toLowerCase();
-                if (normalized.contains("password authentication failed")
-                        || normalized.contains("authentication failed")
-                        || normalized.contains("invalid password")
-                        || normalized.contains("password")
-                        || (normalized.contains("role") && normalized.contains("does not exist"))
-                        || normalized.contains("роль")
-                        || normalized.contains("пользователь")
-                        || normalized.contains("аутентификац")
-                        || normalized.contains("проверку подлинности")
-                        || normalized.contains("не прошла")
-                        || normalized.contains("парол")) {
-                    return true;
-                }
-            }
-            current = current.getCause();
-        }
-        return false;
+        String sqlState = e.getSQLState();
+        // Коды, начинающиеся на 28 — это стандартные ошибки аутентификации в SQL
+        return sqlState != null && sqlState.startsWith("28");
     }
 }

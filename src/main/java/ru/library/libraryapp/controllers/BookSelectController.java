@@ -19,7 +19,8 @@ import ru.library.libraryapp.domains.Book;
 import ru.library.libraryapp.domains.Copy;
 
 import java.io.ByteArrayInputStream;
-import java.util.ResourceBundle;/**
+import java.util.ResourceBundle;
+/**
  * Контроллер окна выбора книги или конкретного экземпляра для выдачи и бронирования.
  */
 
@@ -27,12 +28,12 @@ import java.util.ResourceBundle;/**
 @Slf4j
 public class BookSelectController {
 
-    // Таблица всех книг каталога.
+    // Таблица всех книг каталога
     @FXML private TextField searchBookSelect;
     @FXML private TableView<Book> bookSelectionTable;
     @FXML private TableColumn<Book, String> colSelIsbn, colSelTitle, colSelAuthor, colSelTotal;
 
-    // Таблица доступных экземпляров выбранной книги.
+    // Таблица доступных экземпляров выбранной книги
     @FXML private TextField searchInvInSelect;
     @FXML private TableView<Copy> copySelectionTable;
     @FXML private TableColumn<Copy, Integer> colSelInv;
@@ -58,19 +59,19 @@ public class BookSelectController {
 
     @FXML
     public void initialize() {
-        // Настраиваем таблицу каталога.
+        // Настраиваем таблицу каталога
         colSelIsbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         colSelTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colSelAuthor.setCellValueFactory(new PropertyValueFactory<>("authors"));
         colSelTotal.setCellValueFactory(new PropertyValueFactory<>("totalCopies"));
 
-        // Настраиваем таблицу экземпляров.
+        // Настраиваем таблицу экземпляров
         colSelInv.setCellValueFactory(new PropertyValueFactory<>("inventoryNumber"));
         colSelPrice.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
         loadAllBooks("");
 
-        // Поиск сразу обновляет список книг.
+        // Поиск сразу обновляет список книг
         searchBookSelect.textProperty().addListener((obs, old, newVal) -> loadAllBooks(newVal));
 
         // При выборе книги показываем карточку и доступные экземпляры.
@@ -82,7 +83,7 @@ public class BookSelectController {
             }
         });
 
-        // Поиск по инвентарному номеру работает внутри выбранного издания.
+        // Поиск по инвентарному номеру работает внутри выбранного издания
         searchInvInSelect.textProperty().addListener((obs, old, newVal) -> {
             Book selected = bookSelectionTable.getSelectionModel().getSelectedItem();
             if (selected != null) {
@@ -136,7 +137,7 @@ public class BookSelectController {
     }
 
     private void loadAllBooks(String query) {
-        // Загружаем все книги каталога, даже если сейчас нет свободных экземпляров.
+        // Загружаем все книги каталога, даже если сейчас нет свободных экземпляров
         bookData.setAll(query.isEmpty() ? bookDao.findAll() : bookDao.searchBooks(query));
         bookSelectionTable.setItems(bookData);
         if (preselectedIsbn != null) {
@@ -175,7 +176,7 @@ public class BookSelectController {
     }
 
     private void loadOnlyAvailableCopies(String isbn, String invQuery) {
-        // Для выдачи показываем только экземпляры со статусом "В наличии".
+        // Для выдачи показываем только экземпляры со статусом "В наличии"
         copyData.setAll(copyDao.searchAvailable(isbn, invQuery));
         copySelectionTable.setItems(copyData);
         if (!bookOnlyMode && copySelectionTable.getSelectionModel().getSelectedItem() == null && !copyData.isEmpty()) {

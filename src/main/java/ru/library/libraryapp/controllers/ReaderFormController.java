@@ -48,7 +48,7 @@ public class ReaderFormController {
         passportSeriesField.setPromptText(resources.getString("prompt.passportSeriesFormat"));
         passportNumberField.setPromptText(resources.getString("prompt.passportNumberFormat"));
 
-        // Ограничиваем ввод символов прямо в полях формы.
+        // Ограничиваем ввод символов прямо в полях формы
         setupNameValidation(lastNameField);
         setupNameValidation(firstNameField);
         setupNameValidation(patronymicField);
@@ -56,7 +56,7 @@ public class ReaderFormController {
         setupNumericValidation(passportNumberField, 6);
         setupPhoneValidation(phoneField);
 
-        // Блокируем сохранение, пока обязательные поля пустые.
+        // Блокируем сохранение, пока обязательные поля пустые
         btnSave.disableProperty().bind(
                 lastNameField.textProperty().isEmpty()
                         .or(firstNameField.textProperty().isEmpty())
@@ -81,7 +81,7 @@ public class ReaderFormController {
         lblStatus.setText(""); // Очищаем статус только при новом клике
         StringBuilder errorMsg = new StringBuilder();
 
-        // Проверяем дату рождения.
+        // Проверяем дату рождения
         LocalDate birthday = birthDatePicker.getValue();
         String dateText = birthDatePicker.getEditor().getText();
 
@@ -112,7 +112,7 @@ public class ReaderFormController {
             return;
         }
 
-        // Собираем данные из полей формы.
+        // Собираем данные из полей формы
         if (currentReader == null) {
             currentReader = new Reader();
             currentReader.setActive(true);
@@ -129,7 +129,7 @@ public class ReaderFormController {
         currentReader.setPhone(phoneField.getText().trim());
         currentReader.setPhoto(photoBytes);
 
-        // Сохраняем читателя в базе данных.
+        // Сохраняем читателя в базе данных
         try {
             log.debug("Отправка объекта читателя в DAO. Читательский билет: {}", currentReader.getTicketNumber());
             if (currentReader.getTicketNumber() == null) {

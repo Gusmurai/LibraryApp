@@ -52,6 +52,7 @@ public class LibraryApplication extends Application {
         Scene scene = new Scene(loader.load());
 
         primaryStage.setTitle(bundle.getString("app.title") + " - " + bundle.getString("login.title"));
+        primaryStage.setMaximized(false);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.centerOnScreen();

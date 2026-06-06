@@ -6895,3 +6895,1185 @@ org.postgresql.util.PSQLException: ОШИБКА: Все свободные эк�
 2026-06-03 17:58:48 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
 2026-06-03 17:58:52 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
 2026-06-03 17:58:52 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-04 15:04:39 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-04 15:04:39 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-04 15:05:03 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-04 15:05:03 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-04 15:05:03 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-04 15:05:09 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-04 15:05:09 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-04 15:05:24 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-04 15:05:25 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа. SQLState: 28P01. Сообщение: �����: ������������ "1" �� ������ �������� ����������� (�� ������)
+2026-06-04 15:06:00 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-04 15:06:00 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-04 15:06:05 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-04 15:06:05 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-06-04 15:08:21 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-04 15:08:21 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-04 15:09:08 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-04 15:09:08 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-04 15:09:29 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-04 15:09:30 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-06-04 15:09:48 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-04 15:09:48 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-04 15:09:48 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-04 15:09:48 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-04 15:09:48 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-04 15:10:31 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-04 15:10:31 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-04 15:10:31 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Пользователь вышел из системы.
+2026-06-04 15:10:35 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-04 15:10:35 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-04 15:19:45 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-04 15:19:45 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-04 15:19:50 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-04 15:19:50 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-04 15:20:02 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-04 15:20:02 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-06-04 15:20:11 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-04 15:20:11 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-04 15:20:11 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-04 15:20:15 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-06-04 15:20:17 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-06-04 15:20:18 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-06-04 15:20:18 [JavaFX Application Thread] WARN  r.l.l.controllers.LoginController - Ошибка входа (Код 28P01): Неверный логин или пароль
+2026-06-04 15:20:26 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-04 15:20:26 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-04 15:20:38 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-04 15:20:38 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-04 15:20:41 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-04 15:20:41 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-04 15:20:41 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 10:07:21 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 10:07:21 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 10:07:29 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 10:07:30 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 10:07:30 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 10:07:30 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 10:07:30 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 10:07:30 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 10:07:56 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 10:07:56 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: 2
+2026-06-06 10:07:56 [JavaFX Application Thread] ERROR r.l.l.dao.impl.ReaderDaoImpl - Ошибка SQL при обновлении читателя: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uq_passport"
+  Подробности: Ключ "(passport_series, passport_number)=(9900, 111000)" уже существует.
+2026-06-06 10:07:56 [JavaFX Application Thread] ERROR r.l.l.c.ReaderFormController - Ошибка сохранения в базу данных: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uq_passport"
+  Подробности: Ключ "(passport_series, passport_number)=(9900, 111000)" уже существует.
+2026-06-06 10:09:36 [JavaFX Application Thread] ERROR r.l.libraryapp.dao.impl.BookDaoImpl - Не удалось добавить книгу 9785171122332.
+org.postgresql.util.PSQLException: ОШИБКА: Год издания (2027) не может быть больше текущего.
+  Где: функция PL/pgSQL validate_library_rules_func(), строка 24, оператор RAISE
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.dao.impl.BookDaoImpl.add(BookDaoImpl.java:27)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.BookFormController.onSave(BookFormController.java:166)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21.0.6/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21.0.6/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1855)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21.0.6/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.openBookForm(LibraryController.java:1279)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.lambda$setupCatalogTab$35(LibraryController.java:377)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-06-06 10:09:36 [JavaFX Application Thread] ERROR r.l.l.controllers.BookFormController - Не удалось сохранить книгу.
+java.lang.RuntimeException: ОШИБКА: Год издания (2027) не может быть больше текущего.
+  Где: функция PL/pgSQL validate_library_rules_func(), строка 24, оператор RAISE
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.dao.impl.BookDaoImpl.add(BookDaoImpl.java:31)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.BookFormController.onSave(BookFormController.java:166)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21.0.6/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21.0.6/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1855)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21.0.6/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.openBookForm(LibraryController.java:1279)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.lambda$setupCatalogTab$35(LibraryController.java:377)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.postgresql.util.PSQLException: ОШИБКА: Год издания (2027) не может быть больше текущего.
+  Где: функция PL/pgSQL validate_library_rules_func(), строка 24, оператор RAISE
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.dao.impl.BookDaoImpl.add(BookDaoImpl.java:27)
+	... 113 common frames omitted
+2026-06-06 10:09:44 [JavaFX Application Thread] ERROR r.l.libraryapp.dao.impl.BookDaoImpl - Не удалось добавить книгу 9785171122332.
+org.postgresql.util.PSQLException: ОШИБКА: Некорректный авторский знак "111". Формат по Хавкиной: 1. Буква + две цифры (А12). 2. Для З, О, Ч нужен дефис (З-23).
+  Где: функция PL/pgSQL validate_library_rules_func(), строка 30, оператор RAISE
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.dao.impl.BookDaoImpl.add(BookDaoImpl.java:27)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.BookFormController.onSave(BookFormController.java:166)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21.0.6/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21.0.6/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1855)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21.0.6/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.openBookForm(LibraryController.java:1279)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.lambda$setupCatalogTab$35(LibraryController.java:377)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-06-06 10:09:44 [JavaFX Application Thread] ERROR r.l.l.controllers.BookFormController - Не удалось сохранить книгу.
+java.lang.RuntimeException: ОШИБКА: Некорректный авторский знак "111". Формат по Хавкиной: 1. Буква + две цифры (А12). 2. Для З, О, Ч нужен дефис (З-23).
+  Где: функция PL/pgSQL validate_library_rules_func(), строка 30, оператор RAISE
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.dao.impl.BookDaoImpl.add(BookDaoImpl.java:31)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.BookFormController.onSave(BookFormController.java:166)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21.0.6/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21.0.6/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1855)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21.0.6/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.openBookForm(LibraryController.java:1279)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.lambda$setupCatalogTab$35(LibraryController.java:377)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.postgresql.util.PSQLException: ОШИБКА: Некорректный авторский знак "111". Формат по Хавкиной: 1. Буква + две цифры (А12). 2. Для З, О, Ч нужен дефис (З-23).
+  Где: функция PL/pgSQL validate_library_rules_func(), строка 30, оператор RAISE
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.dao.impl.BookDaoImpl.add(BookDaoImpl.java:27)
+	... 113 common frames omitted
+2026-06-06 10:09:58 [JavaFX Application Thread] ERROR r.l.libraryapp.dao.impl.BookDaoImpl - Не удалось добавить книгу 9785171122332.
+org.postgresql.util.PSQLException: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "books_pkey"
+  Подробности: Ключ "(isbn)=(9785171122332)" уже существует.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.dao.impl.BookDaoImpl.add(BookDaoImpl.java:27)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.BookFormController.onSave(BookFormController.java:166)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21.0.6/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21.0.6/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1855)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21.0.6/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.openBookForm(LibraryController.java:1279)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.lambda$setupCatalogTab$35(LibraryController.java:377)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-06-06 10:09:58 [JavaFX Application Thread] ERROR r.l.l.controllers.BookFormController - Не удалось сохранить книгу.
+java.lang.RuntimeException: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "books_pkey"
+  Подробности: Ключ "(isbn)=(9785171122332)" уже существует.
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.dao.impl.BookDaoImpl.add(BookDaoImpl.java:31)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.BookFormController.onSave(BookFormController.java:166)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:72)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at javafx.base@21.0.6/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:270)
+	at javafx.fxml@21.0.6/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1855)
+	at javafx.fxml@21.0.6/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1726)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoopImpl(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._enterNestedEventLoop(WinApplication.java:212)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:650)
+	at javafx.graphics@21.0.6/javafx.stage.Stage.showAndWait(Stage.java:469)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.openBookForm(LibraryController.java:1279)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.controllers.LibraryController.lambda$setupCatalogTab$35(LibraryController.java:377)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Node.fireEvent(Node.java:8875)
+	at javafx.controls@21.0.6/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207)
+	at javafx.controls@21.0.6/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:232)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:189)
+	at javafx.base@21.0.6/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base@21.0.6/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base@21.0.6/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$MouseHandler.process(Scene.java:3984)
+	at javafx.graphics@21.0.6/javafx.scene.Scene.processMouseEvent(Scene.java:1890)
+	at javafx.graphics@21.0.6/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2708)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics@21.0.6/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.handleMouseEvent(View.java:551)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics@21.0.6/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "books_pkey"
+  Подробности: Ключ "(isbn)=(9785171122332)" уже существует.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at ru.library.libraryapp@1.0-SNAPSHOT/ru.library.libraryapp.dao.impl.BookDaoImpl.add(BookDaoImpl.java:27)
+	... 113 common frames omitted
+2026-06-06 10:10:13 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 10:10:13 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 11:54:56 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 11:54:56 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 11:55:04 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 11:55:05 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 11:55:05 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 11:55:05 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 11:55:05 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 11:55:05 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 11:55:41 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 11:55:41 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: 6
+2026-06-06 11:55:41 [JavaFX Application Thread] ERROR r.l.l.dao.impl.ReaderDaoImpl - Ошибка SQL при обновлении читателя: ОШИБКА: Ошибка: Адрес читателя должен быть на русском языке.
+  Где: функция PL/pgSQL validate_library_rules_func(), строка 38, оператор RAISE
+2026-06-06 11:55:41 [JavaFX Application Thread] ERROR r.l.l.c.ReaderFormController - Ошибка сохранения в базу данных: ОШИБКА: Ошибка: Адрес читателя должен быть на русском языке.
+  Где: функция PL/pgSQL validate_library_rules_func(), строка 38, оператор RAISE
+2026-06-06 11:56:52 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 11:56:52 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: 6
+2026-06-06 11:56:52 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Обновлен читатель №6
+2026-06-06 11:56:52 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-06-06 11:59:08 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 11:59:08 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 12:27:55 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 12:27:55 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 12:28:10 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 12:28:10 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 12:28:10 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 12:28:10 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 12:28:10 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 12:28:10 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 12:28:23 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 12:28:23 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: 6
+2026-06-06 12:28:23 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Обновлен читатель №6
+2026-06-06 12:28:23 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-06-06 12:28:40 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 12:28:40 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: 6
+2026-06-06 12:28:40 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Обновлен читатель №6
+2026-06-06 12:28:40 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-06-06 12:28:49 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 12:28:49 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: 6
+2026-06-06 12:28:50 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Обновлен читатель №6
+2026-06-06 12:28:50 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-06-06 13:55:41 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 13:55:41 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 13:55:41 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Пользователь вышел из системы.
+2026-06-06 13:55:44 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 13:55:44 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 13:55:55 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 13:55:56 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 13:56:21 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 13:56:21 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 13:56:21 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 14:34:55 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 14:34:56 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 14:35:03 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 14:35:03 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 14:35:03 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 14:35:03 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 14:35:04 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 14:35:04 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 14:35:15 [JavaFX Application Thread] INFO  r.l.l.dao.impl.LendingDaoImpl - Выдача 30 продлена.
+2026-06-06 14:35:29 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 14:35:29 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: 8
+2026-06-06 14:35:29 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Обновлен читатель №8
+2026-06-06 14:35:29 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-06-06 14:36:52 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 14:36:52 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: null
+2026-06-06 14:36:52 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Добавлен читатель: Галкин
+2026-06-06 14:36:52 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-06-06 14:37:02 [JavaFX Application Thread] INFO  r.l.libraryapp.dao.impl.BookDaoImpl - Книга 9785171122342 обновлена.
+2026-06-06 14:37:02 [JavaFX Application Thread] INFO  r.l.l.controllers.BookFormController - Обновлена карточка книги: ISBN=9785171122342, название="Герой нашего времени".
+2026-06-06 14:37:02 [JavaFX Application Thread] DEBUG r.l.l.controllers.BookFormController - Обновлены связи книги ISBN=9785171122342 с авторами [8] и жанрами [1].
+2026-06-06 14:37:36 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReservationDaoImpl - Бронирование создано. ISBN=9785171122343, читатель=40, сотрудник=5.
+2026-06-06 14:46:01 [JavaFX Application Thread] INFO  r.l.l.dao.impl.LendingDaoImpl - Выдача 21 закрыта возвратом.
+2026-06-06 14:46:04 [JavaFX Application Thread] DEBUG r.l.l.controllers.FineFormController - Рассчитана сумма штрафа. Выдача=21, статья=2, дней просрочки=null, сумма=300.0.
+2026-06-06 14:46:31 [JavaFX Application Thread] INFO  r.l.libraryapp.dao.impl.FineDaoImpl - Штраф создан. Выдача=21, статья=2, оплачен сразу=false.
+2026-06-06 14:46:31 [JavaFX Application Thread] INFO  r.l.l.controllers.FineFormController - Создан штраф. Выдача=21, статья=2, сумма=300.0, оплачен сразу=false.
+2026-06-06 14:51:09 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 14:51:09 [JavaFX Application Thread] WARN  r.l.l.c.ReaderFormController - Валидация формы не прошла: Проверьте данные паспорта (Серия: 4 цифры Номер:6 цифр)! 
+2026-06-06 14:51:17 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 14:51:17 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 14:52:31 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 14:52:31 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 14:52:46 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 14:52:46 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 14:52:46 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 14:52:46 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 14:52:47 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 14:52:47 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 14:53:35 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Статус билета №7 изменен через процедуру
+2026-06-06 15:18:34 [JavaFX Application Thread] DEBUG r.l.l.controllers.CopiesController - Выбор экземпляра книги ISBN=9785171122336 (Евгений Онегин).
+2026-06-06 17:42:40 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 17:42:40 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 17:42:53 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 17:42:54 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 17:42:54 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 17:42:54 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 17:42:54 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 17:42:54 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 17:46:39 [JavaFX Application Thread] INFO  r.l.libraryapp.dao.impl.BookDaoImpl - Книга 9785171122333 обновлена.
+2026-06-06 17:46:39 [JavaFX Application Thread] INFO  r.l.l.controllers.BookFormController - Обновлена карточка книги: ISBN=9785171122333, название="Облако в штанах".
+2026-06-06 17:46:39 [JavaFX Application Thread] DEBUG r.l.l.controllers.BookFormController - Обновлены связи книги ISBN=9785171122333 с авторами [1] и жанрами [6].
+2026-06-06 17:49:29 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 17:49:29 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 17:49:40 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 17:49:40 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 17:49:50 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 17:49:50 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 17:49:50 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 17:49:50 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 17:49:50 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 17:49:50 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 17:50:07 [JavaFX Application Thread] INFO  r.l.libraryapp.dao.impl.BookDaoImpl - Книга 9785171122333 обновлена.
+2026-06-06 17:50:07 [JavaFX Application Thread] INFO  r.l.l.controllers.BookFormController - Обновлена карточка книги: ISBN=9785171122333, название="Облако в штанах".
+2026-06-06 17:50:07 [JavaFX Application Thread] DEBUG r.l.l.controllers.BookFormController - Обновлены связи книги ISBN=9785171122333 с авторами [1, 11] и жанрами [6].
+2026-06-06 17:50:28 [JavaFX Application Thread] INFO  r.l.libraryapp.dao.impl.BookDaoImpl - Книга 9785171122333 обновлена.
+2026-06-06 17:50:28 [JavaFX Application Thread] INFO  r.l.l.controllers.BookFormController - Обновлена карточка книги: ISBN=9785171122333, название="Облако в штанах".
+2026-06-06 17:50:28 [JavaFX Application Thread] DEBUG r.l.l.controllers.BookFormController - Обновлены связи книги ISBN=9785171122333 с авторами [11] и жанрами [6].
+2026-06-06 17:54:40 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 0
+2026-06-06 18:00:44 [JavaFX Application Thread] DEBUG r.l.l.controllers.CopiesController - Выбор экземпляра книги ISBN=9785171122336 (Евгений Онегин).
+2026-06-06 18:00:47 [JavaFX Application Thread] DEBUG r.l.l.controllers.CopiesController - Выбор экземпляра книги ISBN=9785171122343 (Вишневый сад).
+2026-06-06 18:00:54 [JavaFX Application Thread] DEBUG r.l.l.controllers.CopiesController - Выбор экземпляра книги ISBN=9785171122332 (Азазель).
+2026-06-06 18:02:30 [JavaFX Application Thread] DEBUG r.l.l.controllers.CopiesController - Выбор экземпляра книги ISBN=9785171122332 (Азазель).
+2026-06-06 18:02:39 [JavaFX Application Thread] DEBUG r.l.l.controllers.CopiesController - Выбор экземпляра книги ISBN=9785171122333 (Облако в штанах).
+2026-06-06 21:04:44 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 21:04:44 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 21:05:20 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 21:05:21 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 21:05:24 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 21:05:24 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 21:05:24 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 21:36:14 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 21:36:15 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 21:36:20 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 21:36:20 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 21:36:20 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 21:36:20 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 21:36:20 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 21:36:21 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 21:36:28 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:36:29 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:36:34 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Экземпляр 10 выдан читателю 41.
+2026-06-06 21:36:34 [JavaFX Application Thread] INFO  r.l.l.dao.impl.LendingDaoImpl - Экземпляр 10 выдан читателю 41.
+2026-06-06 21:36:35 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 21:36:35 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 21:36:35 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 21:36:39 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 21:36:39 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 21:36:39 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 21:36:39 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 21:36:39 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 21:37:00 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 21:37:00 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: null
+2026-06-06 21:37:00 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Добавлен читатель: Смирнова
+2026-06-06 21:37:00 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-06-06 21:37:02 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: С
+2026-06-06 21:37:02 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 9
+2026-06-06 21:37:02 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: См
+2026-06-06 21:37:02 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:37:02 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Сми
+2026-06-06 21:37:02 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:37:02 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смир
+2026-06-06 21:37:02 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:37:03 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирн
+2026-06-06 21:37:03 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:37:03 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирно
+2026-06-06 21:37:03 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:37:03 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирнов
+2026-06-06 21:37:03 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:37:03 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирнова
+2026-06-06 21:37:03 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:37:04 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 21:37:05 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 21:37:05 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 21:37:09 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 21:37:09 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 21:37:09 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 21:37:09 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 21:37:09 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 21:37:26 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 21:37:26 [JavaFX Application Thread] WARN  r.l.l.c.ReaderFormController - Валидация формы не прошла: Неверный формат телефона! +7XXXXXXXXXX 
+2026-06-06 21:37:28 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 21:37:28 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 21:37:28 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 21:37:32 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 21:37:32 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 21:37:32 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 21:37:32 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 21:37:32 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 21:37:38 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:37:38 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 21:37:44 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 21:53:17 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 21:53:17 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 21:53:22 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 21:53:22 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 21:53:22 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 22:59:02 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 22:59:02 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 22:59:12 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 22:59:13 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 22:59:13 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 22:59:13 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 22:59:14 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 22:59:14 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 23:00:19 [JavaFX Application Thread] INFO  r.l.libraryapp.dao.impl.BookDaoImpl - Книга 9785171122342 обновлена.
+2026-06-06 23:00:19 [JavaFX Application Thread] INFO  r.l.l.controllers.BookFormController - Обновлена карточка книги: ISBN=9785171122342, название="Герой нашего времениgsd".
+2026-06-06 23:00:19 [JavaFX Application Thread] DEBUG r.l.l.controllers.BookFormController - Обновлены связи книги ISBN=9785171122342 с авторами [8] и жанрами [1].
+2026-06-06 23:04:35 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 23:04:35 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: 9
+2026-06-06 23:04:35 [JavaFX Application Thread] ERROR r.l.l.dao.impl.ReaderDaoImpl - Ошибка SQL при обновлении читателя: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uq_passport"
+  Подробности: Ключ "(passport_series, passport_number)=(9900, 111000)" уже существует.
+2026-06-06 23:04:35 [JavaFX Application Thread] ERROR r.l.l.c.ReaderFormController - Ошибка сохранения в базу данных: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uq_passport"
+  Подробности: Ключ "(passport_series, passport_number)=(9900, 111000)" уже существует.
+2026-06-06 23:49:56 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 23:49:56 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 23:50:03 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 23:50:03 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 23:50:03 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 23:50:03 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 23:50:03 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 23:50:03 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 23:50:13 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:50:15 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:50:21 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Экземпляр 10 выдан читателю 44.
+2026-06-06 23:50:21 [JavaFX Application Thread] INFO  r.l.l.dao.impl.LendingDaoImpl - Экземпляр 10 выдан читателю 44.
+2026-06-06 23:50:24 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 23:50:24 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 23:50:24 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 23:50:29 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 23:50:29 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 23:50:29 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 23:50:29 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 23:50:29 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 23:50:51 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 23:50:51 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: null
+2026-06-06 23:50:51 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Добавлен читатель: Смирнова
+2026-06-06 23:50:51 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-06-06 23:50:54 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: С
+2026-06-06 23:50:55 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 9
+2026-06-06 23:50:55 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: См
+2026-06-06 23:50:55 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:50:55 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Сми
+2026-06-06 23:50:55 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:50:56 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смир
+2026-06-06 23:50:56 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:50:56 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирн
+2026-06-06 23:50:56 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:50:56 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирно
+2026-06-06 23:50:57 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:50:57 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирнов
+2026-06-06 23:50:57 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:50:57 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирнова
+2026-06-06 23:50:57 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:50:59 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 23:51:00 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 23:51:00 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 23:51:04 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 23:51:04 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 23:51:04 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 23:51:04 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 23:51:04 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 23:51:24 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 23:51:24 [JavaFX Application Thread] WARN  r.l.l.c.ReaderFormController - Валидация формы не прошла: Неверный формат телефона! +7XXXXXXXXXX 
+2026-06-06 23:51:25 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 23:51:26 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 23:51:26 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 23:51:30 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 23:51:30 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 23:51:30 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 23:51:30 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 23:51:30 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 23:51:36 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:51:37 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:51:43 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 23:55:08 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 23:55:08 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 23:55:55 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 23:55:55 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 23:56:12 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-06 23:56:12 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 23:56:12 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 23:56:23 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 23:56:23 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 23:56:28 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-06 23:56:28 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 23:56:28 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 23:56:28 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 23:56:29 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 23:56:29 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 23:56:37 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:56:38 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:56:43 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Экземпляр 10 выдан читателю 47.
+2026-06-06 23:56:44 [JavaFX Application Thread] INFO  r.l.l.dao.impl.LendingDaoImpl - Экземпляр 10 выдан читателю 47.
+2026-06-06 23:56:45 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 23:56:45 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 23:56:45 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 23:56:51 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 23:56:51 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 23:56:51 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 23:56:51 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 23:56:51 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 23:57:12 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 23:57:12 [JavaFX Application Thread] DEBUG r.l.l.c.ReaderFormController - Отправка объекта читателя в DAO. Читательский билет: null
+2026-06-06 23:57:12 [JavaFX Application Thread] INFO  r.l.l.dao.impl.ReaderDaoImpl - Добавлен читатель: Смирнова
+2026-06-06 23:57:12 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Данные читателя успешно сохранены в БД.
+2026-06-06 23:57:14 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: С
+2026-06-06 23:57:15 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 9
+2026-06-06 23:57:15 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: См
+2026-06-06 23:57:15 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:57:15 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Сми
+2026-06-06 23:57:15 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:57:15 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смир
+2026-06-06 23:57:15 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:57:15 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирн
+2026-06-06 23:57:16 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:57:16 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирно
+2026-06-06 23:57:17 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:57:17 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирнов
+2026-06-06 23:57:18 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:57:18 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Изменен поисковый запрос по читателям: Смирнова
+2026-06-06 23:57:19 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:57:21 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 23:57:21 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 23:57:21 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 23:57:27 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 23:57:27 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 23:57:27 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 23:57:27 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 23:57:27 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 23:57:46 [JavaFX Application Thread] INFO  r.l.l.c.ReaderFormController - Попытка сохранения данных читателя...
+2026-06-06 23:57:46 [JavaFX Application Thread] WARN  r.l.l.c.ReaderFormController - Валидация формы не прошла: Неверный формат телефона! +7XXXXXXXXXX 
+2026-06-06 23:57:47 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-06 23:57:47 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-06 23:57:47 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-06 23:57:54 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-06 23:57:54 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-06 23:57:54 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-06 23:57:54 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-06 23:57:54 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-06 23:58:00 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:58:00 [JavaFX Application Thread] DEBUG r.l.l.dao.impl.ReaderDaoImpl - Поиск по ФИО/Билету завершен. Найдено: 1
+2026-06-06 23:58:06 [main] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-07 00:00:37 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-07 00:00:37 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-07 00:00:51 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-07 00:00:52 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-07 00:00:52 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-07 00:00:52 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-07 00:00:52 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-07 00:00:52 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-07 00:02:58 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-07 00:02:58 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
+2026-06-07 00:03:57 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Запуск приложения.
+2026-06-07 00:03:57 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто окно входа.
+2026-06-07 00:04:09 [JavaFX Application Thread] DEBUG ru.library.libraryapp.DBHelper - Загружена конфигурация подключения к БД. URL: jdbc:postgresql://localhost:5432/AILIBRARY?charSet=UTF-8&client_encoding=UTF-8
+2026-06-07 00:04:09 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Аутентификация в БД успешно выполнена для пользователя guseva_v.
+2026-06-07 00:04:09 [JavaFX Application Thread] INFO  r.l.l.controllers.LoginController - Пользователь guseva_v успешно вошел в систему.
+2026-06-07 00:04:09 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Открыто главное окно библиотеки.
+2026-06-07 00:04:09 [JavaFX Application Thread] INFO  r.l.l.controllers.LibraryController - Инициализация главного окна библиотеки.
+2026-06-07 00:04:09 [JavaFX Application Thread] DEBUG r.l.l.controllers.LibraryController - Текущий пользователь БД: guseva_v
+2026-06-07 00:06:36 [JavaFX Application Thread] INFO  r.l.libraryapp.LibraryApplication - Завершение приложения. Закрытие сеанса БД.
+2026-06-07 00:06:36 [JavaFX Application Thread] INFO  ru.library.libraryapp.DBHelper - Сеанс подключения приложения к БД закрыт.
